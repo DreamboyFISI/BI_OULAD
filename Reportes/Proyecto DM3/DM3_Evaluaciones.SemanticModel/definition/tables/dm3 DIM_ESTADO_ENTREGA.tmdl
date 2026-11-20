@@ -2,8 +2,8 @@ table 'dm3 DIM_ESTADO_ENTREGA'
 	lineageTag: 3b58a607-ecfd-4a19-9a12-a3c5d70f1341
 
 	column estado_key
-		isHidden
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 81064334-b18f-42b8-89c8-d3591256945a
 		summarizeBy: none
@@ -12,11 +12,11 @@ table 'dm3 DIM_ESTADO_ENTREGA'
 		annotation SummarizationSetBy = Automatic
 
 	column estado
-		sortByColumn: orden
 		dataType: string
 		lineageTag: 8643cc24-ed1c-46e3-900d-584898a4f47c
 		summarizeBy: none
 		sourceColumn: estado
+		sortByColumn: orden
 
 		annotation SummarizationSetBy = Automatic
 

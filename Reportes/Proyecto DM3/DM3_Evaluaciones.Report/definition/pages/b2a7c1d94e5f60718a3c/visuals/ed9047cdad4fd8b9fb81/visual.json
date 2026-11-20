@@ -72,7 +72,8 @@
                 }
               },
               "queryRef": "dm3 FACT_ENTREGA_EVALUACION.Entregas con Fecha",
-              "nativeQueryRef": "Entregas con Fecha"
+              "nativeQueryRef": "Entregas con Fecha",
+              "active": false
             },
             {
               "field": {
@@ -86,7 +87,8 @@
                 }
               },
               "queryRef": "dm3 FACT_ENTREGA_EVALUACION.% Puntualidad",
-              "nativeQueryRef": "% Puntualidad"
+              "nativeQueryRef": "% Puntualidad",
+              "active": false
             },
             {
               "field": {
@@ -100,7 +102,8 @@
                 }
               },
               "queryRef": "dm3 FACT_ENTREGA_EVALUACION.% Tardías",
-              "nativeQueryRef": "% Tardías"
+              "nativeQueryRef": "% Tardías",
+              "active": false
             },
             {
               "field": {
@@ -114,7 +117,8 @@
                 }
               },
               "queryRef": "dm3 FACT_ENTREGA_EVALUACION.Retraso Promedio Tardías",
-              "nativeQueryRef": "Retraso Promedio Tardías"
+              "nativeQueryRef": "Retraso Promedio Tardías",
+              "active": false
             }
           ]
         }

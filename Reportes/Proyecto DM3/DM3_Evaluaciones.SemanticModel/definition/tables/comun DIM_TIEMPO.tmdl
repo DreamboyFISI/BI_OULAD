@@ -2,8 +2,8 @@ table 'comun DIM_TIEMPO'
 	lineageTag: 29a3ac7c-c86a-4d08-bbac-d698c8c04561
 
 	column tiempo_key
-		isHidden
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: b180d72c-e824-4f06-bb82-e350891c2c57
 		summarizeBy: none
