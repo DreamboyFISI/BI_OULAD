@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "e139cee6649ea5e0d4fa",
+  "position": {
+    "x": 273.6,
+    "y": 144,
+    "z": 5000,
+    "height": 100,
+    "width": 233.6,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm1 FACT_RESULTADO_ACADEMICO"
+                    }
+                  },
+                  "Property": "Tasa de Calificación"
+                }
+              },
+              "queryRef": "dm1 FACT_RESULTADO_ACADEMICO.Tasa de Calificación",
+              "nativeQueryRef": "Tasa de Calificación"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

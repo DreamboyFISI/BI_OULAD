@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "d747887c54d43d6f8ad5",
+  "position": {
+    "x": 523.2,
+    "y": 144,
+    "z": 6000,
+    "height": 100,
+    "width": 233.6,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm1 FACT_RESULTADO_ACADEMICO"
+                    }
+                  },
+                  "Property": "Clics por Matrícula"
+                }
+              },
+              "queryRef": "dm1 FACT_RESULTADO_ACADEMICO.Clics por Matrícula",
+              "nativeQueryRef": "Clics por Matrícula"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

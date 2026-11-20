@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "8c943ed00adf31f8a922",
+  "position": {
+    "x": 24,
+    "y": 144,
+    "z": 4000,
+    "height": 100,
+    "width": 233.6,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm1 FACT_RESULTADO_ACADEMICO"
+                    }
+                  },
+                  "Property": "Tasa de Entrega"
+                }
+              },
+              "queryRef": "dm1 FACT_RESULTADO_ACADEMICO.Tasa de Entrega",
+              "nativeQueryRef": "Tasa de Entrega"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
