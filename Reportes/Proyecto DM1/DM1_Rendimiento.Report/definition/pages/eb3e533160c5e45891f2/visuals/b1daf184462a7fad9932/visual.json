@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "b1daf184462a7fad9932",
+  "position": {
+    "x": 648,
+    "y": 144,
+    "z": 7000,
+    "height": 100,
+    "width": 296,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm1 FACT_RESULTADO_ACADEMICO"
+                    }
+                  },
+                  "Property": "Intentos Previos Promedio"
+                }
+              },
+              "queryRef": "dm1 FACT_RESULTADO_ACADEMICO.Intentos Previos Promedio",
+              "nativeQueryRef": "Intentos Previos Promedio"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

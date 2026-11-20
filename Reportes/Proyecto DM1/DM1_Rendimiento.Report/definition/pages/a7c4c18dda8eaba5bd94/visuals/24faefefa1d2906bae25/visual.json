@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "24faefefa1d2906bae25",
+  "position": {
+    "x": 523.2,
+    "y": 144,
+    "z": 6000,
+    "height": 100,
+    "width": 233.6,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm1 FACT_RESULTADO_ACADEMICO"
+                    }
+                  },
+                  "Property": "Tasa de Reprobación"
+                }
+              },
+              "queryRef": "dm1 FACT_RESULTADO_ACADEMICO.Tasa de Reprobación",
+              "nativeQueryRef": "Tasa de Reprobación"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

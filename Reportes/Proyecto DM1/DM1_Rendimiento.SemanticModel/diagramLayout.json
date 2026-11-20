@@ -1,0 +1,113 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 50,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 653.78743452311016,
+            "y": 373.90413519523372
+          },
+          "nodeIndex": "comun DIM_CURSO",
+          "nodeLineageTag": "1496aa91-1cd4-48f2-aecd-e4889ad9aac4",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 167.42051837388419,
+            "y": 550.3467468410737
+          },
+          "nodeIndex": "comun DIM_ESTUDIANTE",
+          "nodeLineageTag": "e011d6d8-971f-406e-a97f-230bf373ff66",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 524.97192766938633,
+            "y": -50
+          },
+          "nodeIndex": "comun DIM_TIEMPO",
+          "nodeLineageTag": "cb731f5e-2591-410e-9d43-e0637d0d8b45",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 228.04445675434567
+          },
+          "nodeIndex": "dm1 DIM_RESULTADO",
+          "nodeLineageTag": "6de63f9e-70cb-4f1a-b91c-e9557a91b623",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 887.78743452311016,
+            "y": 350.1733734205369
+          },
+          "nodeIndex": "dm1 DIM_TIEMPO_BAJA",
+          "nodeLineageTag": "d8bc1f36-be82-4376-bbb3-a6cff7f346bb",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1171.7874345231103,
+            "y": 350.1733734205369
+          },
+          "nodeIndex": "dm1 DIM_TIEMPO_MATRICULA",
+          "nodeLineageTag": "ce5038df-5f54-4be0-8b37-204d1962e92e",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 369.58574328844065,
+            "y": 200.15877746343995
+          },
+          "nodeIndex": "dm1 FACT_RESULTADO_ACADEMICO",
+          "nodeLineageTag": "ac737065-c0f2-4a3a-81e8-1b9854a8e1c3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

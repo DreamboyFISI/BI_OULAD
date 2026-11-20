@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "49358507de77d24329b3",
+  "position": {
+    "x": 336,
+    "y": 144,
+    "z": 6000,
+    "height": 100,
+    "width": 296,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm1 FACT_RESULTADO_ACADEMICO"
+                    }
+                  },
+                  "Property": "Créditos Promedio"
+                }
+              },
+              "queryRef": "dm1 FACT_RESULTADO_ACADEMICO.Créditos Promedio",
+              "nativeQueryRef": "Créditos Promedio"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

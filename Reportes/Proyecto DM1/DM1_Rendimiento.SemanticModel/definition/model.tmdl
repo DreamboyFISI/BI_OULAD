@@ -1,0 +1,25 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-PE
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dm1 DIM_TIEMPO_BAJA","dm1 DIM_TIEMPO_MATRICULA","comun DIM_CURSO","comun DIM_ESTUDIANTE","comun DIM_TIEMPO","dm1 DIM_RESULTADO","dm1 FACT_RESULTADO_ACADEMICO"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'dm1 DIM_TIEMPO_BAJA'
+ref table 'dm1 DIM_TIEMPO_MATRICULA'
+ref table 'comun DIM_CURSO'
+ref table 'comun DIM_ESTUDIANTE'
+ref table 'comun DIM_TIEMPO'
+ref table 'dm1 DIM_RESULTADO'
+ref table 'dm1 FACT_RESULTADO_ACADEMICO'
+
+ref cultureInfo es-ES
+
