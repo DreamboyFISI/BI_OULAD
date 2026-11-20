@@ -265,10 +265,10 @@ El proyecto utiliza el conjunto de datos **Open University Learning Analytics Da
 
 | Integrante | Responsabilidad |
 |---|---|
-| Por asignar | Coordinación, ETL y Data Warehouse |
-| Por asignar | Reporte del DataMart 1 |
-| Por asignar | Reporte del DataMart 2 |
-| Por asignar | Reporte del DataMart 3 |
+| Iris y Juan Carlos | Coordinación, ETL y Data Warehouse |
+| Michael | Reporte del DataMart 1 |
+| Bryan | Reporte del DataMart 2 |
+| Álvaro | Reporte del DataMart 3 |
 
 ## Uso académico
 
