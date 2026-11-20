@@ -1,0 +1,57 @@
+# Visual Studio: configuración local y caché
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.dtproj.user
+*.smproj.user
+
+# Resultados de compilación
+**/bin/
+**/obj/
+[Dd]ebug/
+[Rr]elease/
+
+# Artefactos generados por SSIS
+*.ispac
+*.dtsConfig.user
+
+# Configuración local de SSAS
+*.bim_USER.settings
+*.asdatabase
+*.deploymentoptions
+*.deploymenttargets
+
+# Archivos locales de proyectos Power BI (PBIP)
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+**/.pbi/unappliedChanges.json
+
+# Archivos temporales y copias de seguridad
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+*.autosave
+~$*
+
+# Variables de entorno y secretos locales
+.env
+.env.*
+!.env.example
+secrets.json
+*.secrets.json
+
+# Archivos del sistema operativo
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Herramientas y editores
+.idea/
+.vscode/*.log
+
+# Los archivos fuente de SSIS/SSAS y los reportes PBIX sí se versionan.
+# Este archivo no elimina credenciales ya guardadas dentro de .dtsx o Model.bim.

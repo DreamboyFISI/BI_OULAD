@@ -1,0 +1,623 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1700,
+  "model": {
+    "culture": "es-ES",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "sqlserver-jcbi.database.windows.net",
+            "database": "DM1_RendimientoAcad"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "Username": "inteligenciaBIgrupo5",
+          "EncryptConnection": true
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "DIM_TIEMPO_MATRICULA",
+        "columns": [
+          {
+            "name": "tiempo_key",
+            "dataType": "int64",
+            "sourceColumn": "tiempo_key"
+          },
+          {
+            "name": "dia_offset",
+            "dataType": "int64",
+            "sourceColumn": "dia_offset"
+          },
+          {
+            "name": "semana",
+            "dataType": "int64",
+            "sourceColumn": "semana"
+          },
+          {
+            "name": "es_desconocido",
+            "dataType": "string",
+            "sourceColumn": "es_desconocido"
+          },
+          {
+            "name": "es_sin_baja",
+            "dataType": "string",
+            "sourceColumn": "es_sin_baja"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    dm1_DIM_TIEMPO_MATRICULA = Source{[Schema=\"dm1\",Item=\"DIM_TIEMPO_MATRICULA\"]}[Data]",
+                "in",
+                "    dm1_DIM_TIEMPO_MATRICULA"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_TIEMPO_BAJA",
+        "columns": [
+          {
+            "name": "tiempo_key",
+            "dataType": "int64",
+            "sourceColumn": "tiempo_key"
+          },
+          {
+            "name": "dia_offset",
+            "dataType": "int64",
+            "sourceColumn": "dia_offset"
+          },
+          {
+            "name": "semana",
+            "dataType": "int64",
+            "sourceColumn": "semana"
+          },
+          {
+            "name": "es_desconocido",
+            "dataType": "string",
+            "sourceColumn": "es_desconocido"
+          },
+          {
+            "name": "es_sin_baja",
+            "dataType": "string",
+            "sourceColumn": "es_sin_baja"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    dm1_DIM_TIEMPO_BAJA = Source{[Schema=\"dm1\",Item=\"DIM_TIEMPO_BAJA\"]}[Data]",
+                "in",
+                "    dm1_DIM_TIEMPO_BAJA"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_CURSO",
+        "columns": [
+          {
+            "name": "curso_key",
+            "dataType": "int64",
+            "sourceColumn": "curso_key"
+          },
+          {
+            "name": "code_module",
+            "dataType": "string",
+            "sourceColumn": "code_module"
+          },
+          {
+            "name": "code_presentation",
+            "dataType": "string",
+            "sourceColumn": "code_presentation"
+          },
+          {
+            "name": "anio",
+            "dataType": "int64",
+            "sourceColumn": "anio"
+          },
+          {
+            "name": "convocatoria",
+            "dataType": "string",
+            "sourceColumn": "convocatoria"
+          },
+          {
+            "name": "duracion_dias",
+            "dataType": "int64",
+            "sourceColumn": "duracion_dias"
+          },
+          {
+            "name": "nombre_curso",
+            "dataType": "string",
+            "sourceColumn": "nombre_curso"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    comun_DIM_CURSO = Source{[Schema=\"comun\",Item=\"DIM_CURSO\"]}[Data]",
+                "in",
+                "    comun_DIM_CURSO"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquia curso",
+            "levels": [
+              {
+                "name": "anio",
+                "ordinal": 0,
+                "column": "anio"
+              },
+              {
+                "name": "convocatoria",
+                "ordinal": 1,
+                "column": "convocatoria"
+              },
+              {
+                "name": "code_module",
+                "ordinal": 2,
+                "column": "code_module"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DIM_ESTUDIANTE",
+        "columns": [
+          {
+            "name": "student_key",
+            "dataType": "int64",
+            "sourceColumn": "student_key"
+          },
+          {
+            "name": "id_student",
+            "dataType": "int64",
+            "sourceColumn": "id_student"
+          },
+          {
+            "name": "version",
+            "dataType": "int64",
+            "sourceColumn": "version"
+          },
+          {
+            "name": "valid_from_presentation",
+            "dataType": "string",
+            "sourceColumn": "valid_from_presentation"
+          },
+          {
+            "name": "valid_to_presentation",
+            "dataType": "string",
+            "sourceColumn": "valid_to_presentation"
+          },
+          {
+            "name": "gender",
+            "dataType": "string",
+            "sourceColumn": "gender"
+          },
+          {
+            "name": "region",
+            "dataType": "string",
+            "sourceColumn": "region"
+          },
+          {
+            "name": "highest_education",
+            "dataType": "string",
+            "sourceColumn": "highest_education"
+          },
+          {
+            "name": "imd_band",
+            "dataType": "string",
+            "sourceColumn": "imd_band"
+          },
+          {
+            "name": "age_band",
+            "dataType": "string",
+            "sourceColumn": "age_band"
+          },
+          {
+            "name": "disability",
+            "dataType": "string",
+            "sourceColumn": "disability"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    comun_DIM_ESTUDIANTE = Source{[Schema=\"comun\",Item=\"DIM_ESTUDIANTE\"]}[Data]",
+                "in",
+                "    comun_DIM_ESTUDIANTE"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_RESULTADO",
+        "columns": [
+          {
+            "name": "resultado_key",
+            "dataType": "int64",
+            "sourceColumn": "resultado_key"
+          },
+          {
+            "name": "final_result",
+            "dataType": "string",
+            "sourceColumn": "final_result"
+          },
+          {
+            "name": "grupo_resultado",
+            "dataType": "string",
+            "sourceColumn": "grupo_resultado"
+          },
+          {
+            "name": "es_aprobado",
+            "dataType": "string",
+            "sourceColumn": "es_aprobado"
+          },
+          {
+            "name": "es_reprobado",
+            "dataType": "string",
+            "sourceColumn": "es_reprobado"
+          },
+          {
+            "name": "es_retirado",
+            "dataType": "string",
+            "sourceColumn": "es_retirado"
+          },
+          {
+            "name": "es_distincion",
+            "dataType": "string",
+            "sourceColumn": "es_distincion"
+          },
+          {
+            "name": "orden",
+            "dataType": "int64",
+            "sourceColumn": "orden"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    dm1_DIM_RESULTADO = Source{[Schema=\"dm1\",Item=\"DIM_RESULTADO\"]}[Data]",
+                "in",
+                "    dm1_DIM_RESULTADO"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FACT_RESULTADO_ACADEMICO",
+        "columns": [
+          {
+            "name": "student_key",
+            "dataType": "int64",
+            "sourceColumn": "student_key"
+          },
+          {
+            "name": "curso_key",
+            "dataType": "int64",
+            "sourceColumn": "curso_key"
+          },
+          {
+            "name": "tiempo_alta_key",
+            "dataType": "int64",
+            "sourceColumn": "tiempo_alta_key"
+          },
+          {
+            "name": "tiempo_baja_key",
+            "dataType": "int64",
+            "sourceColumn": "tiempo_baja_key"
+          },
+          {
+            "name": "resultado_key",
+            "dataType": "int64",
+            "sourceColumn": "resultado_key"
+          },
+          {
+            "name": "creditos_matriculados",
+            "dataType": "int64",
+            "sourceColumn": "creditos_matriculados"
+          },
+          {
+            "name": "intentos_previos",
+            "dataType": "int64",
+            "sourceColumn": "intentos_previos"
+          },
+          {
+            "name": "dias_desde_alta_hasta_baja",
+            "dataType": "int64",
+            "sourceColumn": "dias_desde_alta_hasta_baja"
+          },
+          {
+            "name": "evaluaciones_esperadas",
+            "dataType": "int64",
+            "sourceColumn": "evaluaciones_esperadas"
+          },
+          {
+            "name": "evaluaciones_entregadas",
+            "dataType": "int64",
+            "sourceColumn": "evaluaciones_entregadas"
+          },
+          {
+            "name": "evaluaciones_calificadas",
+            "dataType": "int64",
+            "sourceColumn": "evaluaciones_calificadas"
+          },
+          {
+            "name": "evaluaciones_convalidadas",
+            "dataType": "int64",
+            "sourceColumn": "evaluaciones_convalidadas"
+          },
+          {
+            "name": "suma_notas_ponderadas",
+            "dataType": "double",
+            "sourceColumn": "suma_notas_ponderadas"
+          },
+          {
+            "name": "suma_pesos",
+            "dataType": "double",
+            "sourceColumn": "suma_pesos"
+          },
+          {
+            "name": "clics_totales",
+            "dataType": "int64",
+            "sourceColumn": "clics_totales"
+          },
+          {
+            "name": "dias_activos",
+            "dataType": "int64",
+            "sourceColumn": "dias_activos"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    dm1_FACT_RESULTADO_ACADEMICO = Source{[Schema=\"dm1\",Item=\"FACT_RESULTADO_ACADEMICO\"]}[Data]",
+                "in",
+                "    dm1_FACT_RESULTADO_ACADEMICO"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Matrículas",
+            "expression": [
+              "",
+              "COUNTROWS(FACT_RESULTADO_ACADEMICO)"
+            ]
+          },
+          {
+            "name": "Matrículas Aprobadas",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Matrículas],",
+              "    DIM_RESULTADO[es_aprobado] = \"Si\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Tasa de Aprobación",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    [Matrículas Aprobadas],",
+              "    [Matrículas]",
+              ")"
+            ],
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "Matrículas Retiradas",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Matrículas],",
+              "    DIM_RESULTADO[es_retirado] = \"Si\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Tasa de Deserción",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    [Matrículas Retiradas],",
+              "    [Matrículas]",
+              ")"
+            ],
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "Matrículas Reprobadas",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Matrículas],",
+              "    DIM_RESULTADO[es_reprobado] = \"Si\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Tasa de Reprobación",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    [Matrículas Reprobadas],",
+              "    [Matrículas]",
+              ")"
+            ],
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "Matrículas con Distinción",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Matrículas],",
+              "    DIM_RESULTADO[es_distincion] = \"Si\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Tasa de Distinción",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    [Matrículas con Distinción],",
+              "    [Matrículas]",
+              ")"
+            ],
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "Nota Media Ponderada",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    SUM(FACT_RESULTADO_ACADEMICO[suma_notas_ponderadas]),",
+              "    SUM(FACT_RESULTADO_ACADEMICO[suma_pesos])",
+              ")"
+            ]
+          },
+          {
+            "name": "Tasa de Entrega",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    SUM(FACT_RESULTADO_ACADEMICO[evaluaciones_entregadas]),",
+              "    SUM(FACT_RESULTADO_ACADEMICO[evaluaciones_esperadas])",
+              ")"
+            ],
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "Tasa de Calificación",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    SUM(FACT_RESULTADO_ACADEMICO[evaluaciones_calificadas]),",
+              "    SUM(FACT_RESULTADO_ACADEMICO[evaluaciones_entregadas])",
+              ")"
+            ],
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "Clics Totales",
+            "expression": [
+              "",
+              "SUM(FACT_RESULTADO_ACADEMICO[clics_totales])"
+            ]
+          },
+          {
+            "name": "Clics por Matrícula",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    [Clics Totales],",
+              "    [Matrículas]",
+              ")"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "8e607a45-1d23-4018-945a-c48961eff653",
+        "fromTable": "FACT_RESULTADO_ACADEMICO",
+        "fromColumn": "curso_key",
+        "toTable": "DIM_CURSO",
+        "toColumn": "curso_key"
+      },
+      {
+        "name": "185e613a-0d6b-4425-88c5-51d461e82043",
+        "fromTable": "FACT_RESULTADO_ACADEMICO",
+        "fromColumn": "student_key",
+        "toTable": "DIM_ESTUDIANTE",
+        "toColumn": "student_key"
+      },
+      {
+        "name": "31e5c3ef-d583-4085-9036-9312dd780d74",
+        "fromTable": "FACT_RESULTADO_ACADEMICO",
+        "fromColumn": "resultado_key",
+        "toTable": "DIM_RESULTADO",
+        "toColumn": "resultado_key"
+      },
+      {
+        "name": "6c62cce8-a5fb-4b7b-8782-73ba8a7b922b",
+        "fromTable": "FACT_RESULTADO_ACADEMICO",
+        "fromColumn": "tiempo_alta_key",
+        "toTable": "DIM_TIEMPO_MATRICULA",
+        "toColumn": "tiempo_key"
+      },
+      {
+        "name": "253d6e6b-d41e-4f24-b54d-c340418c4ea0",
+        "fromTable": "FACT_RESULTADO_ACADEMICO",
+        "fromColumn": "tiempo_baja_key",
+        "toTable": "DIM_TIEMPO_BAJA",
+        "toColumn": "tiempo_key"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "800"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

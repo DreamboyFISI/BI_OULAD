@@ -1,0 +1,2713 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/13/2026 12:55:47 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-IN4C48R"
+  DTS:CreatorName="DESKTOP-IN4C48R\USER"
+  DTS:DTSID="{802746E7-3416-41B5-BF86-DAFF06B401B5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{37F80E05-1017-491D-9F61-2C014DB3F428}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AE766F3A-40A1-40C3-BD6E-1E24985472D3}"
+      DTS:ObjectName="sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=sqlserver-jcbi.database.windows.net;User ID=inteligenciaBIgrupo5;Initial Catalog=DM1_RendimientoAcad;Provider=MSOLEDBSQL19.1;Application Name=SSIS-Package1-{AE766F3A-40A1-40C3-BD6E-1E24985472D3}sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrup;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"></DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.olu_database_2026.inteligenciaBIgrupo5]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{818DB3F2-3C4F-4BDC-B216-24B654F1512E}"
+      DTS:ObjectName="sqlserver-jcbi.database.windows.net.olu_database_2026.inteligenciaBIgrupo5">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=sqlserver-jcbi.database.windows.net;User ID=inteligenciaBIgrupo5;Initial Catalog=olu_database_2026;Provider=MSOLEDBSQL19.1;Application Name=SSIS-Package1-{818DB3F2-3C4F-4BDC-B216-24B654F1512E}sqlserver-jcbi.database.windows.net.olu_database_2026.inteligenciaBIgrupo5;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"></DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DIM_EVALUACION"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{79860CE8-CC00-4D45-A7AE-1FA62C37CE61}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM_EVALUACION"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DIM_EVALUACION\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dm3].[DIM_EVALUACION]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_EVALUACION\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[id_assessment]"
+                      cachedDataType="i4"
+                      cachedName="id_assessment"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_assessment]"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_assessment]" />
+                    <inputColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[assessment_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="assessment_type"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[assessment_type]"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[assessment_type]" />
+                    <inputColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[tipo_evaluacion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="tipo_evaluacion"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[tipo_evaluacion]"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tipo_evaluacion]" />
+                    <inputColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[due_day]"
+                      cachedDataType="i4"
+                      cachedName="due_day"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[due_day]"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[due_day]" />
+                    <inputColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[due_day_estimado]"
+                      cachedDataType="i4"
+                      cachedName="due_day_estimado"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[due_day_estimado]"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[due_day_estimado]" />
+                    <inputColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[fecha_estimada]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="fecha_estimada"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fecha_estimada]"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fecha_estimada]" />
+                    <inputColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[weight]"
+                      cachedDataType="numeric"
+                      cachedName="weight"
+                      cachedPrecision="5"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[weight]"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[weight]" />
+                    <inputColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[is_exam]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="is_exam"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[is_exam]"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[is_exam]" />
+                    <inputColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[tiene_fecha_limite]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="tiene_fecha_limite"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[tiene_fecha_limite]"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tiene_fecha_limite]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[evaluacion_key]"
+                      dataType="i4"
+                      name="evaluacion_key" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_assessment]"
+                      dataType="i4"
+                      name="id_assessment" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[assessment_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="assessment_type" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[tipo_evaluacion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="tipo_evaluacion" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[due_day]"
+                      dataType="i4"
+                      name="due_day" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[due_day_estimado]"
+                      dataType="i4"
+                      name="due_day_estimado" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fecha_estimada]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="fecha_estimada" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[weight]"
+                      dataType="numeric"
+                      name="weight"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[is_exam]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="is_exam" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[tiene_fecha_limite]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="tiene_fecha_limite" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_EVALUACION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_EVALUACION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_EVALUACION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_EVALUACION\Origen de OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    CAST(a.id_assessment AS INT) AS id_assessment,
+
+    CAST(TRIM(a.assessment_type) AS VARCHAR(10))
+        AS assessment_type,
+
+    CAST(
+        CASE
+            WHEN TRIM(a.assessment_type) IN ('TMA', 'CMA')
+                THEN 'Continua'
+            WHEN TRIM(a.assessment_type) = 'Exam'
+                THEN 'Examen'
+            ELSE 'Otro'
+        END
+        AS VARCHAR(20)
+    ) AS tipo_evaluacion,
+
+    CAST(a.[date] AS INT) AS due_day,
+
+    CAST(
+        CASE
+            WHEN a.[date] IS NOT NULL
+                THEN a.[date]
+            WHEN TRIM(a.assessment_type) = 'Exam'
+                THEN c.module_presentation_length
+            ELSE NULL
+        END
+        AS INT
+    ) AS due_day_estimado,
+
+    CAST(
+        CASE
+            WHEN a.[date] IS NULL
+             AND TRIM(a.assessment_type) = 'Exam'
+                THEN 'Si'
+            ELSE 'No'
+        END
+        AS VARCHAR(2)
+    ) AS fecha_estimada,
+
+    CAST(a.weight AS DECIMAL(5,2)) AS weight,
+
+    CAST(
+        CASE
+            WHEN TRIM(a.assessment_type) = 'Exam'
+                THEN 'Si'
+            ELSE 'No'
+        END
+        AS VARCHAR(2)
+    ) AS is_exam,
+
+    CAST(
+        CASE
+            WHEN a.[date] IS NOT NULL
+                THEN 'Si'
+            ELSE 'No'
+        END
+        AS VARCHAR(2)
+    ) AS tiene_fecha_limite
+
+FROM dbo.assessments AS a
+INNER JOIN dbo.courses AS c
+    ON c.code_module = a.code_module
+   AND c.code_presentation = a.code_presentation;</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_EVALUACION\Origen de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.olu_database_2026.inteligenciaBIgrupo5]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.olu_database_2026.inteligenciaBIgrupo5]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_assessment]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[id_assessment]"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_assessment]"
+                      name="id_assessment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[assessment_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[assessment_type]"
+                      length="10"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[assessment_type]"
+                      name="assessment_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tipo_evaluacion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[tipo_evaluacion]"
+                      length="20"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tipo_evaluacion]"
+                      name="tipo_evaluacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[due_day]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[due_day]"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[due_day]"
+                      name="due_day"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[due_day_estimado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[due_day_estimado]"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[due_day_estimado]"
+                      name="due_day_estimado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fecha_estimada]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fecha_estimada]"
+                      length="2"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fecha_estimada]"
+                      name="fecha_estimada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[weight]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[weight]"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[weight]"
+                      name="weight"
+                      precision="5"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[is_exam]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[is_exam]"
+                      length="2"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[is_exam]"
+                      name="is_exam"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tiene_fecha_limite]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[tiene_fecha_limite]"
+                      length="2"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tiene_fecha_limite]"
+                      name="tiene_fecha_limite"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[id_assessment]"
+                      dataType="i4"
+                      name="id_assessment" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[assessment_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="assessment_type" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[tipo_evaluacion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="tipo_evaluacion" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[due_day]"
+                      dataType="i4"
+                      name="due_day" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[due_day_estimado]"
+                      dataType="i4"
+                      name="due_day_estimado" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fecha_estimada]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="fecha_estimada" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[weight]"
+                      dataType="numeric"
+                      name="weight"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[is_exam]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="is_exam" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[tiene_fecha_limite]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="tiene_fecha_limite" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[id_assessment]"
+                      dataType="i4"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[id_assessment]"
+                      name="id_assessment" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[assessment_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[assessment_type]"
+                      name="assessment_type" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[tipo_evaluacion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[tipo_evaluacion]"
+                      name="tipo_evaluacion" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[due_day]"
+                      dataType="i4"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[due_day]"
+                      name="due_day" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[due_day_estimado]"
+                      dataType="i4"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[due_day_estimado]"
+                      name="due_day_estimado" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fecha_estimada]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fecha_estimada]"
+                      name="fecha_estimada" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[weight]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[weight]"
+                      name="weight"
+                      precision="5"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[is_exam]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[is_exam]"
+                      name="is_exam" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[tiene_fecha_limite]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[tiene_fecha_limite]"
+                      name="tiene_fecha_limite" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DIM_EVALUACION.Paths[Salida de origen de OLE DB]"
+              endId="Package\DIM_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\DIM_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FACT_ENTREGA_EVALUACION"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{B48C6C69-B2A0-4707-ABB5-4B08FA3C3BB4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FACT_ENTREGA_EVALUACION"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="BUSQUEDA_CURSO"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [comun].[DIM_CURSO]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [comun].[DIM_CURSO]) [refTable]
+where [refTable].[code_module] = ? and [refTable].[code_presentation] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="curso_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="code_module" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="code_presentation" dataType="DT_STR" length="6" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="anio" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="convocatoria" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="duracion_dias" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nombre_curso" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[code_module]};#{Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[code_presentation]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Inputs[Entrada de búsqueda].Columns[code_module]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="code_module"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[code_module]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">code_module</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Inputs[Entrada de búsqueda].Columns[code_presentation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="code_presentation"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[code_presentation]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">code_presentation</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Outputs[Salida de entradas coincidentes de búsqueda].Columns[curso_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Outputs[Salida de entradas coincidentes de búsqueda].Columns[curso_key]"
+                      name="curso_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">curso_key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="BUSQUEDA_ESTADO"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dm3].[DIM_ESTADO_ENTREGA]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dm3].[DIM_ESTADO_ENTREGA]) [refTable]
+where [refTable].[estado] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="estado_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="estado" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="es_entregado" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="es_puntual" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="es_tarde" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="es_no_entregado" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="es_banked" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="orden" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[estado]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Inputs[Entrada de búsqueda].Columns[estado]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="estado"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[estado]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">estado</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Outputs[Salida de entradas coincidentes de búsqueda].Columns[estado_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Outputs[Salida de entradas coincidentes de búsqueda].Columns[estado_key]"
+                      name="estado_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">estado_key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="BUSQUEDA_ESTUDIANTE"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [comun].[DIM_ESTUDIANTE]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [comun].[DIM_ESTUDIANTE]) [refTable]
+where [refTable].[id_student] = ? and [refTable].[age_band] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="student_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="id_student" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="version" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="valid_from_presentation" dataType="DT_STR" length="6" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="valid_to_presentation" dataType="DT_STR" length="6" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="gender" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="region" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="highest_education" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="imd_band" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="age_band" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="disability" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_student]};#{Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[age_band]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Inputs[Entrada de búsqueda].Columns[id_student]"
+                      cachedDataType="i4"
+                      cachedName="id_student"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_student]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">id_student</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Inputs[Entrada de búsqueda].Columns[age_band]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="age_band"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[age_band]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">age_band</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Outputs[Salida de entradas coincidentes de búsqueda].Columns[student_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Outputs[Salida de entradas coincidentes de búsqueda].Columns[student_key]"
+                      name="student_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">student_key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="BUSQUEDA_EVALUACION"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dm3].[DIM_EVALUACION]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dm3].[DIM_EVALUACION]) [refTable]
+where [refTable].[id_assessment] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="evaluacion_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="id_assessment" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="assessment_type" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="tipo_evaluacion" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="due_day" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="due_day_estimado" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fecha_estimada" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="weight" dataType="DT_NUMERIC" length="0" precision="5" scale="2" codePage="0"/&gt;&lt;referenceColumn name="is_exam" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="tiene_fecha_limite" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_assessment]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Inputs[Entrada de búsqueda].Columns[id_assessment]"
+                      cachedDataType="i4"
+                      cachedName="id_assessment"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_assessment]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">id_assessment</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Outputs[Salida de entradas coincidentes de búsqueda].Columns[evaluacion_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Outputs[Salida de entradas coincidentes de búsqueda].Columns[evaluacion_key]"
+                      name="evaluacion_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">evaluacion_key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="BUSQUEDA_RESULTADO_EVALUACION"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dm3].[DIM_RESULTADO_EVALUACION]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dm3].[DIM_RESULTADO_EVALUACION]) [refTable]
+where [refTable].[resultado_evaluacion] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="resultado_evaluacion_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="resultado_evaluacion" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="es_aprobado" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="es_desaprobado" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="es_calificado" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="es_convalidado" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="rango_min" dataType="DT_NUMERIC" length="0" precision="5" scale="2" codePage="0"/&gt;&lt;referenceColumn name="rango_max" dataType="DT_NUMERIC" length="0" precision="5" scale="2" codePage="0"/&gt;&lt;referenceColumn name="orden" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[resultado_evaluacion]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Inputs[Entrada de búsqueda].Columns[resultado_evaluacion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="resultado_evaluacion"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[resultado_evaluacion]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">resultado_evaluacion</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Outputs[Salida de entradas coincidentes de búsqueda].Columns[resultado_evaluacion_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Outputs[Salida de entradas coincidentes de búsqueda].Columns[resultado_evaluacion_key]"
+                      name="resultado_evaluacion_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">resultado_evaluacion_key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dm3].[FACT_ENTREGA_EVALUACION]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[tiempo_entrega_key]"
+                      cachedDataType="i4"
+                      cachedName="tiempo_entrega_key"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[tiempo_entrega_key]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tiempo_entrega_key]" />
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[score]"
+                      cachedDataType="numeric"
+                      cachedName="score"
+                      cachedPrecision="5"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[score]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[score]" />
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[score_ponderado]"
+                      cachedDataType="numeric"
+                      cachedName="score_ponderado"
+                      cachedPrecision="6"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[score_ponderado]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[score_ponderado]" />
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[days_late]"
+                      cachedDataType="i4"
+                      cachedName="days_late"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[days_late]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[days_late]" />
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[days_late_estimado]"
+                      cachedDataType="i4"
+                      cachedName="days_late_estimado"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[days_late_estimado]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[days_late_estimado]" />
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[student_key]"
+                      cachedDataType="i4"
+                      cachedName="student_key"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[student_key]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Outputs[Salida de entradas coincidentes de búsqueda].Columns[student_key]" />
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[curso_key]"
+                      cachedDataType="i4"
+                      cachedName="curso_key"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[curso_key]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Outputs[Salida de entradas coincidentes de búsqueda].Columns[curso_key]" />
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[evaluacion_key]"
+                      cachedDataType="i4"
+                      cachedName="evaluacion_key"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[evaluacion_key]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Outputs[Salida de entradas coincidentes de búsqueda].Columns[evaluacion_key]" />
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[estado_key]"
+                      cachedDataType="i4"
+                      cachedName="estado_key"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[estado_key]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Outputs[Salida de entradas coincidentes de búsqueda].Columns[estado_key]" />
+                    <inputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[resultado_evaluacion_key]"
+                      cachedDataType="i4"
+                      cachedName="resultado_evaluacion_key"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[resultado_evaluacion_key]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Outputs[Salida de entradas coincidentes de búsqueda].Columns[resultado_evaluacion_key]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[student_key]"
+                      dataType="i4"
+                      name="student_key" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[curso_key]"
+                      dataType="i4"
+                      name="curso_key" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[evaluacion_key]"
+                      dataType="i4"
+                      name="evaluacion_key" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[tiempo_entrega_key]"
+                      dataType="i4"
+                      name="tiempo_entrega_key" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[estado_key]"
+                      dataType="i4"
+                      name="estado_key" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[resultado_evaluacion_key]"
+                      dataType="i4"
+                      name="resultado_evaluacion_key" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[score]"
+                      dataType="numeric"
+                      name="score"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[score_ponderado]"
+                      dataType="numeric"
+                      name="score_ponderado"
+                      precision="6"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[days_late]"
+                      dataType="i4"
+                      name="days_late" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[days_late_estimado]"
+                      dataType="i4"
+                      name="days_late_estimado" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">WITH GrillaEvaluaciones AS
+(
+    SELECT
+        si.id_student,
+        si.age_band,
+        si.code_module,
+        si.code_presentation,
+
+        a.id_assessment,
+        a.assessment_type,
+        a.[date] AS due_day,
+        a.weight,
+
+        c.module_presentation_length AS duracion_dias,
+
+        sa.id_assessment AS entrega_existente,
+        sa.date_submitted,
+        sa.is_banked,
+        sa.score
+
+    FROM dbo.studentInfo AS si
+
+    INNER JOIN dbo.assessments AS a
+        ON a.code_module = si.code_module
+       AND a.code_presentation = si.code_presentation
+
+    INNER JOIN dbo.courses AS c
+        ON c.code_module = si.code_module
+       AND c.code_presentation = si.code_presentation
+
+    LEFT JOIN dbo.studentAssessment AS sa
+        ON sa.id_assessment = a.id_assessment
+       AND sa.id_student = si.id_student
+)
+SELECT
+    CAST(id_student AS INT) AS id_student,
+    CAST(TRIM(age_band) AS VARCHAR(10)) AS age_band,
+
+    CAST(TRIM(code_module) AS VARCHAR(3)) AS code_module,
+    CAST(TRIM(code_presentation) AS VARCHAR(6))
+        AS code_presentation,
+
+    CAST(id_assessment AS INT) AS id_assessment,
+
+    CAST(
+        COALESCE(date_submitted, -999)
+        AS INT
+    ) AS tiempo_entrega_key,
+
+    CAST(
+        CASE
+            WHEN is_banked = 1
+                THEN 'Convalidado'
+            WHEN entrega_existente IS NULL
+                THEN 'No entregado'
+            WHEN due_day IS NULL
+                THEN 'Sin fecha'
+            WHEN date_submitted &gt; due_day
+                THEN 'Tarde'
+            ELSE 'A tiempo'
+        END
+        AS VARCHAR(20)
+    ) AS estado,
+
+    CAST(
+        CASE
+            WHEN is_banked = 1
+                THEN 'Convalidado'
+            WHEN score IS NULL
+                THEN 'Sin nota'
+            WHEN score &lt; 40
+                THEN 'Desaprobado'
+            ELSE 'Aprobado'
+        END
+        AS VARCHAR(20)
+    ) AS resultado_evaluacion,
+
+    CAST(score AS DECIMAL(5,2)) AS score,
+
+    CAST(
+        CASE
+            WHEN is_banked = 0
+             AND score IS NOT NULL
+                THEN score * weight / 100.0
+            ELSE NULL
+        END
+        AS DECIMAL(6,2)
+    ) AS score_ponderado,
+
+    CAST(
+        CASE
+            WHEN date_submitted IS NOT NULL
+             AND due_day IS NOT NULL
+                THEN date_submitted - due_day
+            ELSE NULL
+        END
+        AS INT
+    ) AS days_late,
+
+    CAST(
+        CASE
+            WHEN date_submitted IS NOT NULL
+             AND due_day IS NULL
+             AND TRIM(assessment_type) = 'Exam'
+                THEN date_submitted - duracion_dias
+            ELSE NULL
+        END
+        AS INT
+    ) AS days_late_estimado
+
+FROM GrillaEvaluaciones;</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.olu_database_2026.inteligenciaBIgrupo5]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.olu_database_2026.inteligenciaBIgrupo5]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_student]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[id_student]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_student]"
+                      name="id_student"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[age_band]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[age_band]"
+                      length="10"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[age_band]"
+                      name="age_band"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[code_module]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[code_module]"
+                      length="3"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[code_module]"
+                      name="code_module"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[code_presentation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[code_presentation]"
+                      length="6"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[code_presentation]"
+                      name="code_presentation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_assessment]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[id_assessment]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_assessment]"
+                      name="id_assessment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tiempo_entrega_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[tiempo_entrega_key]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tiempo_entrega_key]"
+                      name="tiempo_entrega_key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[estado]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[estado]"
+                      length="20"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[estado]"
+                      name="estado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[resultado_evaluacion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[resultado_evaluacion]"
+                      length="20"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[resultado_evaluacion]"
+                      name="resultado_evaluacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[score]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[score]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[score]"
+                      name="score"
+                      precision="5"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[score_ponderado]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[score_ponderado]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[score_ponderado]"
+                      name="score_ponderado"
+                      precision="6"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[days_late]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[days_late]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[days_late]"
+                      name="days_late"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[days_late_estimado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[days_late_estimado]"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[days_late_estimado]"
+                      name="days_late_estimado"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[id_student]"
+                      dataType="i4"
+                      name="id_student" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[age_band]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="age_band" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[code_module]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="code_module" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[code_presentation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="code_presentation" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[id_assessment]"
+                      dataType="i4"
+                      name="id_assessment" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[tiempo_entrega_key]"
+                      dataType="i4"
+                      name="tiempo_entrega_key" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[estado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="estado" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[resultado_evaluacion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="resultado_evaluacion" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[score]"
+                      dataType="numeric"
+                      name="score"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[score_ponderado]"
+                      dataType="numeric"
+                      name="score_ponderado"
+                      precision="6"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[days_late]"
+                      dataType="i4"
+                      name="days_late" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[days_late_estimado]"
+                      dataType="i4"
+                      name="days_late_estimado" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[id_student]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[id_student]"
+                      name="id_student" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[age_band]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[age_band]"
+                      name="age_band" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[code_module]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[code_module]"
+                      name="code_module" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[code_presentation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[code_presentation]"
+                      name="code_presentation" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[id_assessment]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[id_assessment]"
+                      name="id_assessment" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[tiempo_entrega_key]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[tiempo_entrega_key]"
+                      name="tiempo_entrega_key" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[estado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[estado]"
+                      name="estado" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[resultado_evaluacion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[resultado_evaluacion]"
+                      name="resultado_evaluacion" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[score]"
+                      dataType="numeric"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[score]"
+                      name="score"
+                      precision="5"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[score_ponderado]"
+                      dataType="numeric"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[score_ponderado]"
+                      name="score_ponderado"
+                      precision="6"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[days_late]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[days_late]"
+                      name="days_late" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[days_late_estimado]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[days_late_estimado]"
+                      name="days_late_estimado" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FACT_ENTREGA_EVALUACION.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Inputs[Entrada de búsqueda]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\FACT_ENTREGA_EVALUACION.Paths[Salida de entradas coincidentes de búsqueda1]"
+              endId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Inputs[Entrada de búsqueda]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\FACT_ENTREGA_EVALUACION.Paths[Salida de entradas coincidentes de búsqueda2]"
+              endId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Inputs[Entrada de búsqueda]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\FACT_ENTREGA_EVALUACION.Paths[Salida de entradas coincidentes de búsqueda3]"
+              endId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Inputs[Entrada de búsqueda]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\FACT_ENTREGA_EVALUACION.Paths[Salida de entradas coincidentes de búsqueda4]"
+              endId="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\FACT_ENTREGA_EVALUACION.Paths[Salida de origen de OLE DB]"
+              endId="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE.Inputs[Entrada de búsqueda]"
+              name="Salida de origen de OLE DB"
+              startId="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{CA5E9E50-090B-4317-8565-7CD8AAD3C034}"
+      DTS:From="Package\DIM_EVALUACION"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\FACT_ENTREGA_EVALUACION" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="165.12,41.472"
+          Id="Package\DIM_EVALUACION"
+          TopLeft="75.0000064460831,135.352952402982" />
+        <NodeLayout
+          Size="221.952000000001,41.472"
+          Id="Package\FACT_ENTREGA_EVALUACION"
+          TopLeft="355.00003051146,163.647072396825" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="240.120006446083,156.088952402982">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114.880024065377,28.2941199938436"
+              Start="0,0"
+              End="107.380024065377,28.2941199938436">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="53.4400120326885,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.4400120326885,0"
+                    Point2="57.4400120326885,0"
+                    Point3="57.4400120326885,4" />
+                  <mssgle:LineSegment
+                    End="57.4400120326885,24.2941199938436" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.4400120326885,24.2941199938436"
+                    Point2="57.4400120326885,28.2941199938436"
+                    Point3="61.4400120326885,28.2941199938436" />
+                  <mssgle:LineSegment
+                    End="107.380024065377,28.2941199938436" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DIM_EVALUACION">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162.816,41.472"
+          Id="Package\DIM_EVALUACION\Origen de OLE DB"
+          TopLeft="135.00001160295,198.058839956905" />
+        <NodeLayout
+          Size="166.656,41.472"
+          Id="Package\DIM_EVALUACION\Destino de OLE DB"
+          TopLeft="447.857181349468,195.000016173787" />
+        <EdgeLayout
+          Id="Package\DIM_EVALUACION.Paths[Salida de origen de OLE DB]"
+          TopLeft="297.81601160295,217.265428065346">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="150.041169746518,0"
+              Start="0,0"
+              End="142.541169746518,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="142.541169746518,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_EVALUACION\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_EVALUACION\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\FACT_ENTREGA_EVALUACION">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="166.656,41.472"
+          Id="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB"
+          TopLeft="732.000050447885,172.000011853875" />
+        <NodeLayout
+          Size="162.816,41.472"
+          Id="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB"
+          TopLeft="100.000006891788,165.000011371449" />
+        <NodeLayout
+          Size="198.912,41.472"
+          Id="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE"
+          TopLeft="93.0000064093624,305.000021019952" />
+        <EdgeLayout
+          Id="Package\FACT_ENTREGA_EVALUACION.Paths[Salida de origen de OLE DB]"
+          TopLeft="181.408006891788,206.472011371449">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.0479995175749,98.5280096485025"
+              Start="0,0"
+              End="11.0479995175749,91.0280096485025">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.2640048242512" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.2640048242512"
+                    Point2="0,49.2640048242512"
+                    Point3="4,49.2640048242512" />
+                  <mssgle:LineSegment
+                    End="7.04799951757491,49.2640048242512" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.04799951757491,49.2640048242512"
+                    Point2="11.0479995175749,49.2640048242512"
+                    Point3="11.0479995175749,53.2640048242512" />
+                  <mssgle:LineSegment
+                    End="11.0479995175749,91.0280096485025" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170.496,41.472"
+          Id="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO"
+          TopLeft="154.000010613353,417.000028738754" />
+        <EdgeLayout
+          Id="Package\FACT_ENTREGA_EVALUACION.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="192.456006409362,346.472021019952">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.7920042039905,70.528007718802"
+              Start="0,0"
+              End="46.7920042039905,63.028007718802">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.264003859401" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.264003859401"
+                    Point2="0,35.264003859401"
+                    Point3="4,35.264003859401" />
+                  <mssgle:LineSegment
+                    End="42.7920042039905,35.264003859401" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42.7920042039905,35.264003859401"
+                    Point2="46.7920042039905,35.264003859401"
+                    Point3="46.7920042039905,39.264003859401" />
+                  <mssgle:LineSegment
+                    End="46.7920042039905,63.028007718802" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-76.4230213355048,40.264003859401,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="198.912,41.472"
+          Id="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION"
+          TopLeft="385.000026533382,457.000031495469" />
+        <EdgeLayout
+          Id="Package\FACT_ENTREGA_EVALUACION.Paths[Salida de entradas coincidentes de búsqueda1]"
+          TopLeft="324.496010613353,437.736028738754">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60.5040159200292,40.0000027567151"
+              Start="0,0"
+              End="53.0040159200292,40.0000027567151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="26.2520079600146,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.2520079600146,0"
+                    Point2="30.2520079600146,0"
+                    Point3="30.2520079600146,4" />
+                  <mssgle:LineSegment
+                    End="30.2520079600146,36.0000027567151" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.2520079600146,36.0000027567151"
+                    Point2="30.2520079600146,40.0000027567151"
+                    Point3="34.2520079600146,40.0000027567151" />
+                  <mssgle:LineSegment
+                    End="53.0040159200292,40.0000027567151" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-69.5670154774854,-18.1953125,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="175.872,41.472"
+          Id="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO"
+          TopLeft="635.000043762851,373.000025706367" />
+        <EdgeLayout
+          Id="Package\FACT_ENTREGA_EVALUACION.Paths[Salida de entradas coincidentes de búsqueda2]"
+          TopLeft="484.456026533382,457.000031495469">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="238.480017229469,-42.5280057891016"
+              Start="0,0"
+              End="238.480017229469,-35.0280057891016">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-17.2640028945508" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-17.2640028945508"
+                    Point2="0,-21.2640028945508"
+                    Point3="4,-21.2640028945508" />
+                  <mssgle:LineSegment
+                    End="234.480017229469,-21.2640028945508" />
+                  <mssgle:CubicBezierSegment
+                    Point1="234.480017229469,-21.2640028945508"
+                    Point2="238.480017229469,-21.2640028945508"
+                    Point3="238.480017229469,-25.2640028945508" />
+                  <mssgle:LineSegment
+                    End="238.480017229469,-35.0280057891016" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="19.4209851772343,-16.2640028945508,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="263.424000000001,41.472"
+          Id="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION"
+          TopLeft="413.000028463083,284.000019572677" />
+        <EdgeLayout
+          Id="Package\FACT_ENTREGA_EVALUACION.Paths[Salida de entradas coincidentes de búsqueda3]"
+          TopLeft="722.936043762851,373.000025706367">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-178.224015299768,-47.5280061336909"
+              Start="0,0"
+              End="-178.224015299768,-40.0280061336909">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-19.7640030668454" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-19.7640030668454"
+                    Point2="0,-23.7640030668454"
+                    Point3="-4,-23.7640030668454" />
+                  <mssgle:LineSegment
+                    End="-174.224015299768,-23.7640030668454" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-174.224015299768,-23.7640030668454"
+                    Point2="-178.224015299768,-23.7640030668454"
+                    Point3="-178.224015299768,-27.7640030668454" />
+                  <mssgle:LineSegment
+                    End="-178.224015299768,-40.0280061336909" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-188.931031087384,-18.7640030668454,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FACT_ENTREGA_EVALUACION.Paths[Salida de entradas coincidentes de búsqueda4]"
+          TopLeft="544.712028463083,284.000019572677">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="270.616021984802,-70.528007718802"
+              Start="0,0"
+              End="270.616021984802,-63.028007718802">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-31.264003859401" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-31.264003859401"
+                    Point2="0,-35.264003859401"
+                    Point3="4,-35.264003859401" />
+                  <mssgle:LineSegment
+                    End="266.616021984802,-35.264003859401" />
+                  <mssgle:CubicBezierSegment
+                    Point1="266.616021984802,-35.264003859401"
+                    Point2="270.616021984802,-35.264003859401"
+                    Point3="270.616021984802,-39.264003859401" />
+                  <mssgle:LineSegment
+                    End="270.616021984802,-63.028007718802" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="35.4889875549011,-30.264003859401,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_EVALUACION">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dm3].[DIM_EVALUACION]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_ENTREGA_EVALUACION\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTADO">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dm3].[DIM_ESTADO_ENTREGA]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_RESULTADO_EVALUACION">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dm3].[DIM_RESULTADO_EVALUACION]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_ESTUDIANTE">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[comun].[DIM_ESTUDIANTE]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_ENTREGA_EVALUACION\BUSQUEDA_CURSO">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[comun].[DIM_CURSO]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_ENTREGA_EVALUACION\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

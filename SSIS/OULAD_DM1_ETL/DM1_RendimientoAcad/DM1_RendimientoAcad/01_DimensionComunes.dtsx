@@ -1,0 +1,1340 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/12/2026 7:01:34 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-IN4C48R"
+  DTS:CreatorName="DESKTOP-IN4C48R\USER"
+  DTS:DTSID="{F3E6AF28-4165-4D9A-BB53-D0A7FF0DA55D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{D33778A3-8A11-42DD-8C67-F0EC8D9A753C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{75602D2E-A4DE-467B-A29C-C402FF1E4C8B}"
+      DTS:ObjectName="sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=sqlserver-jcbi.database.windows.net;User ID=inteligenciaBIgrupo5;Initial Catalog=DM1_RendimientoAcad;Provider=MSOLEDBSQL19.1;Application Name=SSIS-Package-{75602D2E-A4DE-467B-A29C-C402FF1E4C8B}sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"></DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.olu_database_2026.inteligenciaBIgrupo5]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5F8BEB6F-D942-4184-96A4-3A5DB31F550B}"
+      DTS:ObjectName="sqlserver-jcbi.database.windows.net.olu_database_2026.inteligenciaBIgrupo5">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=sqlserver-jcbi.database.windows.net;User ID=inteligenciaBIgrupo5;Initial Catalog=olu_database_2026;Provider=MSOLEDBSQL19.1;Application Name=SSIS-Package-{5F8BEB6F-D942-4184-96A4-3A5DB31F550B}sqlserver-jcbi.database.windows.net.olu_database_2026.inteligenciaBIgrupo5;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"></DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FLUJO_DIM_CURSO"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{5683CD8F-D78D-4DD4-9241-1EF1F4912A22}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FLUJO_DIM_CURSO"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="DESTINO_DIM_CURSO"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[comun].[DIM_CURSO]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].Columns[code_module]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="code_module"
+                      externalMetadataColumnId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].ExternalColumns[code_module]"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[code_module]" />
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].Columns[code_presentation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="code_presentation"
+                      externalMetadataColumnId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].ExternalColumns[code_presentation]"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[code_presentation]" />
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].Columns[anio]"
+                      cachedDataType="i4"
+                      cachedName="anio"
+                      externalMetadataColumnId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].ExternalColumns[anio]"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[anio]" />
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].Columns[convocatoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="convocatoria"
+                      externalMetadataColumnId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].ExternalColumns[convocatoria]"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[convocatoria]" />
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].Columns[duracion_dias]"
+                      cachedDataType="i4"
+                      cachedName="duracion_dias"
+                      externalMetadataColumnId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].ExternalColumns[duracion_dias]"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[duracion_dias]" />
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].Columns[nombre_curso]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="nombre_curso"
+                      externalMetadataColumnId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].ExternalColumns[nombre_curso]"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[nombre_curso]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].ExternalColumns[curso_key]"
+                      dataType="i4"
+                      name="curso_key" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].ExternalColumns[code_module]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="code_module" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].ExternalColumns[code_presentation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="code_presentation" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].ExternalColumns[anio]"
+                      dataType="i4"
+                      name="anio" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].ExternalColumns[convocatoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="convocatoria" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].ExternalColumns[duracion_dias]"
+                      dataType="i4"
+                      name="duracion_dias" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB].ExternalColumns[nombre_curso]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="nombre_curso" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="ORIGEN_OLAD"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    CAST(TRIM(code_module) AS VARCHAR(3)) AS code_module,
+    CAST(TRIM(code_presentation) AS VARCHAR(6)) AS code_presentation,
+    CAST(LEFT(TRIM(code_presentation), 4) AS INT) AS anio,
+    CAST(
+        CASE RIGHT(TRIM(code_presentation), 1)
+            WHEN 'B' THEN 'Febrero'
+            WHEN 'J' THEN 'Octubre'
+            ELSE 'Unknown'
+        END
+        AS VARCHAR(10)
+    ) AS convocatoria,
+    CAST(module_presentation_length AS INT) AS duracion_dias,
+    CAST(
+        CONCAT(TRIM(code_module), '-', TRIM(code_presentation))
+        AS VARCHAR(20)
+    ) AS nombre_curso
+FROM dbo.courses;</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.olu_database_2026.inteligenciaBIgrupo5]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.olu_database_2026.inteligenciaBIgrupo5]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[code_module]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].ExternalColumns[code_module]"
+                      length="3"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[code_module]"
+                      name="code_module"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[code_presentation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].ExternalColumns[code_presentation]"
+                      length="6"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[code_presentation]"
+                      name="code_presentation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[anio]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].ExternalColumns[anio]"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[anio]"
+                      name="anio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[convocatoria]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].ExternalColumns[convocatoria]"
+                      length="10"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[convocatoria]"
+                      name="convocatoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[duracion_dias]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].ExternalColumns[duracion_dias]"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[duracion_dias]"
+                      name="duracion_dias"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[nombre_curso]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre_curso]"
+                      length="20"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].Columns[nombre_curso]"
+                      name="nombre_curso"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].ExternalColumns[code_module]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="code_module" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].ExternalColumns[code_presentation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="code_presentation" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].ExternalColumns[anio]"
+                      dataType="i4"
+                      name="anio" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].ExternalColumns[convocatoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="convocatoria" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].ExternalColumns[duracion_dias]"
+                      dataType="i4"
+                      name="duracion_dias" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre_curso]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="nombre_curso" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[code_module]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[code_module]"
+                      name="code_module" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[code_presentation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[code_presentation]"
+                      name="code_presentation" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[anio]"
+                      dataType="i4"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[anio]"
+                      name="anio" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[convocatoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[convocatoria]"
+                      name="convocatoria" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[duracion_dias]"
+                      dataType="i4"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[duracion_dias]"
+                      name="duracion_dias" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[nombre_curso]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[nombre_curso]"
+                      name="nombre_curso" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FLUJO_DIM_CURSO.Paths[Salida de origen de OLE DB]"
+              endId="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FLUJO_DIM_ESTUDIANTE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{2BC25B1C-8E28-4F28-B623-9A67CAFE6409}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FLUJO_DIM_ESTUDIANTE"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[comun].[DIM_ESTUDIANTE]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.DM1_RendimientoAcad.inteligenciaBIgrupo5]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[id_student]"
+                      cachedDataType="i4"
+                      cachedName="id_student"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_student]"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_student]" />
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[version]"
+                      cachedDataType="i4"
+                      cachedName="version"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[version]"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[version]" />
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[valid_from_presentation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="valid_from_presentation"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[valid_from_presentation]"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[valid_from_presentation]" />
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[valid_to_presentation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="valid_to_presentation"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[valid_to_presentation]"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[valid_to_presentation]" />
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="gender"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[gender]"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[gender]" />
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="region"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[region]"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[region]" />
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[highest_education]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="highest_education"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[highest_education]"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[highest_education]" />
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[imd_band]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="imd_band"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[imd_band]"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[imd_band]" />
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[age_band]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="age_band"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[age_band]"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[age_band]" />
+                    <inputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[disability]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="disability"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[disability]"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[disability]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[student_key]"
+                      dataType="i4"
+                      name="student_key" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_student]"
+                      dataType="i4"
+                      name="id_student" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[version]"
+                      dataType="i4"
+                      name="version" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[valid_from_presentation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="valid_from_presentation" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[valid_to_presentation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="valid_to_presentation" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[highest_education]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="highest_education" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[imd_band]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="imd_band" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[age_band]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="age_band" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[disability]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="disability" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">WITH Base AS
+(
+    SELECT
+        id_student,
+        CAST(TRIM(gender) AS VARCHAR(1)) AS gender,
+        CAST(
+            COALESCE(NULLIF(TRIM(region), ''), 'Unknown')
+            AS VARCHAR(50)
+        ) AS region,
+        CAST(
+            COALESCE(NULLIF(TRIM(highest_education), ''), 'Unknown')
+            AS VARCHAR(50)
+        ) AS highest_education,
+        CAST(
+            CASE
+                WHEN TRIM(imd_band) = '10-20' THEN '10-20%'
+                WHEN NULLIF(TRIM(imd_band), '') IS NULL THEN 'Unknown'
+                ELSE TRIM(imd_band)
+            END
+            AS VARCHAR(20)
+        ) AS imd_band,
+        CAST(TRIM(age_band) AS VARCHAR(10)) AS age_band,
+        CAST(TRIM(disability) AS VARCHAR(1)) AS disability,
+        CAST(code_presentation AS VARCHAR(6)) AS code_presentation
+    FROM dbo.studentInfo
+),
+Versiones AS
+(
+    SELECT
+        id_student,
+        age_band,
+        MAX(gender) AS gender,
+        MAX(region) AS region,
+        MAX(highest_education) AS highest_education,
+        MAX(imd_band) AS imd_band,
+        MAX(disability) AS disability,
+        MIN(code_presentation) AS valid_from_presentation,
+        MAX(code_presentation) AS ultima_presentacion
+    FROM Base
+    GROUP BY id_student, age_band
+),
+Numeradas AS
+(
+    SELECT *,
+        ROW_NUMBER() OVER
+        (
+            PARTITION BY id_student
+            ORDER BY valid_from_presentation, age_band
+        ) AS numero_version,
+        COUNT(*) OVER
+        (
+            PARTITION BY id_student
+        ) AS total_versiones
+    FROM Versiones
+)
+SELECT
+    id_student,
+    CAST(numero_version AS INT) AS version,
+    CAST(valid_from_presentation AS VARCHAR(6))
+        AS valid_from_presentation,
+    CAST(
+        CASE
+            WHEN numero_version = total_versiones THEN NULL
+            ELSE ultima_presentacion
+        END
+        AS VARCHAR(6)
+    ) AS valid_to_presentation,
+    CAST(gender AS VARCHAR(1)) AS gender,
+    CAST(region AS VARCHAR(50)) AS region,
+    CAST(highest_education AS VARCHAR(50)) AS highest_education,
+    CAST(imd_band AS VARCHAR(20)) AS imd_band,
+    CAST(age_band AS VARCHAR(10)) AS age_band,
+    CAST(disability AS VARCHAR(1)) AS disability
+FROM Numeradas;</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.olu_database_2026.inteligenciaBIgrupo5]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlserver-jcbi.database.windows.net.olu_database_2026.inteligenciaBIgrupo5]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_student]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[id_student]"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_student]"
+                      name="id_student"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[version]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[version]"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[version]"
+                      name="version"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[valid_from_presentation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[valid_from_presentation]"
+                      length="6"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[valid_from_presentation]"
+                      name="valid_from_presentation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[valid_to_presentation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[valid_to_presentation]"
+                      length="6"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[valid_to_presentation]"
+                      name="valid_to_presentation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[gender]"
+                      length="1"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[gender]"
+                      name="gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[region]"
+                      length="50"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[region]"
+                      name="region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[highest_education]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[highest_education]"
+                      length="50"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[highest_education]"
+                      name="highest_education"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[imd_band]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[imd_band]"
+                      length="20"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[imd_band]"
+                      name="imd_band"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[age_band]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[age_band]"
+                      length="10"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[age_band]"
+                      name="age_band"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[disability]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[disability]"
+                      length="1"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[disability]"
+                      name="disability"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[id_student]"
+                      dataType="i4"
+                      name="id_student" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[version]"
+                      dataType="i4"
+                      name="version" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[valid_from_presentation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="valid_from_presentation" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[valid_to_presentation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="valid_to_presentation" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[highest_education]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="highest_education" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[imd_band]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="imd_band" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[age_band]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="age_band" />
+                    <externalMetadataColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[disability]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="disability" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[id_student]"
+                      dataType="i4"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[id_student]"
+                      name="id_student" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[version]"
+                      dataType="i4"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[version]"
+                      name="version" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[valid_from_presentation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[valid_from_presentation]"
+                      name="valid_from_presentation" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[valid_to_presentation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[valid_to_presentation]"
+                      name="valid_to_presentation" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[gender]"
+                      name="gender" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[highest_education]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[highest_education]"
+                      name="highest_education" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[imd_band]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[imd_band]"
+                      name="imd_band" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[age_band]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[age_band]"
+                      name="age_band" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[disability]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[disability]"
+                      name="disability" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FLUJO_DIM_ESTUDIANTE.Paths[Salida de origen de OLE DB]"
+              endId="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{31F09CD0-7579-4415-AA8E-96585EF98B84}"
+      DTS:From="Package\FLUJO_DIM_ESTUDIANTE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\FLUJO_DIM_CURSO" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172.032,41.472"
+          Id="Package\FLUJO_DIM_CURSO"
+          TopLeft="435.714323162959,205.705899414701" />
+        <NodeLayout
+          Size="200.448,41.472"
+          Id="Package\FLUJO_DIM_ESTUDIANTE"
+          TopLeft="124.285724967795,114.705891866933" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="224.509724967795,156.177891866933">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="297.220598195164,49.5280075477675"
+              Start="0,0"
+              End="297.220598195164,42.0280075477675">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.7640037738838" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.7640037738838"
+                    Point2="0,24.7640037738838"
+                    Point3="4,24.7640037738838" />
+                  <mssgle:LineSegment
+                    End="293.220598195164,24.7640037738838" />
+                  <mssgle:CubicBezierSegment
+                    Point1="293.220598195164,24.7640037738838"
+                    Point2="297.220598195164,24.7640037738838"
+                    Point3="297.220598195164,28.7640037738838" />
+                  <mssgle:LineSegment
+                    End="297.220598195164,42.0280075477675" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FLUJO_DIM_CURSO">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148.224000000001,41.472"
+          Id="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD"
+          TopLeft="155.000010682271,150.714296101194" />
+        <NodeLayout
+          Size="185.856000000001,41.472"
+          Id="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO"
+          TopLeft="452.857174067095,154.285724918758" />
+        <EdgeLayout
+          Id="Package\FLUJO_DIM_CURSO.Paths[Salida de origen de OLE DB]"
+          TopLeft="303.224010682271,173.236010509976">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="149.633163384824,0"
+              Start="0,0"
+              End="142.133163384824,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="142.133163384824,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FLUJO_DIM_CURSO\DESTINO_DIM_CURSO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FLUJO_DIM_CURSO\ORIGEN_OLAD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\FLUJO_DIM_ESTUDIANTE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162.816,41.472"
+          Id="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB"
+          TopLeft="83.571435754207,106.294126463359" />
+        <NodeLayout
+          Size="166.656,41.472"
+          Id="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB"
+          TopLeft="375.000032230416,106.294126463359" />
+        <EdgeLayout
+          Id="Package\FLUJO_DIM_ESTUDIANTE.Paths[Salida de origen de OLE DB]"
+          TopLeft="246.387435754207,127.030126463359">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128.612596476209,0"
+              Start="0,0"
+              End="121.112596476209,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="121.112596476209,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FLUJO_DIM_ESTUDIANTE\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FLUJO_DIM_ESTUDIANTE\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
