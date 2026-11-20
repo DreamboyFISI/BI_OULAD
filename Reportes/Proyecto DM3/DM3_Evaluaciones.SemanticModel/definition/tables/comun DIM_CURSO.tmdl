@@ -2,8 +2,8 @@ table 'comun DIM_CURSO'
 	lineageTag: a184d0be-7279-420c-bb8f-760363e3c5e4
 
 	column curso_key
-		isHidden
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: e32b6179-8ea5-4764-ab83-e4924e6365b7
 		summarizeBy: none

@@ -2,8 +2,8 @@ table 'dm3 DIM_EVALUACION'
 	lineageTag: 04ba5cd2-dd03-4532-8910-a66f9ff09f89
 
 	column evaluacion_key
-		isHidden
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: c4c80273-2f66-4017-86e0-2d7a930e242e
 		summarizeBy: none

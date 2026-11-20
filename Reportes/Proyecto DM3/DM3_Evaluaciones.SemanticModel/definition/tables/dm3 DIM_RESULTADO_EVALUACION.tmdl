@@ -2,8 +2,8 @@ table 'dm3 DIM_RESULTADO_EVALUACION'
 	lineageTag: 66e4a439-7c82-43ec-ba02-015f8ab2548f
 
 	column resultado_evaluacion_key
-		isHidden
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 210315cb-e4a9-4a77-a5e9-24476dfc621a
 		summarizeBy: none
@@ -12,11 +12,11 @@ table 'dm3 DIM_RESULTADO_EVALUACION'
 		annotation SummarizationSetBy = Automatic
 
 	column resultado_evaluacion
-		sortByColumn: orden
 		dataType: string
 		lineageTag: eafa51c7-e4fd-498f-87aa-d8ad8f7049d3
 		summarizeBy: none
 		sourceColumn: resultado_evaluacion
+		sortByColumn: orden
 
 		annotation SummarizationSetBy = Automatic
 
