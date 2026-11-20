@@ -1,0 +1,30 @@
+relationship d630e056-a681-4c12-b767-b97bf1557f5c
+	fromColumn: 'dm3 FACT_ENTREGA_EVALUACION'.estado_key
+	toColumn: 'dm3 DIM_ESTADO_ENTREGA'.estado_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 37565045-4d6f-4f8a-96f5-94da27e8a1d1
+	fromColumn: 'dm3 FACT_ENTREGA_EVALUACION'.evaluacion_key
+	toColumn: 'dm3 DIM_EVALUACION'.evaluacion_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 9884d749-127a-47bb-9a02-74edd2c1a6cc
+	fromColumn: 'dm3 FACT_ENTREGA_EVALUACION'.resultado_evaluacion_key
+	toColumn: 'dm3 DIM_RESULTADO_EVALUACION'.resultado_evaluacion_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 8977f5dc-684c-0da7-46a9-290476c82a8b
+	fromColumn: 'dm3 FACT_ENTREGA_EVALUACION'.student_key
+	toColumn: 'comun DIM_ESTUDIANTE'.student_key
+
+relationship e0638fb1-0876-6467-80c1-a932fc6202e8
+	fromColumn: 'dm3 FACT_ENTREGA_EVALUACION'.curso_key
+	toColumn: 'comun DIM_CURSO'.curso_key
+
+relationship 49cfc9ac-f43f-500a-5bb0-ebb2ca093fe8
+	fromColumn: 'dm3 FACT_ENTREGA_EVALUACION'.tiempo_entrega_key
+	toColumn: 'comun DIM_TIEMPO'.tiempo_key
+

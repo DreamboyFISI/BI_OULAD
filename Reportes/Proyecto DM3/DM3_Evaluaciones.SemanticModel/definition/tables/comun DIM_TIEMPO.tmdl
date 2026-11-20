@@ -1,0 +1,58 @@
+table 'comun DIM_TIEMPO'
+	lineageTag: 29a3ac7c-c86a-4d08-bbac-d698c8c04561
+
+	column tiempo_key
+		isHidden
+		dataType: int64
+		formatString: 0
+		lineageTag: b180d72c-e824-4f06-bb82-e350891c2c57
+		summarizeBy: none
+		sourceColumn: tiempo_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column dia_offset
+		dataType: int64
+		formatString: 0
+		lineageTag: a7ccdb70-956b-445e-bcc0-1403932e829a
+		summarizeBy: none
+		sourceColumn: dia_offset
+
+		annotation SummarizationSetBy = Automatic
+
+	column semana
+		dataType: int64
+		formatString: 0
+		lineageTag: a761bdac-a53b-42ef-9a82-7f6faf27a5ca
+		summarizeBy: none
+		sourceColumn: semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_desconocido
+		dataType: string
+		lineageTag: 3162d0f1-2199-4061-a495-d6bed06aaa6c
+		summarizeBy: none
+		sourceColumn: es_desconocido
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_sin_baja
+		dataType: string
+		lineageTag: 9b6b9162-90e6-451c-9f2d-abefceff1c7c
+		summarizeBy: none
+		sourceColumn: es_sin_baja
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'comun DIM_TIEMPO' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("sqlserver-jcbi.database.windows.net", "DM1_RendimientoAcad"),
+				  #"Navegación 1" = Origen{[Schema = "comun", Item = "DIM_TIEMPO"]}[Data]
+				in
+				  #"Navegación 1"
+
+	annotation PBI_ResultType = Table
+

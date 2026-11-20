@@ -1,0 +1,74 @@
+table 'comun DIM_CURSO'
+	lineageTag: a184d0be-7279-420c-bb8f-760363e3c5e4
+
+	column curso_key
+		isHidden
+		dataType: int64
+		formatString: 0
+		lineageTag: e32b6179-8ea5-4764-ab83-e4924e6365b7
+		summarizeBy: none
+		sourceColumn: curso_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column code_module
+		dataType: string
+		lineageTag: 8f9c5a7f-04e7-4210-809d-020bd4bea52e
+		summarizeBy: none
+		sourceColumn: code_module
+
+		annotation SummarizationSetBy = Automatic
+
+	column code_presentation
+		dataType: string
+		lineageTag: 0d37b71c-6cca-4e1f-9908-8eee94c201c8
+		summarizeBy: none
+		sourceColumn: code_presentation
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio
+		dataType: int64
+		formatString: 0
+		lineageTag: 91294906-7da1-4c8e-805f-b0ad49b34aab
+		summarizeBy: none
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column convocatoria
+		dataType: string
+		lineageTag: aeb6f1a0-11e7-40cc-9576-d212995a5d4b
+		summarizeBy: none
+		sourceColumn: convocatoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column duracion_dias
+		dataType: int64
+		formatString: 0
+		lineageTag: ebb16e23-e97a-4369-adc7-92c35b6384cd
+		summarizeBy: none
+		sourceColumn: duracion_dias
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_curso
+		dataType: string
+		lineageTag: c2a289fe-604c-47ca-a90d-1e2eb907bea9
+		summarizeBy: none
+		sourceColumn: nombre_curso
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'comun DIM_CURSO' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("sqlserver-jcbi.database.windows.net", "DM1_RendimientoAcad"),
+				  #"Navegación 1" = Origen{[Schema = "comun", Item = "DIM_CURSO"]}[Data]
+				in
+				  #"Navegación 1"
+
+	annotation PBI_ResultType = Table
+
