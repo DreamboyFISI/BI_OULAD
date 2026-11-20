@@ -1,0 +1,92 @@
+table 'comun DIM_CURSO'
+	lineageTag: 1496aa91-1cd4-48f2-aecd-e4889ad9aac4
+
+	column curso_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 477e13e2-54d5-48c8-abe3-8d8fccc5b361
+		summarizeBy: none
+		sourceColumn: curso_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column code_module
+		dataType: string
+		lineageTag: 1623f189-3938-45fb-a3b8-3011571d3ce2
+		summarizeBy: none
+		sourceColumn: code_module
+
+		annotation SummarizationSetBy = Automatic
+
+	column code_presentation
+		dataType: string
+		lineageTag: f7a3bc9c-64a5-46ff-b116-251c2fdab062
+		summarizeBy: none
+		sourceColumn: code_presentation
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio
+		dataType: int64
+		formatString: 0
+		lineageTag: c99ee59f-421d-4699-99c7-68d135723862
+		summarizeBy: none
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column convocatoria
+		dataType: string
+		lineageTag: 6ab9f9e2-0102-4caa-b438-e32b91dface1
+		summarizeBy: none
+		sourceColumn: convocatoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column duracion_dias
+		dataType: int64
+		formatString: 0
+		lineageTag: f071461d-bd74-406d-80c0-a8c6d3c1538f
+		summarizeBy: none
+		sourceColumn: duracion_dias
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_curso
+		dataType: string
+		lineageTag: 26994f21-fea8-4d2c-bfe0-ef4a747970da
+		summarizeBy: none
+		sourceColumn: nombre_curso
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Jerarquía de presentación'
+		lineageTag: 0bacf0ae-2801-4e0a-9426-c7b12e632f79
+
+		level code_module
+			lineageTag: a583af75-5420-4c7b-9a4b-1a1fb5ea44b2
+			column: code_module
+
+		level anio
+			lineageTag: a1078243-7bd2-4458-8b54-f4741a62f572
+			column: anio
+
+		level convocatoria
+			lineageTag: a03468f1-8585-4b61-aea1-9d035a8ebfc8
+			column: convocatoria
+
+		level code_presentation
+			lineageTag: fa1c0831-c96d-4644-a2e3-9498a308e12c
+			column: code_presentation
+
+	partition 'comun DIM_CURSO' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("sqlserver-jcbi.database.windows.net", "DM1_RendimientoAcad"),
+				    comun_DIM_CURSO = Origen{[Schema="comun",Item="DIM_CURSO"]}[Data]
+				in
+				    comun_DIM_CURSO
+
+	annotation PBI_ResultType = Table
+

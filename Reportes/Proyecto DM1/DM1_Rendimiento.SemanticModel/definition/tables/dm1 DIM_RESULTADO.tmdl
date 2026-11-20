@@ -1,0 +1,91 @@
+table 'dm1 DIM_RESULTADO'
+	lineageTag: 6de63f9e-70cb-4f1a-b91c-e9557a91b623
+
+	column resultado_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d2eeeda-2076-49d6-90ce-4180db2dc3f7
+		summarizeBy: none
+		sourceColumn: resultado_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column final_result
+		dataType: string
+		lineageTag: 901d36ed-6e69-4e55-ac47-cf13f4ab41fb
+		summarizeBy: none
+		sourceColumn: final_result
+
+		annotation SummarizationSetBy = Automatic
+
+	column grupo_resultado
+		dataType: string
+		lineageTag: c032fe96-9712-4484-bae6-4ae997b5f0b6
+		summarizeBy: none
+		sourceColumn: grupo_resultado
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_aprobado
+		dataType: string
+		lineageTag: e81d2115-e353-45a7-b085-87431caf90a5
+		summarizeBy: none
+		sourceColumn: es_aprobado
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_reprobado
+		dataType: string
+		lineageTag: 09b38c22-507e-484c-bd12-3ff815a7a175
+		summarizeBy: none
+		sourceColumn: es_reprobado
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_retirado
+		dataType: string
+		lineageTag: 232ccb91-dc57-4f3b-b662-bef42e54a641
+		summarizeBy: none
+		sourceColumn: es_retirado
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_distincion
+		dataType: string
+		lineageTag: f843bba2-4b38-4dbe-8403-ddb75748ad6d
+		summarizeBy: none
+		sourceColumn: es_distincion
+
+		annotation SummarizationSetBy = Automatic
+
+	column orden
+		dataType: int64
+		formatString: 0
+		lineageTag: 12115f93-58f5-4ed1-98b0-908e575bb592
+		summarizeBy: none
+		sourceColumn: orden
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Jerarquía de resultado'
+		lineageTag: 460e2408-063a-44b2-972b-fcade3674f8b
+
+		level grupo_resultado
+			lineageTag: f22472f3-4ce5-4077-a764-f2ddeb2c542f
+			column: grupo_resultado
+
+		level final_result
+			lineageTag: fe92037c-11d0-4d22-aaab-ae4de7949ae9
+			column: final_result
+
+	partition 'dm1 DIM_RESULTADO' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("sqlserver-jcbi.database.windows.net", "DM1_RendimientoAcad"),
+				    dm1_DIM_RESULTADO = Origen{[Schema="dm1",Item="DIM_RESULTADO"]}[Data]
+				in
+				    dm1_DIM_RESULTADO
+
+	annotation PBI_ResultType = Table
+

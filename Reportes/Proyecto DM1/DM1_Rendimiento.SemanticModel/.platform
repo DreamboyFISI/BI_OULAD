@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "DM1_Rendimiento"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "aa4ec13b-4ec9-417f-a308-f1bcda329cfa"
+  }
+}
