@@ -1,0 +1,25 @@
+model Model
+	culture: es-PE
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-PE
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dm3 DIM_ESTADO_ENTREGA","dm3 DIM_EVALUACION","dm3 DIM_RESULTADO_EVALUACION","dm3 FACT_ENTREGA_EVALUACION","comun DIM_CURSO","comun DIM_ESTUDIANTE","comun DIM_TIEMPO"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'dm3 DIM_ESTADO_ENTREGA'
+ref table 'dm3 DIM_EVALUACION'
+ref table 'dm3 DIM_RESULTADO_EVALUACION'
+ref table 'dm3 FACT_ENTREGA_EVALUACION'
+ref table 'comun DIM_CURSO'
+ref table 'comun DIM_ESTUDIANTE'
+ref table 'comun DIM_TIEMPO'
+
+ref cultureInfo es-PE
+

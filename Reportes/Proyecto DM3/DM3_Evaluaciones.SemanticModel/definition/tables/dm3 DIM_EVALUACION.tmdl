@@ -1,0 +1,101 @@
+table 'dm3 DIM_EVALUACION'
+	lineageTag: 04ba5cd2-dd03-4532-8910-a66f9ff09f89
+
+	column evaluacion_key
+		isHidden
+		dataType: int64
+		formatString: 0
+		lineageTag: c4c80273-2f66-4017-86e0-2d7a930e242e
+		summarizeBy: none
+		sourceColumn: evaluacion_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_assessment
+		dataType: int64
+		formatString: 0
+		lineageTag: d652483d-bcec-46fc-b319-8f82d5897a05
+		summarizeBy: none
+		sourceColumn: id_assessment
+
+		annotation SummarizationSetBy = Automatic
+
+	column assessment_type
+		dataType: string
+		lineageTag: c6c7bdda-67e5-4289-b8cd-d70a87a5ec89
+		summarizeBy: none
+		sourceColumn: assessment_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_evaluacion
+		dataType: string
+		lineageTag: a8612adc-0f21-4eb0-8813-4b321252b85a
+		summarizeBy: none
+		sourceColumn: tipo_evaluacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column due_day
+		dataType: int64
+		formatString: 0
+		lineageTag: c572019d-1401-4075-8025-eb74e8997a70
+		summarizeBy: none
+		sourceColumn: due_day
+
+		annotation SummarizationSetBy = Automatic
+
+	column due_day_estimado
+		dataType: int64
+		formatString: 0
+		lineageTag: 06c2173e-f6b0-41dd-91f5-7c946f2783a6
+		summarizeBy: none
+		sourceColumn: due_day_estimado
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_estimada
+		dataType: string
+		lineageTag: ea508227-892f-4cf1-aa86-01867c563eab
+		summarizeBy: none
+		sourceColumn: fecha_estimada
+
+		annotation SummarizationSetBy = Automatic
+
+	column weight
+		dataType: double
+		lineageTag: a80a3932-f49b-4022-8eea-9ad122b7a527
+		summarizeBy: none
+		sourceColumn: weight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_exam
+		dataType: string
+		lineageTag: 12e9d31e-dc69-4b27-88f6-495b46af4e46
+		summarizeBy: none
+		sourceColumn: is_exam
+
+		annotation SummarizationSetBy = Automatic
+
+	column tiene_fecha_limite
+		dataType: string
+		lineageTag: 0bdab2c6-bb14-49fe-a223-bce1c91b65b9
+		summarizeBy: none
+		sourceColumn: tiene_fecha_limite
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm3 DIM_EVALUACION' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("sqlserver-jcbi.database.windows.net", "DM1_RendimientoAcad"),
+				  #"Navegación 1" = Origen{[Schema = "dm3", Item = "DIM_EVALUACION"]}[Data]
+				in
+				  #"Navegación 1"
+
+	annotation PBI_ResultType = Table
+

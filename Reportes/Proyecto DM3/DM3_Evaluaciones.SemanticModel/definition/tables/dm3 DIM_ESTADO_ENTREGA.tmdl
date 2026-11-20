@@ -1,0 +1,82 @@
+table 'dm3 DIM_ESTADO_ENTREGA'
+	lineageTag: 3b58a607-ecfd-4a19-9a12-a3c5d70f1341
+
+	column estado_key
+		isHidden
+		dataType: int64
+		formatString: 0
+		lineageTag: 81064334-b18f-42b8-89c8-d3591256945a
+		summarizeBy: none
+		sourceColumn: estado_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column estado
+		sortByColumn: orden
+		dataType: string
+		lineageTag: 8643cc24-ed1c-46e3-900d-584898a4f47c
+		summarizeBy: none
+		sourceColumn: estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_entregado
+		dataType: string
+		lineageTag: 71c04c8e-3814-4bb5-b0d1-d72ba9dafeca
+		summarizeBy: none
+		sourceColumn: es_entregado
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_puntual
+		dataType: string
+		lineageTag: 2a3ccb8d-bb0e-4459-9875-cb9876c5d1d4
+		summarizeBy: none
+		sourceColumn: es_puntual
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_tarde
+		dataType: string
+		lineageTag: b7c4a6f6-acad-4712-a14a-f8e06d2a27e1
+		summarizeBy: none
+		sourceColumn: es_tarde
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_no_entregado
+		dataType: string
+		lineageTag: 18c051a7-d750-4dc5-8c15-ae668a4447b6
+		summarizeBy: none
+		sourceColumn: es_no_entregado
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_banked
+		dataType: string
+		lineageTag: a4babe62-f169-4a1a-aace-6956d96e4f04
+		summarizeBy: none
+		sourceColumn: es_banked
+
+		annotation SummarizationSetBy = Automatic
+
+	column orden
+		dataType: int64
+		formatString: 0
+		lineageTag: c1ef103a-6966-44e3-b91b-3909e9cbf2ee
+		summarizeBy: none
+		sourceColumn: orden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm3 DIM_ESTADO_ENTREGA' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("sqlserver-jcbi.database.windows.net", "DM1_RendimientoAcad"),
+				  #"Navegación 1" = Origen{[Schema = "dm3", Item = "DIM_ESTADO_ENTREGA"]}[Data]
+				in
+				  #"Navegación 1"
+
+	annotation PBI_ResultType = Table
+
