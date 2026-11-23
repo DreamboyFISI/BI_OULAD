@@ -1,0 +1,236 @@
+table 'dm1 FACT_RESULTADO_ACADEMICO'
+	lineageTag: ac737065-c0f2-4a3a-81e8-1b9854a8e1c3
+
+	measure Matrículas = COUNTROWS('dm1 FACT_RESULTADO_ACADEMICO')
+		formatString: #,0
+		lineageTag: c711bdac-479d-4fdf-8ac1-77e3376bcdc0
+
+	measure 'Tasa de Aprobación' = DIVIDE([Matrículas Aprobadas], [Matrículas])
+		formatString: 0.0%
+		lineageTag: bf1817f6-52a2-452a-97db-d8457422cca3
+
+	measure 'Tasa de Reprobación' = DIVIDE([Matrículas Reprobadas], [Matrículas])
+		formatString: 0.0%
+		lineageTag: d597bbf4-00af-4e6c-8fed-149d7ab032e1
+
+	measure 'Tasa de Distinción' = DIVIDE([Matrículas con Distinción], [Matrículas])
+		formatString: 0.0%
+		lineageTag: 29e19d98-ac07-4344-a8f2-df690256ae96
+
+	measure 'Tasa de Entrega' = DIVIDE(SUM('dm1 FACT_RESULTADO_ACADEMICO'[evaluaciones_entregadas]), SUM('dm1 FACT_RESULTADO_ACADEMICO'[evaluaciones_esperadas]))
+		formatString: 0.0%
+		lineageTag: bf790c93-9845-4162-9614-c976833ba18e
+
+	measure Estudiantes = DISTINCTCOUNT('comun DIM_ESTUDIANTE'[id_student])
+		formatString: #,0
+		lineageTag: 6d5c9b52-b434-4b11-b48f-844dd63e9a5e
+
+	measure 'Días Activos Promedio' = AVERAGE('dm1 FACT_RESULTADO_ACADEMICO'[dias_activos])
+		formatString: 0.0
+		lineageTag: 8e8e6b63-7e16-4485-9482-08fb43cf66be
+
+	measure 'Matrículas Aprobadas' = CALCULATE([Matrículas], 'dm1 DIM_RESULTADO'[es_aprobado] IN {"Si","Sí","1"})
+		formatString: #,0
+		lineageTag: ef6d9287-16d3-4856-9f67-b4a533c600ae
+
+	measure 'Matrículas Reprobadas' = CALCULATE([Matrículas], 'dm1 DIM_RESULTADO'[es_reprobado] IN {"Si","Sí","1"})
+		formatString: #,0
+		lineageTag: c1143095-cbcf-422c-b0ab-064e33ba608e
+
+	measure 'Matrículas Retiradas' = CALCULATE([Matrículas], 'dm1 DIM_RESULTADO'[es_retirado] IN {"Si","Sí","1"})
+		formatString: #,0
+		lineageTag: 2c0d3807-85f2-4563-bfad-5deae199f30b
+
+	measure 'Matrículas con Distinción' = CALCULATE([Matrículas], 'dm1 DIM_RESULTADO'[es_distincion] IN {"Si","Sí","1"})
+		formatString: #,0
+		lineageTag: ddc6ec13-4e4d-4927-8dbe-f8f22ff7dfd8
+
+	measure 'Tasa de Deserción' = DIVIDE([Matrículas Retiradas], [Matrículas])
+		formatString: 0.0%
+		lineageTag: 3bee8c3b-b72b-4049-a502-5b71512ac3b0
+
+	measure 'Nota Media Ponderada' = DIVIDE(SUM('dm1 FACT_RESULTADO_ACADEMICO'[suma_notas_ponderadas]), SUM('dm1 FACT_RESULTADO_ACADEMICO'[suma_pesos]))
+		formatString: 0.0
+		lineageTag: d5a5171e-10b8-4378-a62d-90c2777d03ed
+
+	measure 'Tasa de Calificación' = DIVIDE(SUM('dm1 FACT_RESULTADO_ACADEMICO'[evaluaciones_calificadas]), SUM('dm1 FACT_RESULTADO_ACADEMICO'[evaluaciones_entregadas]))
+		formatString: 0.0%
+		lineageTag: 7ce946dd-5bb7-42db-a7a5-f4c0e2954148
+
+	measure 'Clics Totales' = SUM('dm1 FACT_RESULTADO_ACADEMICO'[clics_totales])
+		formatString: #,0
+		lineageTag: 39cd184f-2e22-4158-b6d2-4023eaf0d91a
+
+	measure 'Clics por Matrícula' = DIVIDE([Clics Totales], [Matrículas])
+		formatString: #,0.0
+		lineageTag: e70e0b1d-cf78-4419-9ed5-7daa333ca80f
+
+	measure 'Créditos Promedio' = AVERAGE('dm1 FACT_RESULTADO_ACADEMICO'[creditos_matriculados])
+		formatString: 0.0
+		lineageTag: 9fbf80d7-9551-4cac-a6db-b2158dac61fb
+
+	measure 'Intentos Previos Promedio' = AVERAGE('dm1 FACT_RESULTADO_ACADEMICO'[intentos_previos])
+		formatString: 0.00
+		lineageTag: c3a43bd4-177d-4d8d-9832-40b2532a96bd
+
+	measure 'Días hasta la Baja Promedio' = CALCULATE(AVERAGE('dm1 FACT_RESULTADO_ACADEMICO'[dias_desde_alta_hasta_baja]), 'dm1 DIM_RESULTADO'[es_retirado] IN {"Si","Sí","1"})
+		formatString: 0.0
+		lineageTag: 44d7cc19-d4f6-477d-98ae-2dc704bd8a11
+
+	column student_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 6acf31d1-d503-4785-ab65-f821c162692b
+		summarizeBy: none
+		sourceColumn: student_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column curso_key
+		dataType: int64
+		formatString: 0
+		lineageTag: fd3d39a9-5303-4f01-a4e0-3436a3efa21d
+		summarizeBy: none
+		sourceColumn: curso_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column tiempo_alta_key
+		dataType: int64
+		formatString: 0
+		lineageTag: bd7235ad-b5cd-4684-8ffd-55d7060f03f1
+		summarizeBy: none
+		sourceColumn: tiempo_alta_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column tiempo_baja_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 3057240d-ee97-4397-b74f-c76c34ba5bb4
+		summarizeBy: sum
+		sourceColumn: tiempo_baja_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column resultado_key
+		dataType: int64
+		formatString: 0
+		lineageTag: bbac123f-f6d5-43fb-b28c-726e032832e1
+		summarizeBy: none
+		sourceColumn: resultado_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column creditos_matriculados
+		dataType: int64
+		formatString: 0
+		lineageTag: 1328134f-1239-4b5f-a266-9547dabaaedc
+		summarizeBy: sum
+		sourceColumn: creditos_matriculados
+
+		annotation SummarizationSetBy = Automatic
+
+	column intentos_previos
+		dataType: int64
+		formatString: 0
+		lineageTag: 72618edc-c2f1-42bc-af7e-0bd127eeda92
+		summarizeBy: sum
+		sourceColumn: intentos_previos
+
+		annotation SummarizationSetBy = Automatic
+
+	column dias_desde_alta_hasta_baja
+		dataType: int64
+		formatString: 0
+		lineageTag: 63f6389c-a55d-4c9b-ac86-e8e92ce2477a
+		summarizeBy: sum
+		sourceColumn: dias_desde_alta_hasta_baja
+
+		annotation SummarizationSetBy = Automatic
+
+	column evaluaciones_esperadas
+		dataType: int64
+		formatString: 0
+		lineageTag: 99fac9e2-5915-4ccd-ac66-bda6f17e7877
+		summarizeBy: sum
+		sourceColumn: evaluaciones_esperadas
+
+		annotation SummarizationSetBy = Automatic
+
+	column evaluaciones_entregadas
+		dataType: int64
+		formatString: 0
+		lineageTag: f574cb45-ff6f-48af-b33e-d4f609587047
+		summarizeBy: sum
+		sourceColumn: evaluaciones_entregadas
+
+		annotation SummarizationSetBy = Automatic
+
+	column evaluaciones_calificadas
+		dataType: int64
+		formatString: 0
+		lineageTag: 13f22ee3-04f1-4a91-a8db-11833f4beeb7
+		summarizeBy: sum
+		sourceColumn: evaluaciones_calificadas
+
+		annotation SummarizationSetBy = Automatic
+
+	column evaluaciones_convalidadas
+		dataType: int64
+		formatString: 0
+		lineageTag: cd3715f3-4ad8-4fe0-94a8-8d9d4420d3e5
+		summarizeBy: sum
+		sourceColumn: evaluaciones_convalidadas
+
+		annotation SummarizationSetBy = Automatic
+
+	column suma_notas_ponderadas
+		dataType: double
+		lineageTag: 0fec08af-c9c9-4b8c-ad76-00bd45243431
+		summarizeBy: sum
+		sourceColumn: suma_notas_ponderadas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column suma_pesos
+		dataType: double
+		lineageTag: 191aed92-cad9-41d9-b6bf-fb9cc2d48686
+		summarizeBy: sum
+		sourceColumn: suma_pesos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column clics_totales
+		dataType: int64
+		formatString: 0
+		lineageTag: 44dd54d6-bfca-4b2d-9020-698369f520f1
+		summarizeBy: sum
+		sourceColumn: clics_totales
+
+		annotation SummarizationSetBy = Automatic
+
+	column dias_activos
+		dataType: int64
+		formatString: 0
+		lineageTag: c006d2c3-c95d-4357-9c30-42b264e03bc8
+		summarizeBy: sum
+		sourceColumn: dias_activos
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm1 FACT_RESULTADO_ACADEMICO' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("sqlserver-jcbi.database.windows.net", "DM1_RendimientoAcad"),
+				    dm1_FACT_RESULTADO_ACADEMICO = Origen{[Schema="dm1",Item="FACT_RESULTADO_ACADEMICO"]}[Data]
+				in
+				    dm1_FACT_RESULTADO_ACADEMICO
+
+	annotation PBI_ResultType = Table
+

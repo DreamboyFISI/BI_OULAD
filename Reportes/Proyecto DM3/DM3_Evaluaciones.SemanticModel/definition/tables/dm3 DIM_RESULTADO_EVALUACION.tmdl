@@ -1,0 +1,94 @@
+table 'dm3 DIM_RESULTADO_EVALUACION'
+	lineageTag: 66e4a439-7c82-43ec-ba02-015f8ab2548f
+
+	column resultado_evaluacion_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 210315cb-e4a9-4a77-a5e9-24476dfc621a
+		summarizeBy: none
+		sourceColumn: resultado_evaluacion_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column resultado_evaluacion
+		dataType: string
+		lineageTag: eafa51c7-e4fd-498f-87aa-d8ad8f7049d3
+		summarizeBy: none
+		sourceColumn: resultado_evaluacion
+		sortByColumn: orden
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_aprobado
+		dataType: string
+		lineageTag: a0b6487e-d757-4aa1-80f0-1cb1651619ec
+		summarizeBy: none
+		sourceColumn: es_aprobado
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_desaprobado
+		dataType: string
+		lineageTag: 4ed2e6ae-2c08-4c9f-9951-43c90387d722
+		summarizeBy: none
+		sourceColumn: es_desaprobado
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_calificado
+		dataType: string
+		lineageTag: 8f553861-da7c-4e73-a2f1-8ea2aeb965ff
+		summarizeBy: none
+		sourceColumn: es_calificado
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_convalidado
+		dataType: string
+		lineageTag: 142e2b94-6b0b-4a39-a7c3-dcd94588c1ff
+		summarizeBy: none
+		sourceColumn: es_convalidado
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_min
+		dataType: double
+		lineageTag: 1b0d79ba-246e-4157-a606-c4dc6ab9e779
+		summarizeBy: none
+		sourceColumn: rango_min
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rango_max
+		dataType: double
+		lineageTag: 253d8094-fc4f-4ead-b362-960168841a95
+		summarizeBy: none
+		sourceColumn: rango_max
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column orden
+		dataType: int64
+		formatString: 0
+		lineageTag: e597c4c7-788f-4e65-972c-bba96d5a2b0d
+		summarizeBy: none
+		sourceColumn: orden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm3 DIM_RESULTADO_EVALUACION' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("sqlserver-jcbi.database.windows.net", "DM1_RendimientoAcad"),
+				  #"Navegación 1" = Origen{[Schema = "dm3", Item = "DIM_RESULTADO_EVALUACION"]}[Data]
+				in
+				  #"Navegación 1"
+
+	annotation PBI_ResultType = Table
+

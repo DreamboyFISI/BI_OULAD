@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "69ec4d21a23b121e2576",
+  "position": {
+    "x": 524,
+    "y": 136,
+    "z": 2,
+    "height": 104,
+    "width": 232,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm3 FACT_ENTREGA_EVALUACION"
+                    }
+                  },
+                  "Property": "% Tardías"
+                }
+              },
+              "queryRef": "dm3 FACT_ENTREGA_EVALUACION.% Tardías",
+              "nativeQueryRef": "% Tardías",
+              "format": "0.00 %;-0.00 %;0.00 %"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dm3 FACT_ENTREGA_EVALUACION"
+                  }
+                },
+                "Property": "% Tardías"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

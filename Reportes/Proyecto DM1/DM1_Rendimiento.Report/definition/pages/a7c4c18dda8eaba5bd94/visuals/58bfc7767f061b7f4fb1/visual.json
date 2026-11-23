@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "58bfc7767f061b7f4fb1",
+  "position": {
+    "x": 273.6,
+    "y": 144,
+    "z": 5000,
+    "height": 100,
+    "width": 233.6,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm1 FACT_RESULTADO_ACADEMICO"
+                    }
+                  },
+                  "Property": "Tasa de Aprobación"
+                }
+              },
+              "queryRef": "dm1 FACT_RESULTADO_ACADEMICO.Tasa de Aprobación",
+              "nativeQueryRef": "Tasa de Aprobación"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

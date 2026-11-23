@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "ea7c4547777c939428ec",
+  "position": {
+    "x": 24,
+    "y": 144,
+    "z": 5000,
+    "height": 100,
+    "width": 296,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm1 FACT_RESULTADO_ACADEMICO"
+                    }
+                  },
+                  "Property": "Estudiantes"
+                }
+              },
+              "queryRef": "dm1 FACT_RESULTADO_ACADEMICO.Estudiantes",
+              "nativeQueryRef": "Estudiantes"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

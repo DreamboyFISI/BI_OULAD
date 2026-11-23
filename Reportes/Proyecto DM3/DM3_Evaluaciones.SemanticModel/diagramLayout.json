@@ -1,0 +1,113 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 234.71845255128491,
+            "y": 0
+          },
+          "nodeIndex": "dm3 DIM_ESTADO_ENTREGA",
+          "nodeLineageTag": "3b58a607-ecfd-4a19-9a12-a3c5d70f1341",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 543.37898190076692,
+            "y": 5.9586597597188682
+          },
+          "nodeIndex": "dm3 DIM_EVALUACION",
+          "nodeLineageTag": "04ba5cd2-dd03-4532-8910-a66f9ff09f89",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 832.39081982011,
+            "y": 0
+          },
+          "nodeIndex": "dm3 DIM_RESULTADO_EVALUACION",
+          "nodeLineageTag": "66e4a439-7c82-43ec-ba02-015f8ab2548f",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 982.21255381555875,
+            "y": 404.03138905282941
+          },
+          "nodeIndex": "dm3 FACT_ENTREGA_EVALUACION",
+          "nodeLineageTag": "22f113be-cc13-44e1-a96e-ba8159a82be1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 1124.9674678843676,
+            "y": 0
+          },
+          "nodeIndex": "comun DIM_CURSO",
+          "nodeLineageTag": "a184d0be-7279-420c-bb8f-760363e3c5e4",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1663.2036176323727,
+            "y": 0
+          },
+          "nodeIndex": "comun DIM_ESTUDIANTE",
+          "nodeLineageTag": "f965c646-517d-4e23-badf-a0bab2beb3b7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1397.075812189523,
+            "y": 0
+          },
+          "nodeIndex": "comun DIM_TIEMPO",
+          "nodeLineageTag": "29a3ac7c-c86a-4d08-bbac-d698c8c04561",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 6
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 70.955543900968863,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

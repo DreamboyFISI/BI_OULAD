@@ -1,0 +1,20 @@
+relationship 2e095fda-8b6c-4768-b0d5-2fdabc7ac7cf
+	fromColumn: 'dm1 FACT_RESULTADO_ACADEMICO'.curso_key
+	toColumn: 'comun DIM_CURSO'.curso_key
+
+relationship 37004c31-f9f0-4721-92b4-bc22dafb3b92
+	fromColumn: 'dm1 FACT_RESULTADO_ACADEMICO'.student_key
+	toColumn: 'comun DIM_ESTUDIANTE'.student_key
+
+relationship 623ac50e-4299-4442-addc-6ff8287a0ef3
+	fromColumn: 'dm1 FACT_RESULTADO_ACADEMICO'.resultado_key
+	toColumn: 'dm1 DIM_RESULTADO'.resultado_key
+
+relationship 6960c7e2-afbd-45f6-80ed-c527ffc0da92
+	fromColumn: 'dm1 FACT_RESULTADO_ACADEMICO'.tiempo_alta_key
+	toColumn: 'dm1 DIM_TIEMPO_MATRICULA'.tiempo_key
+
+relationship cb86e1ae-1d76-4fb0-a923-ce6835a4311b
+	fromColumn: 'dm1 FACT_RESULTADO_ACADEMICO'.tiempo_baja_key
+	toColumn: 'dm1 DIM_TIEMPO_BAJA'.tiempo_key
+

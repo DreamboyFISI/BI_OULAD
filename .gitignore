@@ -55,3 +55,4 @@ Desktop.ini
 
 # Los archivos fuente de SSIS/SSAS y los reportes PBIX sí se versionan.
 # Este archivo no elimina credenciales ya guardadas dentro de .dtsx o Model.bim.
+**/.pbi/

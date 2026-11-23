@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "73a3d2f48f58ce7ffe9d",
+  "position": {
+    "x": 960,
+    "y": 144,
+    "z": 8000,
+    "height": 100,
+    "width": 296,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm1 FACT_RESULTADO_ACADEMICO"
+                    }
+                  },
+                  "Property": "Nota Media Ponderada"
+                }
+              },
+              "queryRef": "dm1 FACT_RESULTADO_ACADEMICO.Nota Media Ponderada",
+              "nativeQueryRef": "Nota Media Ponderada"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

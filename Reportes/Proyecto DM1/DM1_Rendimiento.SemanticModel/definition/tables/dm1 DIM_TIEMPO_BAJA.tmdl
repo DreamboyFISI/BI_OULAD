@@ -1,0 +1,68 @@
+table 'dm1 DIM_TIEMPO_BAJA'
+	lineageTag: d8bc1f36-be82-4376-bbb3-a6cff7f346bb
+
+	column tiempo_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 407d61f5-1947-4ee7-ac08-ef263b98f67d
+		summarizeBy: sum
+		sourceColumn: tiempo_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column dia_offset
+		dataType: int64
+		formatString: 0
+		lineageTag: b36a043d-c2e6-4bbe-ba9f-ed565344823a
+		summarizeBy: sum
+		sourceColumn: dia_offset
+
+		annotation SummarizationSetBy = Automatic
+
+	column semana
+		dataType: int64
+		formatString: 0
+		lineageTag: c1cd90db-d7f8-44b4-8427-8118dbc377a8
+		summarizeBy: sum
+		sourceColumn: semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_desconocido
+		dataType: string
+		lineageTag: 58a80687-eafd-4449-9797-81e537385407
+		summarizeBy: none
+		sourceColumn: es_desconocido
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_sin_baja
+		dataType: string
+		lineageTag: 0f13f8ce-e8e7-4612-bba5-b6fe310e638b
+		summarizeBy: none
+		sourceColumn: es_sin_baja
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Jerarquía Baja'
+		lineageTag: 86b2a8bf-14fe-41ad-9e23-1545bc6a2236
+
+		level semana
+			lineageTag: 4b8103e8-f999-46e4-8a76-dc8d0306de9f
+			column: semana
+
+		level dia_offset
+			lineageTag: b5491c47-4128-4504-8cf1-9d358db67733
+			column: dia_offset
+
+	partition 'dm1 DIM_TIEMPO_BAJA' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("sqlserver-jcbi.database.windows.net", "DM1_RendimientoAcad"),
+				    dm1_DIM_TIEMPO_BAJA = Origen{[Schema="dm1",Item="DIM_TIEMPO_BAJA"]}[Data]
+				in
+				    dm1_DIM_TIEMPO_BAJA
+
+	annotation PBI_ResultType = Table
+

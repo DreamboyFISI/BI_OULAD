@@ -1,0 +1,215 @@
+table 'dm3 FACT_ENTREGA_EVALUACION'
+	lineageTag: 22f113be-cc13-44e1-a96e-ba8159a82be1
+
+	measure Entregas = COUNTROWS('dm3 FACT_ENTREGA_EVALUACION')
+		formatString: #,0
+		lineageTag: 344b2548-9347-42b1-af04-64416356367f
+
+	measure 'Entregas Puntuales' = CALCULATE([Entregas], 'dm3 DIM_ESTADO_ENTREGA'[es_puntual] IN {"Si","Sí","1"})
+		formatString: 0
+		lineageTag: b19e6273-7563-46d4-8861-467f55f61cb2
+
+	measure 'Entregas Tardías' =
+			
+			CALCULATE([Entregas], 'dm3 DIM_ESTADO_ENTREGA'[es_tarde] IN {"Si","Sí","1"})
+		formatString: 0
+		lineageTag: c4268027-51de-4225-958a-62ed56c4266b
+
+	measure 'No Entregadas' =
+			
+			CALCULATE([Entregas], 'dm3 DIM_ESTADO_ENTREGA'[es_no_entregado] IN {"Si","Sí","1"})
+		formatString: 0
+		lineageTag: eba91763-f700-4fd2-99af-22dacddef6f3
+
+	measure '% Puntualidad' =
+			
+			DIVIDE([Entregas Puntuales], [Entregas con Fecha])
+		formatString: 0.00%
+		lineageTag: 415fb173-da11-4863-8656-28e96a0296f4
+
+	measure '% Tardías' =
+			
+			DIVIDE([Entregas Tardías], [Entregas con Fecha])
+		formatString: 0.00%
+		lineageTag: 11898b6f-baf4-4d7b-954f-a51247a5882b
+
+	measure '% No Entrega' =
+			
+			DIVIDE([No Entregadas], [Entregas Esperadas])
+		formatString: 0.00%
+		lineageTag: f2c407da-3c5b-4868-a396-9873ec5f100a
+
+	measure 'Entregas Calificadas' =
+			
+			CALCULATE([Entregas], 'dm3 DIM_RESULTADO_EVALUACION'[es_calificado] IN {"Si","Sí","1"})
+		formatString: 0
+		lineageTag: b26bf32a-f539-4602-bd6c-735c70fc5b20
+
+	measure 'Entregas Aprobadas' =
+			
+			CALCULATE([Entregas], 'dm3 DIM_RESULTADO_EVALUACION'[es_aprobado] IN {"Si","Sí","1"})
+		formatString: 0
+		lineageTag: a5128778-f8cb-4ea7-bf43-e45048dbf188
+
+	measure 'Tasa de Aprobación' =
+			
+			DIVIDE([Entregas Aprobadas], [Entregas Calificadas])
+		formatString: 0.00%
+		lineageTag: 5a28286b-a3e9-45d8-932a-969e4145975e
+
+	measure 'Nota Promedio' =
+			
+			AVERAGE('dm3 FACT_ENTREGA_EVALUACION'[score])
+		formatString: 0.00
+		lineageTag: fe1b3a53-5b69-4be7-a3c5-adf50b9841f3
+
+	measure 'Días de Retraso Promedio' =
+			
+			AVERAGE('dm3 FACT_ENTREGA_EVALUACION'[days_late])
+		formatString: 0.0
+		lineageTag: 954de2b5-ba7c-4d09-8744-6a36e993af63
+
+	measure 'Entregas con Fecha' =
+			
+			CALCULATE([Entregas], 'dm3 DIM_ESTADO_ENTREGA'[es_puntual] = "Si")
+			    + CALCULATE([Entregas], 'dm3 DIM_ESTADO_ENTREGA'[es_tarde] = "Si")
+		formatString: 0
+		lineageTag: 75bfb0f7-e78b-4bf6-b299-e10eaf927de3
+
+	measure 'Entregas Esperadas' =
+			
+			CALCULATE([Entregas], 'dm3 DIM_ESTADO_ENTREGA'[es_banked] = "No")
+		formatString: 0
+		lineageTag: bea6eb05-4683-44c5-9b15-2db67d2ae6a9
+
+	measure '% del Total' =
+			
+			DIVIDE([Entregas], CALCULATE([Entregas], ALL('dm3 DIM_ESTADO_ENTREGA')))
+		formatString: 0.0%
+		lineageTag: a371e0d1-f31c-464d-99a1-6225c2bdeb3c
+
+	measure 'Retraso Promedio Tardías' = CALCULATE(AVERAGE('dm3 FACT_ENTREGA_EVALUACION'[days_late]), 'dm3 DIM_ESTADO_ENTREGA'[es_tarde] = "Si")
+		formatString: 0.0
+		lineageTag: 3bb427c1-a1da-459d-aad1-245c92010b38
+
+	measure Estudiantes = DISTINCTCOUNT('comun DIM_ESTUDIANTE'[id_student])
+		formatString: #,0
+		lineageTag: 7a9d9691-46fc-4893-973c-43fad1272a25
+
+	measure 'Entregas con Fecha (semana)' = CALCULATE([Entregas con Fecha], 'comun DIM_TIEMPO'[es_desconocido] <> "Si")
+		formatString: #,0
+		lineageTag: 885d6f33-e40c-4fc4-a158-fb57a6e04b64
+
+	measure '% Puntualidad (semana)' = CALCULATE([% Puntualidad], 'comun DIM_TIEMPO'[es_desconocido] <> "Si")
+		formatString: 0.0%
+		lineageTag: faaedb9e-2fbf-4968-8701-1b4ee8a8fc75
+
+	column student_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 97079d27-e659-4524-b5b2-d5ef4f937a60
+		summarizeBy: none
+		sourceColumn: student_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column curso_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6903146e-c9bc-44b9-9f9a-8f97025ce94f
+		summarizeBy: none
+		sourceColumn: curso_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column evaluacion_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7dc567d0-ab15-40ac-b1c8-61fb01960921
+		summarizeBy: none
+		sourceColumn: evaluacion_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column tiempo_entrega_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 10a19f6e-6e71-4580-9f6a-f3e8308f15dc
+		summarizeBy: none
+		sourceColumn: tiempo_entrega_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column estado_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b4c0bf7c-020f-4a73-9178-e68bab0a19fd
+		summarizeBy: none
+		sourceColumn: estado_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column resultado_evaluacion_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f0134831-e2ec-443e-af87-8121627b27c9
+		summarizeBy: none
+		sourceColumn: resultado_evaluacion_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column score
+		dataType: double
+		lineageTag: 2f0797e2-fa90-41d4-841e-449395901c56
+		summarizeBy: sum
+		sourceColumn: score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column score_ponderado
+		dataType: double
+		lineageTag: f2b7c760-cebb-4eed-a253-9ef7c4a81eea
+		summarizeBy: sum
+		sourceColumn: score_ponderado
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column days_late
+		dataType: int64
+		formatString: 0
+		lineageTag: bde2955b-f3fa-43b6-a73e-6ddf28a3e2b5
+		summarizeBy: sum
+		sourceColumn: days_late
+
+		annotation SummarizationSetBy = Automatic
+
+	column days_late_estimado
+		dataType: int64
+		formatString: 0
+		lineageTag: 15eb4843-d885-4292-86d2-fd3c91689bd0
+		summarizeBy: sum
+		sourceColumn: days_late_estimado
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm3 FACT_ENTREGA_EVALUACION' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("sqlserver-jcbi.database.windows.net", "DM1_RendimientoAcad"),
+				  #"Navegación 1" = Origen{[Schema = "dm3", Item = "FACT_ENTREGA_EVALUACION"]}[Data]
+				in
+				  #"Navegación 1"
+
+	annotation PBI_ResultType = Table
+

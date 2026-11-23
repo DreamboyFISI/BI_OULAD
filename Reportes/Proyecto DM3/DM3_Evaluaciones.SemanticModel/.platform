@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "DM3_Evaluaciones"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "535ce9b7-79f9-4b03-804d-5274e38ecc9b"
+  }
+}
