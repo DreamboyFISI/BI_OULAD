@@ -1,0 +1,28 @@
+relationship d2a9a634-2bdc-41aa-a047-7a812ed78a40
+	fromColumn: 'dm2 FACT_INTERACCION_VLE'.student_key
+	toColumn: 'comun DIM_ESTUDIANTE'.student_key
+
+relationship 8f95bdca-3bde-4fa3-9073-a8e5cd512356
+	fromColumn: 'dm2 FACT_INTERACCION_VLE'.curso_key
+	toColumn: 'comun DIM_CURSO'.curso_key
+
+relationship 7c78909a-44a7-449e-a94f-f7d0dc34b56e
+	fromColumn: 'dm2 FACT_INTERACCION_VLE'.tiempo_key
+	toColumn: 'comun DIM_TIEMPO'.tiempo_key
+
+relationship 849a9370-92b6-4af7-9e7c-5c47e83b5932
+	fromColumn: 'dm2 FACT_INTERACCION_VLE'.sitio_key
+	toColumn: 'dm2 DIM_SITIO_VLE'.sitio_key
+
+relationship 03bc2297-10ed-4dda-93c9-b386ae4b1d13
+	fromColumn: 'dm1 FACT_RESULTADO_ACADEMICO'.student_key
+	toColumn: 'comun DIM_ESTUDIANTE'.student_key
+
+relationship c801d527-9a31-49bc-9477-71b5e8b81567
+	fromColumn: 'dm1 FACT_RESULTADO_ACADEMICO'.curso_key
+	toColumn: 'comun DIM_CURSO'.curso_key
+
+relationship 6fc8fbc9-bae0-4be4-8fe5-bc773bf2eaae
+	fromColumn: 'dm1 FACT_RESULTADO_ACADEMICO'.resultado_key
+	toColumn: 'dm1 DIM_RESULTADO'.resultado_key
+

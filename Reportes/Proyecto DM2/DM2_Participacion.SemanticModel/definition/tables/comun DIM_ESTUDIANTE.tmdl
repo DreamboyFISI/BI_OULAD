@@ -1,0 +1,121 @@
+table 'comun DIM_ESTUDIANTE'
+	lineageTag: 51c1ea57-09ba-49bc-8422-a8373fba6871
+
+	column student_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 10e1bf7d-47ec-4cc3-aac3-9db3cea930b7
+		summarizeBy: none
+		sourceColumn: student_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_student
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b0cf623-db0d-4fe0-862c-7e81689f002f
+		summarizeBy: none
+		sourceColumn: id_student
+
+		annotation SummarizationSetBy = Automatic
+
+	column version
+		dataType: int64
+		formatString: 0
+		lineageTag: de2838bc-2aff-44cd-a62e-a22f07a66cb5
+		summarizeBy: none
+		sourceColumn: version
+
+		annotation SummarizationSetBy = Automatic
+
+	column valid_from_presentation
+		dataType: string
+		lineageTag: e78cc56d-34d9-4f63-9cd4-b5eadc16c501
+		summarizeBy: none
+		sourceColumn: valid_from_presentation
+
+		annotation SummarizationSetBy = Automatic
+
+	column valid_to_presentation
+		dataType: string
+		lineageTag: ceeaa3aa-5634-499c-955f-5ad1470aadca
+		summarizeBy: none
+		sourceColumn: valid_to_presentation
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: bee47b55-f941-4775-8b9d-c9b02e63d161
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: e33d501d-9cb6-4ce3-ad59-4551c08a014c
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column highest_education
+		dataType: string
+		lineageTag: b5470368-ab8e-4cce-98bb-0dd70aa71a57
+		summarizeBy: none
+		sourceColumn: highest_education
+
+		annotation SummarizationSetBy = Automatic
+
+	column imd_band
+		dataType: string
+		lineageTag: 8da6d6dc-ff59-4e29-9320-2480017787d4
+		summarizeBy: none
+		sourceColumn: imd_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column age_band
+		dataType: string
+		lineageTag: 998f0bdb-f789-43ac-8e88-5416f4b937ca
+		summarizeBy: none
+		sourceColumn: age_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column disability
+		dataType: string
+		lineageTag: 608bb828-2193-4ac8-bedc-5f5f5e0f90c1
+		summarizeBy: none
+		sourceColumn: disability
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Jerarquía Perfil'
+		lineageTag: 5b5c2628-ec9c-456f-b2df-c9ca473b8163
+
+		level region
+			lineageTag: 6595dba8-ef81-47ce-9bc1-31173b971154
+			column: region
+
+		level highest_education
+			lineageTag: f787b9f3-444f-4bd1-9567-4b6bedbbcc3f
+			column: highest_education
+
+		level imd_band
+			lineageTag: 41581e9f-d607-4f45-af67-779c50a432c9
+			column: imd_band
+
+	partition 'comun DIM_ESTUDIANTE' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database(ServidorSQL, BaseDatos),
+				  Datos = Origen{[Schema = "comun", Item = "DIM_ESTUDIANTE"]}[Data]
+				in
+				  Datos
+
+	annotation PBI_ResultType = Table
+

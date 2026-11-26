@@ -1,0 +1,322 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "d17c19b71a2779096007",
+  "position": {
+    "x": 481,
+    "y": 252,
+    "z": 5001,
+    "height": 440,
+    "width": 420,
+    "tabOrder": 5001
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm2 DIM_SITIO_VLE"
+                    }
+                  },
+                  "Property": "grupo_actividad"
+                }
+              },
+              "queryRef": "dm2 DIM_SITIO_VLE.grupo_actividad",
+              "nativeQueryRef": "grupo_actividad",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm2 DIM_SITIO_VLE"
+                    }
+                  },
+                  "Property": "activity_type"
+                }
+              },
+              "queryRef": "dm2 DIM_SITIO_VLE.activity_type",
+              "nativeQueryRef": "activity_type",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm2 FACT_INTERACCION_VLE"
+                    }
+                  },
+                  "Property": "Clics Totales"
+                }
+              },
+              "queryRef": "dm2 FACT_INTERACCION_VLE.Clics Totales",
+              "nativeQueryRef": "Clics Totales"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm2 FACT_INTERACCION_VLE"
+                    }
+                  },
+                  "Property": "% del Total de Clics"
+                }
+              },
+              "queryRef": "dm2 FACT_INTERACCION_VLE.% del Total de Clics",
+              "nativeQueryRef": "% del Total de Clics"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm2 FACT_INTERACCION_VLE"
+                    }
+                  },
+                  "Property": "Sitios Visitados"
+                }
+              },
+              "queryRef": "dm2 FACT_INTERACCION_VLE.Sitios Visitados",
+              "nativeQueryRef": "Sitios Visitados"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dm2 FACT_INTERACCION_VLE"
+                  }
+                },
+                "Property": "Clics Totales"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0B1F3A'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Grupo → tipo de actividad'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0B1F3A'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'expanda los grupos para ver el detalle (drill-down)'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c8d8e5a9829e869cdb37",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dm2 DIM_SITIO_VLE"
+              }
+            },
+            "Property": "grupo_actividad"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b942d2578cb89f444190",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dm2 DIM_SITIO_VLE"
+              }
+            },
+            "Property": "activity_type"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "89b5e9def77b3ddfa623",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dm2 FACT_INTERACCION_VLE"
+              }
+            },
+            "Property": "Clics Totales"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "65bb061b0fb237f49371",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dm2 FACT_INTERACCION_VLE"
+              }
+            },
+            "Property": "% del Total de Clics"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cf3cb19227ddf2078f14",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dm2 FACT_INTERACCION_VLE"
+              }
+            },
+            "Property": "Sitios Visitados"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

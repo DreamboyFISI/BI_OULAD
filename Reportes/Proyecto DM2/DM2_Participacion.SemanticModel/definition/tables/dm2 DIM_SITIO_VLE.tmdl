@@ -1,0 +1,82 @@
+table 'dm2 DIM_SITIO_VLE'
+	lineageTag: c16fe205-b62a-4ad3-807d-151646bb5ca4
+
+	column sitio_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 49a12c79-7387-4715-9a0f-92d3e39ac7ba
+		summarizeBy: none
+		sourceColumn: sitio_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_site
+		dataType: int64
+		formatString: 0
+		lineageTag: 0985a4bf-e549-4bd0-a379-509f32c2f57a
+		summarizeBy: none
+		sourceColumn: id_site
+
+		annotation SummarizationSetBy = Automatic
+
+	column activity_type
+		dataType: string
+		lineageTag: f3bba764-4a3a-4d49-aea3-4d4877edcc22
+		summarizeBy: none
+		sourceColumn: activity_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column grupo_actividad
+		dataType: string
+		lineageTag: 304612b9-d40b-4cbc-9a72-015ac8ad12d0
+		summarizeBy: none
+		sourceColumn: grupo_actividad
+
+		annotation SummarizationSetBy = Automatic
+
+	column week_from
+		dataType: int64
+		formatString: 0
+		lineageTag: 60359c12-a8ea-4094-97eb-627807c4b2a2
+		summarizeBy: none
+		sourceColumn: week_from
+
+		annotation SummarizationSetBy = Automatic
+
+	column week_to
+		dataType: int64
+		formatString: 0
+		lineageTag: 65dbfc97-f6ac-44cf-8791-7273d7952f20
+		summarizeBy: none
+		sourceColumn: week_to
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Jerarquía Actividad'
+		lineageTag: 2f3be358-da83-48ed-bf8f-973dbb7772ce
+
+		level grupo_actividad
+			lineageTag: 280b68dc-0138-4921-8558-ef9883e237f1
+			column: grupo_actividad
+
+		level activity_type
+			lineageTag: c204904a-c3cb-4527-a7b0-af853d437e1f
+			column: activity_type
+
+		level id_site
+			lineageTag: b445d138-57c2-4daf-8332-a2500da2cfaf
+			column: id_site
+
+	partition 'dm2 DIM_SITIO_VLE' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database(ServidorSQL, BaseDatos),
+				  Datos = Origen{[Schema = "dm2", Item = "DIM_SITIO_VLE"]}[Data]
+				in
+				  Datos
+
+	annotation PBI_ResultType = Table
+

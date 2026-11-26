@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "DM2_Participacion"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a9474f22-de72-4e65-a386-d717fb1cbd64"
+  }
+}

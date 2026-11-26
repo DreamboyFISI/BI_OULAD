@@ -1,0 +1,45 @@
+table 'dm1 FACT_RESULTADO_ACADEMICO'
+	lineageTag: ca42d600-add2-4798-a33c-2f8e0176d32c
+
+	column student_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 87da3c59-7a0b-425a-8403-698ac5f3fdb9
+		summarizeBy: none
+		sourceColumn: student_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column curso_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2efe560d-78a0-4b6b-b534-2b216c18d4bb
+		summarizeBy: none
+		sourceColumn: curso_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column resultado_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c40c1817-85b1-47a1-bd2d-2e1bea706822
+		summarizeBy: none
+		sourceColumn: resultado_key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm1 FACT_RESULTADO_ACADEMICO' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database(ServidorSQL, BaseDatos),
+				  Datos = Origen{[Schema = "dm1", Item = "FACT_RESULTADO_ACADEMICO"]}[Data],
+				  Columnas = Table.SelectColumns(Datos, {"student_key", "curso_key", "resultado_key"})
+				in
+				  Columnas
+
+	annotation PBI_ResultType = Table
+
