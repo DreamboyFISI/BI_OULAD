@@ -1,0 +1,718 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1700,
+  "model": {
+    "culture": "es-ES",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "sqlserver-jcbi.database.windows.net",
+            "database": "DM1_RendimientoAcad"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "Username": "inteligenciaBIgrupo5",
+          "EncryptConnection": true
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "DIM_RESULTADO_EVALUACION",
+        "columns": [
+          {
+            "name": "resultado_evaluacion_key",
+            "dataType": "int64",
+            "sourceColumn": "resultado_evaluacion_key"
+          },
+          {
+            "name": "resultado_evaluacion",
+            "dataType": "string",
+            "sourceColumn": "resultado_evaluacion"
+          },
+          {
+            "name": "es_aprobado",
+            "dataType": "string",
+            "sourceColumn": "es_aprobado"
+          },
+          {
+            "name": "es_desaprobado",
+            "dataType": "string",
+            "sourceColumn": "es_desaprobado"
+          },
+          {
+            "name": "es_calificado",
+            "dataType": "string",
+            "sourceColumn": "es_calificado"
+          },
+          {
+            "name": "es_convalidado",
+            "dataType": "string",
+            "sourceColumn": "es_convalidado"
+          },
+          {
+            "name": "rango_min",
+            "dataType": "double",
+            "sourceColumn": "rango_min"
+          },
+          {
+            "name": "rango_max",
+            "dataType": "double",
+            "sourceColumn": "rango_max"
+          },
+          {
+            "name": "orden",
+            "dataType": "int64",
+            "sourceColumn": "orden"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    dm3_DIM_RESULTADO_EVALUACION = Source{[Schema=\"dm3\",Item=\"DIM_RESULTADO_EVALUACION\"]}[Data]",
+                "in",
+                "    dm3_DIM_RESULTADO_EVALUACION"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FACT_ENTREGA_EVALUACION",
+        "columns": [
+          {
+            "name": "student_key",
+            "dataType": "int64",
+            "sourceColumn": "student_key"
+          },
+          {
+            "name": "curso_key",
+            "dataType": "int64",
+            "sourceColumn": "curso_key"
+          },
+          {
+            "name": "evaluacion_key",
+            "dataType": "int64",
+            "sourceColumn": "evaluacion_key"
+          },
+          {
+            "name": "tiempo_entrega_key",
+            "dataType": "int64",
+            "sourceColumn": "tiempo_entrega_key"
+          },
+          {
+            "name": "estado_key",
+            "dataType": "int64",
+            "sourceColumn": "estado_key"
+          },
+          {
+            "name": "resultado_evaluacion_key",
+            "dataType": "int64",
+            "sourceColumn": "resultado_evaluacion_key"
+          },
+          {
+            "name": "score",
+            "dataType": "double",
+            "sourceColumn": "score"
+          },
+          {
+            "name": "score_ponderado",
+            "dataType": "double",
+            "sourceColumn": "score_ponderado"
+          },
+          {
+            "name": "days_late",
+            "dataType": "int64",
+            "sourceColumn": "days_late"
+          },
+          {
+            "name": "days_late_estimado",
+            "dataType": "int64",
+            "sourceColumn": "days_late_estimado"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    dm3_FACT_ENTREGA_EVALUACION = Source{[Schema=\"dm3\",Item=\"FACT_ENTREGA_EVALUACION\"]}[Data]",
+                "in",
+                "    dm3_FACT_ENTREGA_EVALUACION"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "% del Total",
+            "expression": "DIVIDE([Entregas], CALCULATE([Entregas], ALL(DIM_ESTADO_ENTREGA)))",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "Entregas",
+            "expression": "COUNTROWS(FACT_ENTREGA_EVALUACION)"
+          },
+          {
+            "name": "Cursos",
+            "expression": "DISTINCTCOUNT(FACT_ENTREGA_EVALUACION[curso_key])"
+          },
+          {
+            "name": "Entregas con Fecha",
+            "expression": "CALCULATE([Entregas], DIM_ESTADO_ENTREGA[es_puntual] = \"Si\") + CALCULATE([Entregas], DIM_ESTADO_ENTREGA[es_tarde] = \"Si\")"
+          },
+          {
+            "name": "Entregas Convalidadas",
+            "expression": "CALCULATE([Entregas], DIM_ESTADO_ENTREGA[es_banked] IN {\"Si\",\"Sí\",\"1\"})"
+          },
+          {
+            "name": "Entregas Esperadas",
+            "expression": "CALCULATE([Entregas], DIM_ESTADO_ENTREGA[es_banked] = \"No\")"
+          },
+          {
+            "name": "Entregas por Estudiante",
+            "expression": "DIVIDE([Entregas], [Estudiantes])",
+            "formatString": "0.00"
+          },
+          {
+            "name": "Estudiantes",
+            "expression": "DISTINCTCOUNT(DIM_ESTUDIANTE[id_student])"
+          },
+          {
+            "name": "Evaluaciones",
+            "expression": "DISTINCTCOUNT(DIM_EVALUACION[id_assessment])"
+          },
+          {
+            "name": "% No Entrega",
+            "expression": "DIVIDE([No Entregadas], [Entregas Esperadas])",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "% Puntualidad",
+            "expression": "DIVIDE([Entregas Puntuales], [Entregas con Fecha])",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "% Tardías",
+            "expression": "DIVIDE([Entregas Tardías], [Entregas con Fecha])",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "Entregas Puntuales",
+            "expression": "CALCULATE([Entregas], DIM_ESTADO_ENTREGA[es_puntual] IN {\"Si\",\"Sí\",\"1\"})"
+          },
+          {
+            "name": "Entregas Tardías",
+            "expression": "CALCULATE([Entregas], DIM_ESTADO_ENTREGA[es_tarde] IN {\"Si\",\"Sí\",\"1\"})"
+          },
+          {
+            "name": "No Entregadas",
+            "expression": "CALCULATE([Entregas], DIM_ESTADO_ENTREGA[es_no_entregado] IN {\"Si\",\"Sí\",\"1\"})"
+          },
+          {
+            "name": "Días de Retraso Promedio",
+            "expression": "AVERAGE(FACT_ENTREGA_EVALUACION[days_late])",
+            "formatString": "0.00"
+          },
+          {
+            "name": "Retraso Promedio Tardías",
+            "expression": "CALCULATE(AVERAGE(FACT_ENTREGA_EVALUACION[days_late]), DIM_ESTADO_ENTREGA[es_tarde] = \"Si\")",
+            "formatString": "0.00"
+          },
+          {
+            "name": "Entregas Aprobadas",
+            "expression": "CALCULATE([Entregas], DIM_RESULTADO_EVALUACION[es_aprobado] IN {\"Si\",\"Sí\",\"1\"})"
+          },
+          {
+            "name": "Entregas Calificadas",
+            "expression": "CALCULATE([Entregas], DIM_RESULTADO_EVALUACION[es_calificado] IN {\"Si\",\"Sí\",\"1\"})"
+          },
+          {
+            "name": "Entregas Desaprobadas",
+            "expression": "CALCULATE([Entregas], DIM_RESULTADO_EVALUACION[es_desaprobado] IN {\"Si\",\"Sí\",\"1\"})"
+          },
+          {
+            "name": "Nota Ponderada Promedio",
+            "expression": "AVERAGE(FACT_ENTREGA_EVALUACION[score_ponderado])",
+            "formatString": "0.00"
+          },
+          {
+            "name": "Nota Promedio",
+            "expression": "AVERAGE(FACT_ENTREGA_EVALUACION[score])",
+            "formatString": "0.00"
+          },
+          {
+            "name": "Tasa de Aprobación",
+            "expression": "DIVIDE([Entregas Aprobadas], [Entregas Calificadas])",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "% Puntualidad (semana)",
+            "expression": "CALCULATE([% Puntualidad], DIM_TIEMPO[es_desconocido] <> \"Si\")",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "Entregas con Fecha (semana)",
+            "expression": "CALCULATE([Entregas con Fecha], DIM_TIEMPO[es_desconocido] <> \"Si\")"
+          }
+        ]
+      },
+      {
+        "name": "DIM_ESTADO_ENTREGA",
+        "columns": [
+          {
+            "name": "estado_key",
+            "dataType": "int64",
+            "sourceColumn": "estado_key"
+          },
+          {
+            "name": "estado",
+            "dataType": "string",
+            "sourceColumn": "estado"
+          },
+          {
+            "name": "es_entregado",
+            "dataType": "string",
+            "sourceColumn": "es_entregado"
+          },
+          {
+            "name": "es_puntual",
+            "dataType": "string",
+            "sourceColumn": "es_puntual"
+          },
+          {
+            "name": "es_tarde",
+            "dataType": "string",
+            "sourceColumn": "es_tarde"
+          },
+          {
+            "name": "es_no_entregado",
+            "dataType": "string",
+            "sourceColumn": "es_no_entregado"
+          },
+          {
+            "name": "es_banked",
+            "dataType": "string",
+            "sourceColumn": "es_banked"
+          },
+          {
+            "name": "orden",
+            "dataType": "int64",
+            "sourceColumn": "orden"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    dm3_DIM_ESTADO_ENTREGA = Source{[Schema=\"dm3\",Item=\"DIM_ESTADO_ENTREGA\"]}[Data]",
+                "in",
+                "    dm3_DIM_ESTADO_ENTREGA"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_EVALUACION",
+        "columns": [
+          {
+            "name": "evaluacion_key",
+            "dataType": "int64",
+            "sourceColumn": "evaluacion_key"
+          },
+          {
+            "name": "id_assessment",
+            "dataType": "int64",
+            "sourceColumn": "id_assessment"
+          },
+          {
+            "name": "assessment_type",
+            "dataType": "string",
+            "sourceColumn": "assessment_type"
+          },
+          {
+            "name": "tipo_evaluacion",
+            "dataType": "string",
+            "sourceColumn": "tipo_evaluacion"
+          },
+          {
+            "name": "due_day",
+            "dataType": "int64",
+            "sourceColumn": "due_day"
+          },
+          {
+            "name": "due_day_estimado",
+            "dataType": "int64",
+            "sourceColumn": "due_day_estimado"
+          },
+          {
+            "name": "fecha_estimada",
+            "dataType": "string",
+            "sourceColumn": "fecha_estimada"
+          },
+          {
+            "name": "weight",
+            "dataType": "double",
+            "sourceColumn": "weight"
+          },
+          {
+            "name": "is_exam",
+            "dataType": "string",
+            "sourceColumn": "is_exam"
+          },
+          {
+            "name": "tiene_fecha_limite",
+            "dataType": "string",
+            "sourceColumn": "tiene_fecha_limite"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    dm3_DIM_EVALUACION = Source{[Schema=\"dm3\",Item=\"DIM_EVALUACION\"]}[Data]",
+                "in",
+                "    dm3_DIM_EVALUACION"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquia Evaluacion",
+            "levels": [
+              {
+                "name": "tipo_evaluacion",
+                "ordinal": 0,
+                "column": "tipo_evaluacion"
+              },
+              {
+                "name": "id_assessment",
+                "ordinal": 1,
+                "column": "id_assessment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DIM_ESTUDIANTE",
+        "columns": [
+          {
+            "name": "student_key",
+            "dataType": "int64",
+            "sourceColumn": "student_key"
+          },
+          {
+            "name": "id_student",
+            "dataType": "int64",
+            "sourceColumn": "id_student"
+          },
+          {
+            "name": "version",
+            "dataType": "int64",
+            "sourceColumn": "version"
+          },
+          {
+            "name": "valid_from_presentation",
+            "dataType": "string",
+            "sourceColumn": "valid_from_presentation"
+          },
+          {
+            "name": "valid_to_presentation",
+            "dataType": "string",
+            "sourceColumn": "valid_to_presentation"
+          },
+          {
+            "name": "gender",
+            "dataType": "string",
+            "sourceColumn": "gender"
+          },
+          {
+            "name": "region",
+            "dataType": "string",
+            "sourceColumn": "region"
+          },
+          {
+            "name": "highest_education",
+            "dataType": "string",
+            "sourceColumn": "highest_education"
+          },
+          {
+            "name": "imd_band",
+            "dataType": "string",
+            "sourceColumn": "imd_band"
+          },
+          {
+            "name": "age_band",
+            "dataType": "string",
+            "sourceColumn": "age_band"
+          },
+          {
+            "name": "disability",
+            "dataType": "string",
+            "sourceColumn": "disability"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    comun_DIM_ESTUDIANTE = Source{[Schema=\"comun\",Item=\"DIM_ESTUDIANTE\"]}[Data]",
+                "in",
+                "    comun_DIM_ESTUDIANTE"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquia Perfil",
+            "levels": [
+              {
+                "name": "region",
+                "ordinal": 0,
+                "column": "region"
+              },
+              {
+                "name": "age_band",
+                "ordinal": 1,
+                "column": "age_band"
+              },
+              {
+                "name": "gender",
+                "ordinal": 2,
+                "column": "gender"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DIM_CURSO",
+        "columns": [
+          {
+            "name": "curso_key",
+            "dataType": "int64",
+            "sourceColumn": "curso_key"
+          },
+          {
+            "name": "code_module",
+            "dataType": "string",
+            "sourceColumn": "code_module"
+          },
+          {
+            "name": "code_presentation",
+            "dataType": "string",
+            "sourceColumn": "code_presentation"
+          },
+          {
+            "name": "anio",
+            "dataType": "int64",
+            "sourceColumn": "anio"
+          },
+          {
+            "name": "convocatoria",
+            "dataType": "string",
+            "sourceColumn": "convocatoria"
+          },
+          {
+            "name": "duracion_dias",
+            "dataType": "int64",
+            "sourceColumn": "duracion_dias"
+          },
+          {
+            "name": "nombre_curso",
+            "dataType": "string",
+            "sourceColumn": "nombre_curso"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    comun_DIM_CURSO = Source{[Schema=\"comun\",Item=\"DIM_CURSO\"]}[Data]",
+                "in",
+                "    comun_DIM_CURSO"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquia Curso",
+            "levels": [
+              {
+                "name": "anio",
+                "ordinal": 0,
+                "column": "anio"
+              },
+              {
+                "name": "convocatoria",
+                "ordinal": 1,
+                "column": "convocatoria"
+              },
+              {
+                "name": "code_module",
+                "ordinal": 2,
+                "column": "code_module"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DIM_TIEMPO",
+        "columns": [
+          {
+            "name": "tiempo_key",
+            "dataType": "int64",
+            "sourceColumn": "tiempo_key"
+          },
+          {
+            "name": "dia_offset",
+            "dataType": "int64",
+            "sourceColumn": "dia_offset"
+          },
+          {
+            "name": "semana",
+            "dataType": "int64",
+            "sourceColumn": "semana"
+          },
+          {
+            "name": "es_desconocido",
+            "dataType": "string",
+            "sourceColumn": "es_desconocido"
+          },
+          {
+            "name": "es_sin_baja",
+            "dataType": "string",
+            "sourceColumn": "es_sin_baja"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    comun_DIM_TIEMPO = Source{[Schema=\"comun\",Item=\"DIM_TIEMPO\"]}[Data]",
+                "in",
+                "    comun_DIM_TIEMPO"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquia Tiempo",
+            "levels": [
+              {
+                "name": "semana",
+                "ordinal": 0,
+                "column": "semana"
+              },
+              {
+                "name": "dia_offset",
+                "ordinal": 1,
+                "column": "dia_offset"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "033124c8-9b73-40b4-b2a3-936ae6bcb474",
+        "fromTable": "FACT_ENTREGA_EVALUACION",
+        "fromColumn": "resultado_evaluacion_key",
+        "toTable": "DIM_RESULTADO_EVALUACION",
+        "toColumn": "resultado_evaluacion_key"
+      },
+      {
+        "name": "7f76f4dc-077a-43dd-b7f9-e9090b82878e",
+        "fromTable": "FACT_ENTREGA_EVALUACION",
+        "fromColumn": "curso_key",
+        "toTable": "DIM_CURSO",
+        "toColumn": "curso_key"
+      },
+      {
+        "name": "ec118fd8-07ce-4002-a790-3978367ec9fa",
+        "fromTable": "FACT_ENTREGA_EVALUACION",
+        "fromColumn": "student_key",
+        "toTable": "DIM_ESTUDIANTE",
+        "toColumn": "student_key"
+      },
+      {
+        "name": "15590b08-b857-42be-9905-530b1641a0ce",
+        "fromTable": "FACT_ENTREGA_EVALUACION",
+        "fromColumn": "tiempo_entrega_key",
+        "toTable": "DIM_TIEMPO",
+        "toColumn": "tiempo_key"
+      },
+      {
+        "name": "95185992-4009-485f-a4e2-e1109fe42d4a",
+        "fromTable": "FACT_ENTREGA_EVALUACION",
+        "fromColumn": "estado_key",
+        "toTable": "DIM_ESTADO_ENTREGA",
+        "toColumn": "estado_key"
+      },
+      {
+        "name": "6af9f2e8-87f0-41ba-b2f8-15d94fd2d429",
+        "fromTable": "FACT_ENTREGA_EVALUACION",
+        "fromColumn": "evaluacion_key",
+        "toTable": "DIM_EVALUACION",
+        "toColumn": "evaluacion_key"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "800"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

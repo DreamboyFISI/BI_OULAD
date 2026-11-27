@@ -1,0 +1,346 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1700,
+  "model": {
+    "culture": "es-ES",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "sqlserver-jcbi.database.windows.net",
+            "database": "DM1_RendimientoAcad"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "Username": "inteligenciaBIgrupo5",
+          "EncryptConnection": true
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "dm2 FACT_INTERACCION_VLE",
+        "columns": [
+          {
+            "name": "student_key",
+            "dataType": "int64",
+            "sourceColumn": "student_key"
+          },
+          {
+            "name": "curso_key",
+            "dataType": "int64",
+            "sourceColumn": "curso_key"
+          },
+          {
+            "name": "tiempo_key",
+            "dataType": "int64",
+            "sourceColumn": "tiempo_key"
+          },
+          {
+            "name": "sitio_key",
+            "dataType": "int64",
+            "sourceColumn": "sitio_key"
+          },
+          {
+            "name": "sum_click",
+            "dataType": "int64",
+            "sourceColumn": "sum_click"
+          },
+          {
+            "name": "num_eventos",
+            "dataType": "int64",
+            "sourceColumn": "num_eventos"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    dm2_FACT_INTERACCION_VLE = Source{[Schema=\"dm2\",Item=\"FACT_INTERACCION_VLE\"]}[Data]",
+                "in",
+                "    dm2_FACT_INTERACCION_VLE"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "comun DIM_CURSO",
+        "columns": [
+          {
+            "name": "curso_key",
+            "dataType": "int64",
+            "sourceColumn": "curso_key"
+          },
+          {
+            "name": "code_module",
+            "dataType": "string",
+            "sourceColumn": "code_module"
+          },
+          {
+            "name": "code_presentation",
+            "dataType": "string",
+            "sourceColumn": "code_presentation"
+          },
+          {
+            "name": "anio",
+            "dataType": "int64",
+            "sourceColumn": "anio"
+          },
+          {
+            "name": "convocatoria",
+            "dataType": "string",
+            "sourceColumn": "convocatoria"
+          },
+          {
+            "name": "duracion_dias",
+            "dataType": "int64",
+            "sourceColumn": "duracion_dias"
+          },
+          {
+            "name": "nombre_curso",
+            "dataType": "string",
+            "sourceColumn": "nombre_curso"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    comun_DIM_CURSO = Source{[Schema=\"comun\",Item=\"DIM_CURSO\"]}[Data]",
+                "in",
+                "    comun_DIM_CURSO"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "comun DIM_ESTUDIANTE",
+        "columns": [
+          {
+            "name": "student_key",
+            "dataType": "int64",
+            "sourceColumn": "student_key"
+          },
+          {
+            "name": "id_student",
+            "dataType": "int64",
+            "sourceColumn": "id_student"
+          },
+          {
+            "name": "version",
+            "dataType": "int64",
+            "sourceColumn": "version"
+          },
+          {
+            "name": "valid_from_presentation",
+            "dataType": "string",
+            "sourceColumn": "valid_from_presentation"
+          },
+          {
+            "name": "valid_to_presentation",
+            "dataType": "string",
+            "sourceColumn": "valid_to_presentation"
+          },
+          {
+            "name": "gender",
+            "dataType": "string",
+            "sourceColumn": "gender"
+          },
+          {
+            "name": "region",
+            "dataType": "string",
+            "sourceColumn": "region"
+          },
+          {
+            "name": "highest_education",
+            "dataType": "string",
+            "sourceColumn": "highest_education"
+          },
+          {
+            "name": "imd_band",
+            "dataType": "string",
+            "sourceColumn": "imd_band"
+          },
+          {
+            "name": "age_band",
+            "dataType": "string",
+            "sourceColumn": "age_band"
+          },
+          {
+            "name": "disability",
+            "dataType": "string",
+            "sourceColumn": "disability"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    comun_DIM_ESTUDIANTE = Source{[Schema=\"comun\",Item=\"DIM_ESTUDIANTE\"]}[Data]",
+                "in",
+                "    comun_DIM_ESTUDIANTE"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "comun DIM_TIEMPO",
+        "columns": [
+          {
+            "name": "tiempo_key",
+            "dataType": "int64",
+            "sourceColumn": "tiempo_key"
+          },
+          {
+            "name": "dia_offset",
+            "dataType": "int64",
+            "sourceColumn": "dia_offset"
+          },
+          {
+            "name": "semana",
+            "dataType": "int64",
+            "sourceColumn": "semana"
+          },
+          {
+            "name": "es_desconocido",
+            "dataType": "string",
+            "sourceColumn": "es_desconocido"
+          },
+          {
+            "name": "es_sin_baja",
+            "dataType": "string",
+            "sourceColumn": "es_sin_baja"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    comun_DIM_TIEMPO = Source{[Schema=\"comun\",Item=\"DIM_TIEMPO\"]}[Data]",
+                "in",
+                "    comun_DIM_TIEMPO"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dm2 DIM_SITIO_VLE",
+        "columns": [
+          {
+            "name": "sitio_key",
+            "dataType": "int64",
+            "sourceColumn": "sitio_key"
+          },
+          {
+            "name": "id_site",
+            "dataType": "int64",
+            "sourceColumn": "id_site"
+          },
+          {
+            "name": "activity_type",
+            "dataType": "string",
+            "sourceColumn": "activity_type"
+          },
+          {
+            "name": "grupo_actividad",
+            "dataType": "string",
+            "sourceColumn": "grupo_actividad"
+          },
+          {
+            "name": "week_from",
+            "dataType": "int64",
+            "sourceColumn": "week_from"
+          },
+          {
+            "name": "week_to",
+            "dataType": "int64",
+            "sourceColumn": "week_to"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sqlserver-jcbi database windows net;DM1_RendimientoAcad\",",
+                "    dm2_DIM_SITIO_VLE = Source{[Schema=\"dm2\",Item=\"DIM_SITIO_VLE\"]}[Data]",
+                "in",
+                "    dm2_DIM_SITIO_VLE"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "901ad9fb-2c4a-4225-962d-8b697f7cf73a",
+        "fromTable": "dm2 FACT_INTERACCION_VLE",
+        "fromColumn": "curso_key",
+        "toTable": "comun DIM_CURSO",
+        "toColumn": "curso_key"
+      },
+      {
+        "name": "f1d79fd8-86d0-4e55-b816-55fad60d6442",
+        "fromTable": "dm2 FACT_INTERACCION_VLE",
+        "fromColumn": "student_key",
+        "toTable": "comun DIM_ESTUDIANTE",
+        "toColumn": "student_key"
+      },
+      {
+        "name": "32f801e5-bd01-47ce-87e9-d37159851646",
+        "fromTable": "dm2 FACT_INTERACCION_VLE",
+        "fromColumn": "tiempo_key",
+        "toTable": "comun DIM_TIEMPO",
+        "toColumn": "tiempo_key"
+      },
+      {
+        "name": "69b89b8c-fc88-4a00-b851-dc1a50c35949",
+        "fromTable": "dm2 FACT_INTERACCION_VLE",
+        "fromColumn": "sitio_key",
+        "toTable": "dm2 DIM_SITIO_VLE",
+        "toColumn": "sitio_key"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "800"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

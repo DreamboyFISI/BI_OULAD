@@ -68,6 +68,23 @@
               ]
             }
           }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquia Matricula",
+            "levels": [
+              {
+                "name": "semana",
+                "ordinal": 0,
+                "column": "semana"
+              },
+              {
+                "name": "dia_offset",
+                "ordinal": 1,
+                "column": "dia_offset"
+              }
+            ]
+          }
         ]
       },
       {
@@ -113,6 +130,23 @@
                 "    dm1_DIM_TIEMPO_BAJA"
               ]
             }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquia Baja",
+            "levels": [
+              {
+                "name": "semana",
+                "ordinal": 0,
+                "column": "semana"
+              },
+              {
+                "name": "dia_offset",
+                "ordinal": 1,
+                "column": "dia_offset"
+              }
+            ]
           }
         ]
       },
@@ -328,6 +362,23 @@
                 "    dm1_DIM_RESULTADO"
               ]
             }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquia de Resultado",
+            "levels": [
+              {
+                "name": "grupo_resultado",
+                "ordinal": 0,
+                "column": "grupo_resultado"
+              },
+              {
+                "name": "final_result",
+                "ordinal": 1,
+                "column": "final_result"
+              }
+            ]
           }
         ]
       },
@@ -571,6 +622,22 @@
               "    [Matrículas]",
               ")"
             ]
+          },
+          {
+            "name": "Créditos Promedio",
+            "expression": "AVERAGE(FACT_RESULTADO_ACADEMICO[creditos_matriculados])"
+          },
+          {
+            "name": "Días Activos Promedio",
+            "expression": " AVERAGE( FACT_RESULTADO_ACADEMICO[dias_activos])"
+          },
+          {
+            "name": "Días hasta la Baja Promedio",
+            "expression": "CALCULATE(AVERAGE(FACT_RESULTADO_ACADEMICO[dias_desde_alta_hasta_baja]), DIM_RESULTADO[es_retirado] IN {\"Si\",\"Sí\",\"1\"})"
+          },
+          {
+            "name": "Estudiantes",
+            "expression": "DISTINCTCOUNT(DIM_ESTUDIANTE[id_student])"
           }
         ]
       }
