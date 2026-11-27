@@ -49,18 +49,6 @@ table 'dm2 FACT_INTERACCION_VLE'
 		formatString: 0.00%
 		lineageTag: 64f14b1e-894f-4546-af4f-7784127b193b
 
-	measure 'Matrículas (DM1)' = COUNTROWS('dm1 FACT_RESULTADO_ACADEMICO')
-		formatString: #,0
-		lineageTag: 8b80a009-d880-49c7-9047-1a8b7b94f5d5
-
-	measure 'Clics de Matrículas (DM1)' = CALCULATE([Clics Totales], TREATAS(SUMMARIZE('dm1 FACT_RESULTADO_ACADEMICO', 'dm1 FACT_RESULTADO_ACADEMICO'[student_key], 'dm1 FACT_RESULTADO_ACADEMICO'[curso_key]), 'dm2 FACT_INTERACCION_VLE'[student_key], 'dm2 FACT_INTERACCION_VLE'[curso_key]))
-		formatString: #,0
-		lineageTag: f48af2ec-dad8-43d6-be9e-f6dd5b8cd97c
-
-	measure 'Clics Promedio por Matrícula' = DIVIDE([Clics de Matrículas (DM1)], [Matrículas (DM1)])
-		formatString: #,0.0
-		lineageTag: ab7ddf7a-4bcd-4969-a43f-12a59f8b176f
-
 	column student_key
 		dataType: int64
 		isHidden

@@ -9,7 +9,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["ServidorSQL", "BaseDatos", "comun DIM_ESTUDIANTE", "comun DIM_CURSO", "comun DIM_TIEMPO", "dm2 DIM_SITIO_VLE", "dm2 FACT_INTERACCION_VLE", "dm1 DIM_RESULTADO", "dm1 FACT_RESULTADO_ACADEMICO"]
+annotation PBI_QueryOrder = ["ServidorSQL", "BaseDatos", "comun DIM_ESTUDIANTE", "comun DIM_CURSO", "comun DIM_TIEMPO", "dm2 DIM_SITIO_VLE", "dm2 FACT_INTERACCION_VLE"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -18,8 +18,6 @@ ref table 'comun DIM_CURSO'
 ref table 'comun DIM_TIEMPO'
 ref table 'dm2 DIM_SITIO_VLE'
 ref table 'dm2 FACT_INTERACCION_VLE'
-ref table 'dm1 DIM_RESULTADO'
-ref table 'dm1 FACT_RESULTADO_ACADEMICO'
 
 ref cultureInfo es-PE
 

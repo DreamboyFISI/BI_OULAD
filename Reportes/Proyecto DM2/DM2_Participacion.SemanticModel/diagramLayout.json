@@ -10,7 +10,7 @@
       "nodes": [
         {
           "location": {
-            "x": 626.55028450298414,
+            "x": 626.5502845029841,
             "y": -50
           },
           "nodeIndex": "comun DIM_CURSO",
@@ -23,8 +23,8 @@
         },
         {
           "location": {
-            "x": 518.23191870272649,
-            "y": 510.32198251847183
+            "x": 518.2319187027265,
+            "y": 510.3219825184718
           },
           "nodeIndex": "comun DIM_ESTUDIANTE",
           "nodeLineageTag": "51c1ea57-09ba-49bc-8422-a8373fba6871",
@@ -49,32 +49,6 @@
         },
         {
           "location": {
-            "x": 339.27299004243838,
-            "y": 59.49396649583116
-          },
-          "nodeIndex": "dm1 DIM_RESULTADO",
-          "nodeLineageTag": "14c4be27-e740-481d-98ec-acee673bbfcd",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 50,
-            "y": 353.12589163049051
-          },
-          "nodeIndex": "dm1 FACT_RESULTADO_ACADEMICO",
-          "nodeLineageTag": "ca42d600-add2-4798-a33c-2f8e0176d32c",
-          "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
             "x": 1098.0196931408748,
             "y": -44.490661680658945
           },
@@ -88,8 +62,8 @@
         },
         {
           "location": {
-            "x": 808.15112089549689,
-            "y": 302.56042150643589
+            "x": 808.1511208954969,
+            "y": 302.5604215064359
           },
           "nodeIndex": "dm2 FACT_INTERACCION_VLE",
           "nodeLineageTag": "e361a422-d745-4e28-b5d5-1375021bd0c7",

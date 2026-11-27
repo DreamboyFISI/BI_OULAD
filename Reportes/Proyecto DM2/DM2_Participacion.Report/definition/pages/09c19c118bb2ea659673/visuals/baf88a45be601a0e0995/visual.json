@@ -42,7 +42,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Perfil del estudiante y resultado'"
+                  "Value": "'Perfil del estudiante'"
                 }
               }
             },
@@ -94,7 +94,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'DataMart 2 — cómo varía la participación según el perfil y el resultado final'"
+                  "Value": "'DataMart 2 — cómo varía la participación según el perfil del estudiante'"
                 }
               }
             },
