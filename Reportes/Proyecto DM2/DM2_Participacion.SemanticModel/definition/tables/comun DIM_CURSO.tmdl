@@ -1,0 +1,93 @@
+table 'comun DIM_CURSO'
+	lineageTag: 7b960562-12ef-49f3-9074-c82cf9988be8
+
+	column curso_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 00915ae0-c3ee-4b51-b60f-fafa0f9541d5
+		summarizeBy: none
+		sourceColumn: curso_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column code_module
+		dataType: string
+		lineageTag: f8567cf9-398d-4d43-b066-608d218842d4
+		summarizeBy: none
+		sourceColumn: code_module
+
+		annotation SummarizationSetBy = Automatic
+
+	column code_presentation
+		dataType: string
+		lineageTag: df476658-d417-4f05-903e-d1880b17071f
+		summarizeBy: none
+		sourceColumn: code_presentation
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio
+		dataType: int64
+		formatString: 0
+		lineageTag: 827d9616-9617-4330-9ffd-7e4524bc37cb
+		summarizeBy: none
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column convocatoria
+		dataType: string
+		lineageTag: 2fe8bcf8-c57b-40e3-ae2a-1904a14bf722
+		summarizeBy: none
+		sourceColumn: convocatoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column duracion_dias
+		dataType: int64
+		formatString: 0
+		lineageTag: 310a7037-5825-4a06-8900-b5fa2fcd4339
+		summarizeBy: none
+		sourceColumn: duracion_dias
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_curso
+		dataType: string
+		lineageTag: e76cd435-8473-429d-9446-39cdf4c657cb
+		summarizeBy: none
+		sourceColumn: nombre_curso
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Jerarquía Curso'
+		lineageTag: ab9ab8ff-6113-4911-bcaf-49c728167946
+
+		level anio
+			lineageTag: f4541cfd-30e3-43ad-adff-ee89bd9158f5
+			column: anio
+
+		level convocatoria
+			lineageTag: 0d27ef02-3f3d-4fcf-bb9d-dc58f5177770
+			column: convocatoria
+
+		level code_module
+			lineageTag: 7eeaf8ee-bdea-4160-959c-74fa6939e958
+			column: code_module
+
+		level code_presentation
+			lineageTag: 357fddc3-ede4-4e26-8ace-cc7645c2805e
+			column: code_presentation
+
+	partition 'comun DIM_CURSO' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database(ServidorSQL, BaseDatos),
+				  Datos = Origen{[Schema = "comun", Item = "DIM_CURSO"]}[Data]
+				in
+				  Datos
+
+	annotation PBI_ResultType = Table
+

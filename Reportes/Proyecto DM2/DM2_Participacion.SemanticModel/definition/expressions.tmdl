@@ -1,0 +1,10 @@
+expression ServidorSQL = "sqlserver-jcbi.database.windows.net" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 1563d3df-6225-462d-b22a-e1311536bb53
+
+	annotation PBI_ResultType = Text
+
+expression BaseDatos = "DM1_RendimientoAcad" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: fb1f6021-0541-484a-9095-7d7811b690d3
+
+	annotation PBI_ResultType = Text
+

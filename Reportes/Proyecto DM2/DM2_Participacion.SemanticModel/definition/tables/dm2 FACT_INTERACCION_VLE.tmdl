@@ -1,0 +1,132 @@
+table 'dm2 FACT_INTERACCION_VLE'
+	lineageTag: e361a422-d745-4e28-b5d5-1375021bd0c7
+
+	measure 'Clics Totales' = SUM('dm2 FACT_INTERACCION_VLE'[sum_click])
+		formatString: #,0
+		lineageTag: 9c1d5134-082a-48f3-b4b1-201b14308958
+
+	measure Eventos = SUM('dm2 FACT_INTERACCION_VLE'[num_eventos])
+		formatString: #,0
+		lineageTag: f976117e-79d3-4593-8694-0004bf22e882
+
+	measure 'Clics por Evento' = DIVIDE([Clics Totales], [Eventos])
+		formatString: 0.00
+		lineageTag: e953be79-8efb-4814-8421-e2338068fbcb
+
+	measure 'Estudiantes Activos' = CALCULATE(DISTINCTCOUNT('comun DIM_ESTUDIANTE'[id_student]), 'dm2 FACT_INTERACCION_VLE')
+		formatString: #,0
+		lineageTag: 499492b2-34ef-4e07-8d76-10d61791c881
+
+	measure 'Matrículas Activas' = COUNTROWS(SUMMARIZE('dm2 FACT_INTERACCION_VLE', 'dm2 FACT_INTERACCION_VLE'[student_key], 'dm2 FACT_INTERACCION_VLE'[curso_key]))
+		formatString: #,0
+		lineageTag: 7f1772e8-0aea-4c81-a8a7-7ae9a695101d
+
+	measure 'Clics por Estudiante' = DIVIDE([Clics Totales], [Estudiantes Activos])
+		formatString: #,0.0
+		lineageTag: 6569bb4d-5c80-435e-a429-8cc950b72142
+
+	measure 'Clics por Matrícula' = DIVIDE([Clics Totales], [Matrículas Activas])
+		formatString: #,0.0
+		lineageTag: ea1f8b0c-2c9d-441c-b1f9-2630dd9da8be
+
+	measure 'Sitios Visitados' = DISTINCTCOUNT('dm2 FACT_INTERACCION_VLE'[sitio_key])
+		formatString: #,0
+		lineageTag: deb17436-6eca-49e7-8249-2f09171669d3
+
+	measure 'Días Activos Promedio' = DIVIDE(COUNTROWS(SUMMARIZE('dm2 FACT_INTERACCION_VLE', 'dm2 FACT_INTERACCION_VLE'[student_key], 'dm2 FACT_INTERACCION_VLE'[curso_key], 'dm2 FACT_INTERACCION_VLE'[tiempo_key])), [Matrículas Activas])
+		formatString: 0.0
+		lineageTag: 26497d11-b4b2-49d1-aa84-8c88782f8af3
+
+	measure 'Clics Pre-curso' = CALCULATE([Clics Totales], 'comun DIM_TIEMPO'[dia_offset] < 0)
+		formatString: #,0
+		lineageTag: 9c916135-eb8c-4109-a177-6a2cade24740
+
+	measure '% Pre-curso' = DIVIDE([Clics Pre-curso], [Clics Totales])
+		formatString: 0.00%
+		lineageTag: 7bdd3fd1-33fe-45fa-89a4-85f87fa8c784
+
+	measure '% del Total de Clics' = DIVIDE([Clics Totales], CALCULATE([Clics Totales], ALLSELECTED('dm2 DIM_SITIO_VLE')))
+		formatString: 0.00%
+		lineageTag: 64f14b1e-894f-4546-af4f-7784127b193b
+
+	measure 'Matrículas (DM1)' = COUNTROWS('dm1 FACT_RESULTADO_ACADEMICO')
+		formatString: #,0
+		lineageTag: 8b80a009-d880-49c7-9047-1a8b7b94f5d5
+
+	measure 'Clics de Matrículas (DM1)' = CALCULATE([Clics Totales], TREATAS(SUMMARIZE('dm1 FACT_RESULTADO_ACADEMICO', 'dm1 FACT_RESULTADO_ACADEMICO'[student_key], 'dm1 FACT_RESULTADO_ACADEMICO'[curso_key]), 'dm2 FACT_INTERACCION_VLE'[student_key], 'dm2 FACT_INTERACCION_VLE'[curso_key]))
+		formatString: #,0
+		lineageTag: f48af2ec-dad8-43d6-be9e-f6dd5b8cd97c
+
+	measure 'Clics Promedio por Matrícula' = DIVIDE([Clics de Matrículas (DM1)], [Matrículas (DM1)])
+		formatString: #,0.0
+		lineageTag: ab7ddf7a-4bcd-4969-a43f-12a59f8b176f
+
+	column student_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d643b76d-d103-4c24-ba86-6a14c5409ccd
+		summarizeBy: none
+		sourceColumn: student_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column curso_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e4e21c37-9036-4ee4-94db-b95252bb49a6
+		summarizeBy: none
+		sourceColumn: curso_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column tiempo_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 307fcc5c-96d8-4796-80be-67c60d205fc6
+		summarizeBy: none
+		sourceColumn: tiempo_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column sitio_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 5b3aa065-bdb8-44cc-b4ab-8c6fb054510d
+		summarizeBy: none
+		sourceColumn: sitio_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column sum_click
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d65bd22-113b-4625-a549-139db0685e70
+		summarizeBy: sum
+		sourceColumn: sum_click
+
+		annotation SummarizationSetBy = Automatic
+
+	column num_eventos
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f24dfea-ab99-493d-87af-314bdbc6f682
+		summarizeBy: sum
+		sourceColumn: num_eventos
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dm2 FACT_INTERACCION_VLE' = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database(ServidorSQL, BaseDatos),
+				  Datos = Origen{[Schema = "dm2", Item = "FACT_INTERACCION_VLE"]}[Data]
+				in
+				  Datos
+
+	annotation PBI_ResultType = Table
+

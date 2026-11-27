@@ -1,0 +1,113 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 626.55028450298414,
+            "y": -50
+          },
+          "nodeIndex": "comun DIM_CURSO",
+          "nodeLineageTag": "7b960562-12ef-49f3-9074-c82cf9988be8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 518.23191870272649,
+            "y": 510.32198251847183
+          },
+          "nodeIndex": "comun DIM_ESTUDIANTE",
+          "nodeLineageTag": "51c1ea57-09ba-49bc-8422-a8373fba6871",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1156.9695665460938,
+            "y": 312.57445059425766
+          },
+          "nodeIndex": "comun DIM_TIEMPO",
+          "nodeLineageTag": "5e8904c7-704a-4544-acd6-37469a024dbc",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 339.27299004243838,
+            "y": 59.49396649583116
+          },
+          "nodeIndex": "dm1 DIM_RESULTADO",
+          "nodeLineageTag": "14c4be27-e740-481d-98ec-acee673bbfcd",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 353.12589163049051
+          },
+          "nodeIndex": "dm1 FACT_RESULTADO_ACADEMICO",
+          "nodeLineageTag": "ca42d600-add2-4798-a33c-2f8e0176d32c",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1098.0196931408748,
+            "y": -44.490661680658945
+          },
+          "nodeIndex": "dm2 DIM_SITIO_VLE",
+          "nodeLineageTag": "c16fe205-b62a-4ad3-807d-151646bb5ca4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 808.15112089549689,
+            "y": 302.56042150643589
+          },
+          "nodeIndex": "dm2 FACT_INTERACCION_VLE",
+          "nodeLineageTag": "e361a422-d745-4e28-b5d5-1375021bd0c7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "DM2_Participacion"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2f03b19e-28dc-4ef1-90ec-553b8c6f903e"
+  }
+}
