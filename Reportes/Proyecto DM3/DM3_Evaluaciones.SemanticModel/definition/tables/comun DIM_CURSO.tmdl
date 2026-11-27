@@ -61,6 +61,21 @@ table 'comun DIM_CURSO'
 
 		annotation SummarizationSetBy = Automatic
 
+	hierarchy 'Jerarquía Curso'
+		lineageTag: e406448a-66f4-4ea0-9fee-43a4c196c109
+
+		level Año
+			lineageTag: 04882b91-a024-419d-b780-cd5b52171ff0
+			column: anio
+
+		level Convocatoria
+			lineageTag: 5ce8e78c-4654-45bb-933a-9c646224d988
+			column: convocatoria
+
+		level Curso
+			lineageTag: 212dc531-ee41-4dee-a652-23edabeaa24b
+			column: nombre_curso
+
 	partition 'comun DIM_CURSO' = m
 		mode: import
 		source =

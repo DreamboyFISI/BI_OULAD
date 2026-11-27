@@ -3,106 +3,155 @@ table 'dm3 FACT_ENTREGA_EVALUACION'
 
 	measure Entregas = COUNTROWS('dm3 FACT_ENTREGA_EVALUACION')
 		formatString: #,0
+		displayFolder: 1. Volumen
 		lineageTag: 344b2548-9347-42b1-af04-64416356367f
 
 	measure 'Entregas Puntuales' = CALCULATE([Entregas], 'dm3 DIM_ESTADO_ENTREGA'[es_puntual] IN {"Si","Sí","1"})
-		formatString: 0
+		formatString: #,0
+		displayFolder: 2. Puntualidad
 		lineageTag: b19e6273-7563-46d4-8861-467f55f61cb2
 
 	measure 'Entregas Tardías' =
 			
 			CALCULATE([Entregas], 'dm3 DIM_ESTADO_ENTREGA'[es_tarde] IN {"Si","Sí","1"})
-		formatString: 0
+		formatString: #,0
+		displayFolder: 2. Puntualidad
 		lineageTag: c4268027-51de-4225-958a-62ed56c4266b
 
 	measure 'No Entregadas' =
 			
 			CALCULATE([Entregas], 'dm3 DIM_ESTADO_ENTREGA'[es_no_entregado] IN {"Si","Sí","1"})
-		formatString: 0
+		formatString: #,0
+		displayFolder: 2. Puntualidad
 		lineageTag: eba91763-f700-4fd2-99af-22dacddef6f3
 
 	measure '% Puntualidad' =
 			
 			DIVIDE([Entregas Puntuales], [Entregas con Fecha])
 		formatString: 0.00%
+		displayFolder: 2. Puntualidad
 		lineageTag: 415fb173-da11-4863-8656-28e96a0296f4
 
 	measure '% Tardías' =
 			
 			DIVIDE([Entregas Tardías], [Entregas con Fecha])
 		formatString: 0.00%
+		displayFolder: 2. Puntualidad
 		lineageTag: 11898b6f-baf4-4d7b-954f-a51247a5882b
 
 	measure '% No Entrega' =
 			
 			DIVIDE([No Entregadas], [Entregas Esperadas])
 		formatString: 0.00%
+		displayFolder: 2. Puntualidad
 		lineageTag: f2c407da-3c5b-4868-a396-9873ec5f100a
 
 	measure 'Entregas Calificadas' =
 			
 			CALCULATE([Entregas], 'dm3 DIM_RESULTADO_EVALUACION'[es_calificado] IN {"Si","Sí","1"})
-		formatString: 0
+		formatString: #,0
+		displayFolder: 4. Calificaciones
 		lineageTag: b26bf32a-f539-4602-bd6c-735c70fc5b20
 
 	measure 'Entregas Aprobadas' =
 			
 			CALCULATE([Entregas], 'dm3 DIM_RESULTADO_EVALUACION'[es_aprobado] IN {"Si","Sí","1"})
-		formatString: 0
+		formatString: #,0
+		displayFolder: 4. Calificaciones
 		lineageTag: a5128778-f8cb-4ea7-bf43-e45048dbf188
 
 	measure 'Tasa de Aprobación' =
 			
 			DIVIDE([Entregas Aprobadas], [Entregas Calificadas])
 		formatString: 0.00%
+		displayFolder: 4. Calificaciones
 		lineageTag: 5a28286b-a3e9-45d8-932a-969e4145975e
 
 	measure 'Nota Promedio' =
 			
 			AVERAGE('dm3 FACT_ENTREGA_EVALUACION'[score])
 		formatString: 0.00
+		displayFolder: 4. Calificaciones
 		lineageTag: fe1b3a53-5b69-4be7-a3c5-adf50b9841f3
 
 	measure 'Días de Retraso Promedio' =
 			
 			AVERAGE('dm3 FACT_ENTREGA_EVALUACION'[days_late])
 		formatString: 0.0
+		displayFolder: 3. Retrasos
 		lineageTag: 954de2b5-ba7c-4d09-8744-6a36e993af63
 
 	measure 'Entregas con Fecha' =
 			
 			CALCULATE([Entregas], 'dm3 DIM_ESTADO_ENTREGA'[es_puntual] = "Si")
 			    + CALCULATE([Entregas], 'dm3 DIM_ESTADO_ENTREGA'[es_tarde] = "Si")
-		formatString: 0
+		formatString: #,0
+		displayFolder: 1. Volumen
 		lineageTag: 75bfb0f7-e78b-4bf6-b299-e10eaf927de3
 
 	measure 'Entregas Esperadas' =
 			
 			CALCULATE([Entregas], 'dm3 DIM_ESTADO_ENTREGA'[es_banked] = "No")
-		formatString: 0
+		formatString: #,0
+		displayFolder: 1. Volumen
 		lineageTag: bea6eb05-4683-44c5-9b15-2db67d2ae6a9
 
 	measure '% del Total' =
 			
 			DIVIDE([Entregas], CALCULATE([Entregas], ALL('dm3 DIM_ESTADO_ENTREGA')))
 		formatString: 0.0%
+		displayFolder: 1. Volumen
 		lineageTag: a371e0d1-f31c-464d-99a1-6225c2bdeb3c
 
 	measure 'Retraso Promedio Tardías' = CALCULATE(AVERAGE('dm3 FACT_ENTREGA_EVALUACION'[days_late]), 'dm3 DIM_ESTADO_ENTREGA'[es_tarde] = "Si")
 		formatString: 0.0
+		displayFolder: 3. Retrasos
 		lineageTag: 3bb427c1-a1da-459d-aad1-245c92010b38
 
 	measure Estudiantes = DISTINCTCOUNT('comun DIM_ESTUDIANTE'[id_student])
 		formatString: #,0
+		displayFolder: 1. Volumen
 		lineageTag: 7a9d9691-46fc-4893-973c-43fad1272a25
 
 	measure 'Entregas con Fecha (semana)' = CALCULATE([Entregas con Fecha], 'comun DIM_TIEMPO'[es_desconocido] <> "Si")
 		formatString: #,0
+		displayFolder: 5. Tendencia semanal
 		lineageTag: 885d6f33-e40c-4fc4-a158-fb57a6e04b64
 
 	measure '% Puntualidad (semana)' = CALCULATE([% Puntualidad], 'comun DIM_TIEMPO'[es_desconocido] <> "Si")
 		formatString: 0.0%
+		displayFolder: 5. Tendencia semanal
 		lineageTag: faaedb9e-2fbf-4968-8701-1b4ee8a8fc75
+
+	measure 'Entregas Convalidadas' = CALCULATE([Entregas], 'dm3 DIM_ESTADO_ENTREGA'[es_banked] IN {"Si","Sí","1"})
+		formatString: #,0
+		displayFolder: 1. Volumen
+		lineageTag: 98b9ddc3-b3c6-4db5-a297-3418e99e2e8e
+
+	measure 'Entregas Desaprobadas' = CALCULATE([Entregas], 'dm3 DIM_RESULTADO_EVALUACION'[es_desaprobado] IN {"Si","Sí","1"})
+		formatString: #,0
+		displayFolder: 4. Calificaciones
+		lineageTag: 2b59bc91-c8a3-4257-88e8-525bd19cc4ee
+
+	measure Evaluaciones = DISTINCTCOUNT('dm3 DIM_EVALUACION'[id_assessment])
+		formatString: #,0
+		displayFolder: 1. Volumen
+		lineageTag: 15ae0ecb-bc46-4925-9525-b00e560aa58f
+
+	measure Cursos = DISTINCTCOUNT('dm3 FACT_ENTREGA_EVALUACION'[curso_key])
+		formatString: #,0
+		displayFolder: 1. Volumen
+		lineageTag: b0055bcc-9970-49e4-8a7c-6e5b745dbf4e
+
+	measure 'Entregas por Estudiante' = DIVIDE([Entregas], [Estudiantes])
+		formatString: 0.0
+		displayFolder: 1. Volumen
+		lineageTag: e3f9c75a-728a-4f2c-90a5-34d360fe26ee
+
+	measure 'Nota Ponderada Promedio' = AVERAGE('dm3 FACT_ENTREGA_EVALUACION'[score_ponderado])
+		formatString: 0.00
+		displayFolder: 4. Calificaciones
+		lineageTag: 501f1b0a-346e-47cf-a2ee-06537c9d70ff
 
 	column student_key
 		dataType: int64
