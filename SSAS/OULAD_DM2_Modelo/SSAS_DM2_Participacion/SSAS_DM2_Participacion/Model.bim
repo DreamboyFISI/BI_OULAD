@@ -25,7 +25,7 @@
     ],
     "tables": [
       {
-        "name": "dm2 FACT_INTERACCION_VLE",
+        "name": "FACT_INTERACCION_VLE",
         "columns": [
           {
             "name": "student_key",
@@ -73,10 +73,66 @@
               ]
             }
           }
+        ],
+        "measures": [
+          {
+            "name": "% del Total de Clics",
+            "expression": "DIVIDE([Clics Totales], CALCULATE([Clics Totales], ALLSELECTED(DIM_SITIO_VLE)))",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "% Pre-curso",
+            "expression": "DIVIDE([Clics Pre-curso], [Clics Totales])",
+            "formatString": "0.00 %;-0.00 %;0.00 %"
+          },
+          {
+            "name": "Clics por Estudiante",
+            "expression": "DIVIDE([Clics Totales], [Estudiantes Activos])",
+            "formatString": "0"
+          },
+          {
+            "name": "Clics por Evento",
+            "expression": "DIVIDE([Clics Totales], [Eventos])",
+            "formatString": "0.00"
+          },
+          {
+            "name": "Clics por Matrícula",
+            "expression": "DIVIDE([Clics Totales], [Matrículas Activas])",
+            "formatString": "0.00"
+          },
+          {
+            "name": "Clics Pre-curso",
+            "expression": "CALCULATE([Clics Totales], DIM_TIEMPO[dia_offset] < 0)"
+          },
+          {
+            "name": "Clics Totales",
+            "expression": "SUM(FACT_INTERACCION_VLE[sum_click])"
+          },
+          {
+            "name": "Días Activos Promedio",
+            "expression": "DIVIDE(COUNTROWS(SUMMARIZE(FACT_INTERACCION_VLE, FACT_INTERACCION_VLE[student_key], FACT_INTERACCION_VLE[curso_key], FACT_INTERACCION_VLE[tiempo_key])), [Matrículas Activas])",
+            "formatString": "0.00"
+          },
+          {
+            "name": "Estudiantes Activos",
+            "expression": "CALCULATE(DISTINCTCOUNT(DIM_ESTUDIANTE[id_student]), FACT_INTERACCION_VLE)"
+          },
+          {
+            "name": "Eventos",
+            "expression": "SUM(FACT_INTERACCION_VLE[num_eventos])"
+          },
+          {
+            "name": "Matrículas Activas",
+            "expression": "COUNTROWS(SUMMARIZE(FACT_INTERACCION_VLE, FACT_INTERACCION_VLE[student_key], FACT_INTERACCION_VLE[curso_key]))"
+          },
+          {
+            "name": "Sitios Visitados",
+            "expression": "DISTINCTCOUNT(FACT_INTERACCION_VLE[sitio_key])"
+          }
         ]
       },
       {
-        "name": "comun DIM_CURSO",
+        "name": "DIM_CURSO",
         "columns": [
           {
             "name": "curso_key",
@@ -132,7 +188,7 @@
         ]
       },
       {
-        "name": "comun DIM_ESTUDIANTE",
+        "name": "DIM_ESTUDIANTE",
         "columns": [
           {
             "name": "student_key",
@@ -208,7 +264,7 @@
         ]
       },
       {
-        "name": "comun DIM_TIEMPO",
+        "name": "DIM_TIEMPO",
         "columns": [
           {
             "name": "tiempo_key",
@@ -254,7 +310,7 @@
         ]
       },
       {
-        "name": "dm2 DIM_SITIO_VLE",
+        "name": "DIM_SITIO_VLE",
         "columns": [
           {
             "name": "sitio_key",
@@ -302,36 +358,58 @@
               ]
             }
           }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquia Actividad",
+            "levels": [
+              {
+                "name": "grupo_actividad",
+                "ordinal": 0,
+                "column": "grupo_actividad"
+              },
+              {
+                "name": "activity_type",
+                "ordinal": 1,
+                "column": "activity_type"
+              },
+              {
+                "name": "id_site",
+                "ordinal": 2,
+                "column": "id_site"
+              }
+            ]
+          }
         ]
       }
     ],
     "relationships": [
       {
         "name": "901ad9fb-2c4a-4225-962d-8b697f7cf73a",
-        "fromTable": "dm2 FACT_INTERACCION_VLE",
+        "fromTable": "FACT_INTERACCION_VLE",
         "fromColumn": "curso_key",
-        "toTable": "comun DIM_CURSO",
+        "toTable": "DIM_CURSO",
         "toColumn": "curso_key"
       },
       {
         "name": "f1d79fd8-86d0-4e55-b816-55fad60d6442",
-        "fromTable": "dm2 FACT_INTERACCION_VLE",
+        "fromTable": "FACT_INTERACCION_VLE",
         "fromColumn": "student_key",
-        "toTable": "comun DIM_ESTUDIANTE",
+        "toTable": "DIM_ESTUDIANTE",
         "toColumn": "student_key"
       },
       {
         "name": "32f801e5-bd01-47ce-87e9-d37159851646",
-        "fromTable": "dm2 FACT_INTERACCION_VLE",
+        "fromTable": "FACT_INTERACCION_VLE",
         "fromColumn": "tiempo_key",
-        "toTable": "comun DIM_TIEMPO",
+        "toTable": "DIM_TIEMPO",
         "toColumn": "tiempo_key"
       },
       {
         "name": "69b89b8c-fc88-4a00-b851-dc1a50c35949",
-        "fromTable": "dm2 FACT_INTERACCION_VLE",
+        "fromTable": "FACT_INTERACCION_VLE",
         "fromColumn": "sitio_key",
-        "toTable": "dm2 DIM_SITIO_VLE",
+        "toTable": "DIM_SITIO_VLE",
         "toColumn": "sitio_key"
       }
     ],
