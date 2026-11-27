@@ -1,0 +1,265 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "1677d988d7c654313a3b",
+  "position": {
+    "x": 252,
+    "y": 454,
+    "z": 5001,
+    "height": 250,
+    "width": 500,
+    "tabOrder": 5001
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "comun DIM_CURSO"
+                        }
+                      },
+                      "Hierarchy": "Jerarquía Curso"
+                    }
+                  },
+                  "Level": "Año"
+                }
+              },
+              "queryRef": "comun DIM_CURSO.Jerarquía Curso.Año",
+              "nativeQueryRef": "Año",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "comun DIM_CURSO"
+                        }
+                      },
+                      "Hierarchy": "Jerarquía Curso"
+                    }
+                  },
+                  "Level": "Convocatoria"
+                }
+              },
+              "queryRef": "comun DIM_CURSO.Jerarquía Curso.Convocatoria",
+              "nativeQueryRef": "Convocatoria",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "comun DIM_CURSO"
+                        }
+                      },
+                      "Hierarchy": "Jerarquía Curso"
+                    }
+                  },
+                  "Level": "Curso"
+                }
+              },
+              "queryRef": "comun DIM_CURSO.Jerarquía Curso.Curso",
+              "nativeQueryRef": "Curso",
+              "active": false
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm3 FACT_ENTREGA_EVALUACION"
+                    }
+                  },
+                  "Property": "% Puntualidad"
+                }
+              },
+              "queryRef": "dm3 FACT_ENTREGA_EVALUACION.% Puntualidad",
+              "nativeQueryRef": "% Puntualidad"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dm3 FACT_ENTREGA_EVALUACION"
+                    }
+                  },
+                  "Property": "% Tardías"
+                }
+              },
+              "queryRef": "dm3 FACT_ENTREGA_EVALUACION.% Tardías",
+              "nativeQueryRef": "% Tardías"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#14B8A6'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dm3 FACT_ENTREGA_EVALUACION.% Puntualidad"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F59E0B'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dm3 FACT_ENTREGA_EVALUACION.% Tardías"
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridlineShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Puntualidad y tardanza por curso'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Año › Convocatoria › Curso'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

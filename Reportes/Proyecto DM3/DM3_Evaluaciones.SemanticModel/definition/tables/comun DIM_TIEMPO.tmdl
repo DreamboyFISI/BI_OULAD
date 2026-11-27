@@ -45,6 +45,17 @@ table 'comun DIM_TIEMPO'
 
 		annotation SummarizationSetBy = Automatic
 
+	hierarchy 'Jerarquía Tiempo'
+		lineageTag: 15c7e272-4d6c-4f7b-9056-700619fb011e
+
+		level Semana
+			lineageTag: d0fef671-21d5-4f89-9514-6fe59db5861e
+			column: semana
+
+		level Día
+			lineageTag: 86dd09ce-8223-4c46-892c-ff70ede50d98
+			column: dia_offset
+
 	partition 'comun DIM_TIEMPO' = m
 		mode: import
 		source =

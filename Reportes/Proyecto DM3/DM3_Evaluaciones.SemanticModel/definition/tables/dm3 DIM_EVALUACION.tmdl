@@ -88,6 +88,17 @@ table 'dm3 DIM_EVALUACION'
 
 		annotation SummarizationSetBy = Automatic
 
+	hierarchy 'Jerarquía Evaluación'
+		lineageTag: 6b79c006-40fb-4291-8c25-828ebe1d24ad
+
+		level 'Tipo de evaluación'
+			lineageTag: a288d98d-4456-4ac0-86f4-436b07185909
+			column: tipo_evaluacion
+
+		level Evaluación
+			lineageTag: eed267ca-90e1-4291-b647-3108777ea0a8
+			column: id_assessment
+
 	partition 'dm3 DIM_EVALUACION' = m
 		mode: import
 		source =

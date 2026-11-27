@@ -93,6 +93,21 @@ table 'comun DIM_ESTUDIANTE'
 
 		annotation SummarizationSetBy = Automatic
 
+	hierarchy 'Jerarquía Perfil'
+		lineageTag: ca004b6a-c900-4003-a345-d249478d3f0c
+
+		level Región
+			lineageTag: 14cc588f-f72e-4f2e-b5d7-11aeed4956e3
+			column: region
+
+		level 'Rango de edad'
+			lineageTag: 9ee03fba-e0c2-4e4b-8b30-d0491b876c4a
+			column: age_band
+
+		level Género
+			lineageTag: 8f0a0668-5663-49e8-b34b-88dfb45bb5f8
+			column: gender
+
 	partition 'comun DIM_ESTUDIANTE' = m
 		mode: import
 		source =
