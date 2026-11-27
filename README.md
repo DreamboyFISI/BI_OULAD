@@ -254,11 +254,11 @@ El proyecto utiliza el conjunto de datos **Open University Learning Analytics Da
 - [x] Desarrollo del proceso ETL.
 - [x] Creación de los tres DataMarts.
 - [x] Modelo SSAS del DataMart 1.
-- [ ] Modelo SSAS del DataMart 2.
-- [ ] Modelo SSAS del DataMart 3.
-- [ ] Reporte Power BI del DataMart 1.
-- [ ] Reporte Power BI del DataMart 2.
-- [ ] Reporte Power BI del DataMart 3.
+- [x] Modelo SSAS del DataMart 2.
+- [x] Modelo SSAS del DataMart 3.
+- [x] Reporte Power BI del DataMart 1.
+- [x] Reporte Power BI del DataMart 2.
+- [x] Reporte Power BI del DataMart 3.
 - [ ] Documentación final.
 
 ## Equipo
