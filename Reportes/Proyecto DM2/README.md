@@ -63,4 +63,12 @@ Para trabajar con una copia local, use **Transformar datos → Editar parámetro
 
 ## Uso
 
-Abra `DM2_Participacion.pbip` (o `Reportes/DM2_Participacion.pbix`), ingrese las credenciales de Azure SQL y pulse **Actualizar**.
+Abra `DM2_Participacion.pbip`, ingrese las credenciales de Azure SQL y pulse **Actualizar**.
+
+### Generar el PBIX
+
+El PBIP es la versión fuente del reporte. Para generar `Reportes/DM2_Participacion.pbix`:
+
+1. Abrir `DM2_Participacion.pbip` en Power BI Desktop.
+2. Ingresar las credenciales de Azure SQL y pulsar **Actualizar** para cargar los datos.
+3. **Archivo → Guardar como** → `Reportes/DM2_Participacion.pbix`.
