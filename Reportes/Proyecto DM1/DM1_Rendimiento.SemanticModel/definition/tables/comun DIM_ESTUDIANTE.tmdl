@@ -2,6 +2,7 @@ table 'comun DIM_ESTUDIANTE'
 	lineageTag: e011d6d8-971f-406e-a97f-230bf373ff66
 
 	column student_key
+		isHidden
 		dataType: int64
 		formatString: 0
 		lineageTag: ed333b62-09db-4774-9c5e-f82146200ddb

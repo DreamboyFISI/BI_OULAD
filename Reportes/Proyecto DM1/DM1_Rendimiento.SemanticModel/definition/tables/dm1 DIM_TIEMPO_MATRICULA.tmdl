@@ -2,31 +2,32 @@ table 'dm1 DIM_TIEMPO_MATRICULA'
 	lineageTag: ce5038df-5f54-4be0-8b37-204d1962e92e
 
 	column tiempo_key
+		isHidden
 		dataType: int64
 		formatString: 0
 		lineageTag: 260d71c7-1b02-4e71-8347-691d9120c907
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: tiempo_key
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column dia_offset
 		dataType: int64
 		formatString: 0
 		lineageTag: dd1fc52a-bc8c-41db-b90a-d8ff221fe412
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: dia_offset
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column semana
 		dataType: int64
 		formatString: 0
 		lineageTag: e3bc35c0-a8a1-453e-9bdd-f5a12da8b82e
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: semana
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column es_desconocido
 		dataType: string

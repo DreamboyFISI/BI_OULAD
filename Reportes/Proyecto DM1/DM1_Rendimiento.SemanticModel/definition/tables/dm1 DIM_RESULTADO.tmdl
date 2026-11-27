@@ -2,6 +2,7 @@ table 'dm1 DIM_RESULTADO'
 	lineageTag: 6de63f9e-70cb-4f1a-b91c-e9557a91b623
 
 	column resultado_key
+		isHidden
 		dataType: int64
 		formatString: 0
 		lineageTag: 4d2eeeda-2076-49d6-90ce-4180db2dc3f7

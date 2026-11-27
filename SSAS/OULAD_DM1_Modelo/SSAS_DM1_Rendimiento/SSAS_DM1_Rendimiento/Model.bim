@@ -30,17 +30,21 @@
           {
             "name": "tiempo_key",
             "dataType": "int64",
-            "sourceColumn": "tiempo_key"
+            "sourceColumn": "tiempo_key",
+            "isHidden": true,
+            "summarizeBy": "none"
           },
           {
             "name": "dia_offset",
             "dataType": "int64",
-            "sourceColumn": "dia_offset"
+            "sourceColumn": "dia_offset",
+            "summarizeBy": "none"
           },
           {
             "name": "semana",
             "dataType": "int64",
-            "sourceColumn": "semana"
+            "sourceColumn": "semana",
+            "summarizeBy": "none"
           },
           {
             "name": "es_desconocido",
@@ -68,6 +72,23 @@
               ]
             }
           }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquía Matrícula",
+            "levels": [
+              {
+                "name": "Semana",
+                "ordinal": 0,
+                "column": "semana"
+              },
+              {
+                "name": "Día",
+                "ordinal": 1,
+                "column": "dia_offset"
+              }
+            ]
+          }
         ]
       },
       {
@@ -76,17 +97,21 @@
           {
             "name": "tiempo_key",
             "dataType": "int64",
-            "sourceColumn": "tiempo_key"
+            "sourceColumn": "tiempo_key",
+            "isHidden": true,
+            "summarizeBy": "none"
           },
           {
             "name": "dia_offset",
             "dataType": "int64",
-            "sourceColumn": "dia_offset"
+            "sourceColumn": "dia_offset",
+            "summarizeBy": "none"
           },
           {
             "name": "semana",
             "dataType": "int64",
-            "sourceColumn": "semana"
+            "sourceColumn": "semana",
+            "summarizeBy": "none"
           },
           {
             "name": "es_desconocido",
@@ -114,6 +139,23 @@
               ]
             }
           }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquía Baja",
+            "levels": [
+              {
+                "name": "Semana",
+                "ordinal": 0,
+                "column": "semana"
+              },
+              {
+                "name": "Día",
+                "ordinal": 1,
+                "column": "dia_offset"
+              }
+            ]
+          }
         ]
       },
       {
@@ -122,7 +164,9 @@
           {
             "name": "curso_key",
             "dataType": "int64",
-            "sourceColumn": "curso_key"
+            "sourceColumn": "curso_key",
+            "isHidden": true,
+            "summarizeBy": "none"
           },
           {
             "name": "code_module",
@@ -137,7 +181,8 @@
           {
             "name": "anio",
             "dataType": "int64",
-            "sourceColumn": "anio"
+            "sourceColumn": "anio",
+            "summarizeBy": "none"
           },
           {
             "name": "convocatoria",
@@ -147,7 +192,8 @@
           {
             "name": "duracion_dias",
             "dataType": "int64",
-            "sourceColumn": "duracion_dias"
+            "sourceColumn": "duracion_dias",
+            "summarizeBy": "none"
           },
           {
             "name": "nombre_curso",
@@ -173,20 +219,20 @@
         ],
         "hierarchies": [
           {
-            "name": "Jerarquia curso",
+            "name": "Jerarquía Curso",
             "levels": [
               {
-                "name": "anio",
+                "name": "Año",
                 "ordinal": 0,
                 "column": "anio"
               },
               {
-                "name": "convocatoria",
+                "name": "Convocatoria",
                 "ordinal": 1,
                 "column": "convocatoria"
               },
               {
-                "name": "code_module",
+                "name": "Módulo",
                 "ordinal": 2,
                 "column": "code_module"
               }
@@ -200,12 +246,15 @@
           {
             "name": "student_key",
             "dataType": "int64",
-            "sourceColumn": "student_key"
+            "sourceColumn": "student_key",
+            "isHidden": true,
+            "summarizeBy": "none"
           },
           {
             "name": "id_student",
             "dataType": "int64",
-            "sourceColumn": "id_student"
+            "sourceColumn": "id_student",
+            "summarizeBy": "none"
           },
           {
             "name": "version",
@@ -268,6 +317,28 @@
               ]
             }
           }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquía Perfil",
+            "levels": [
+              {
+                "name": "Región",
+                "ordinal": 0,
+                "column": "region"
+              },
+              {
+                "name": "Nivel educativo",
+                "ordinal": 1,
+                "column": "highest_education"
+              },
+              {
+                "name": "Banda IMD",
+                "ordinal": 2,
+                "column": "imd_band"
+              }
+            ]
+          }
         ]
       },
       {
@@ -276,7 +347,9 @@
           {
             "name": "resultado_key",
             "dataType": "int64",
-            "sourceColumn": "resultado_key"
+            "sourceColumn": "resultado_key",
+            "isHidden": true,
+            "summarizeBy": "none"
           },
           {
             "name": "final_result",
@@ -311,7 +384,8 @@
           {
             "name": "orden",
             "dataType": "int64",
-            "sourceColumn": "orden"
+            "sourceColumn": "orden",
+            "summarizeBy": "none"
           }
         ],
         "partitions": [
@@ -329,6 +403,23 @@
               ]
             }
           }
+        ],
+        "hierarchies": [
+          {
+            "name": "Jerarquía de resultado",
+            "levels": [
+              {
+                "name": "Grupo",
+                "ordinal": 0,
+                "column": "grupo_resultado"
+              },
+              {
+                "name": "Resultado final",
+                "ordinal": 1,
+                "column": "final_result"
+              }
+            ]
+          }
         ]
       },
       {
@@ -337,27 +428,37 @@
           {
             "name": "student_key",
             "dataType": "int64",
-            "sourceColumn": "student_key"
+            "sourceColumn": "student_key",
+            "isHidden": true,
+            "summarizeBy": "none"
           },
           {
             "name": "curso_key",
             "dataType": "int64",
-            "sourceColumn": "curso_key"
+            "sourceColumn": "curso_key",
+            "isHidden": true,
+            "summarizeBy": "none"
           },
           {
             "name": "tiempo_alta_key",
             "dataType": "int64",
-            "sourceColumn": "tiempo_alta_key"
+            "sourceColumn": "tiempo_alta_key",
+            "isHidden": true,
+            "summarizeBy": "none"
           },
           {
             "name": "tiempo_baja_key",
             "dataType": "int64",
-            "sourceColumn": "tiempo_baja_key"
+            "sourceColumn": "tiempo_baja_key",
+            "isHidden": true,
+            "summarizeBy": "none"
           },
           {
             "name": "resultado_key",
             "dataType": "int64",
-            "sourceColumn": "resultado_key"
+            "sourceColumn": "resultado_key",
+            "isHidden": true,
+            "summarizeBy": "none"
           },
           {
             "name": "creditos_matriculados",
@@ -437,7 +538,9 @@
             "expression": [
               "",
               "COUNTROWS(FACT_RESULTADO_ACADEMICO)"
-            ]
+            ],
+            "displayFolder": "1. Volumen",
+            "formatString": "#,0"
           },
           {
             "name": "Matrículas Aprobadas",
@@ -447,7 +550,9 @@
               "    [Matrículas],",
               "    DIM_RESULTADO[es_aprobado] = \"Si\"",
               ")"
-            ]
+            ],
+            "displayFolder": "1. Volumen",
+            "formatString": "#,0"
           },
           {
             "name": "Tasa de Aprobación",
@@ -458,7 +563,9 @@
               "    [Matrículas]",
               ")"
             ],
-            "formatString": "0.00 %;-0.00 %;0.00 %"
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "2. Resultados",
+            "description": "Pass + Distinction sobre el total de matrículas. Aprobación + Reprobación + Deserción = 100%."
           },
           {
             "name": "Matrículas Retiradas",
@@ -468,7 +575,9 @@
               "    [Matrículas],",
               "    DIM_RESULTADO[es_retirado] = \"Si\"",
               ")"
-            ]
+            ],
+            "displayFolder": "1. Volumen",
+            "formatString": "#,0"
           },
           {
             "name": "Tasa de Deserción",
@@ -479,7 +588,8 @@
               "    [Matrículas]",
               ")"
             ],
-            "formatString": "0.00 %;-0.00 %;0.00 %"
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "2. Resultados"
           },
           {
             "name": "Matrículas Reprobadas",
@@ -489,7 +599,9 @@
               "    [Matrículas],",
               "    DIM_RESULTADO[es_reprobado] = \"Si\"",
               ")"
-            ]
+            ],
+            "displayFolder": "1. Volumen",
+            "formatString": "#,0"
           },
           {
             "name": "Tasa de Reprobación",
@@ -500,7 +612,8 @@
               "    [Matrículas]",
               ")"
             ],
-            "formatString": "0.00 %;-0.00 %;0.00 %"
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "2. Resultados"
           },
           {
             "name": "Matrículas con Distinción",
@@ -510,7 +623,9 @@
               "    [Matrículas],",
               "    DIM_RESULTADO[es_distincion] = \"Si\"",
               ")"
-            ]
+            ],
+            "displayFolder": "1. Volumen",
+            "formatString": "#,0"
           },
           {
             "name": "Tasa de Distinción",
@@ -521,7 +636,9 @@
               "    [Matrículas]",
               ")"
             ],
-            "formatString": "0.00 %;-0.00 %;0.00 %"
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "2. Resultados",
+            "description": "Subconjunto de la Tasa de Aprobación (solo Distinction); no se suma a las otras tasas."
           },
           {
             "name": "Nota Media Ponderada",
@@ -531,7 +648,9 @@
               "    SUM(FACT_RESULTADO_ACADEMICO[suma_notas_ponderadas]),",
               "    SUM(FACT_RESULTADO_ACADEMICO[suma_pesos])",
               ")"
-            ]
+            ],
+            "displayFolder": "2. Resultados",
+            "formatString": "0.0"
           },
           {
             "name": "Tasa de Entrega",
@@ -542,7 +661,8 @@
               "    SUM(FACT_RESULTADO_ACADEMICO[evaluaciones_esperadas])",
               ")"
             ],
-            "formatString": "0.00 %;-0.00 %;0.00 %"
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "3. Evaluaciones"
           },
           {
             "name": "Tasa de Calificación",
@@ -553,14 +673,17 @@
               "    SUM(FACT_RESULTADO_ACADEMICO[evaluaciones_entregadas])",
               ")"
             ],
-            "formatString": "0.00 %;-0.00 %;0.00 %"
+            "formatString": "0.00 %;-0.00 %;0.00 %",
+            "displayFolder": "3. Evaluaciones"
           },
           {
             "name": "Clics Totales",
             "expression": [
               "",
               "SUM(FACT_RESULTADO_ACADEMICO[clics_totales])"
-            ]
+            ],
+            "displayFolder": "4. Participación",
+            "formatString": "#,0"
           },
           {
             "name": "Clics por Matrícula",
@@ -570,7 +693,39 @@
               "    [Clics Totales],",
               "    [Matrículas]",
               ")"
-            ]
+            ],
+            "displayFolder": "4. Participación",
+            "formatString": "#,0.0"
+          },
+          {
+            "name": "Estudiantes",
+            "expression": "CALCULATE(DISTINCTCOUNT(DIM_ESTUDIANTE[id_student]), FACT_RESULTADO_ACADEMICO)",
+            "formatString": "#,0",
+            "displayFolder": "1. Volumen"
+          },
+          {
+            "name": "Días Activos Promedio",
+            "expression": "AVERAGE(FACT_RESULTADO_ACADEMICO[dias_activos])",
+            "formatString": "0.0",
+            "displayFolder": "4. Participación"
+          },
+          {
+            "name": "Créditos Promedio",
+            "expression": "AVERAGE(FACT_RESULTADO_ACADEMICO[creditos_matriculados])",
+            "formatString": "0.0",
+            "displayFolder": "5. Perfil académico"
+          },
+          {
+            "name": "Intentos Previos Promedio",
+            "expression": "AVERAGE(FACT_RESULTADO_ACADEMICO[intentos_previos])",
+            "formatString": "0.00",
+            "displayFolder": "5. Perfil académico"
+          },
+          {
+            "name": "Días hasta la Baja Promedio",
+            "expression": "CALCULATE(AVERAGE(FACT_RESULTADO_ACADEMICO[dias_desde_alta_hasta_baja]), DIM_RESULTADO[es_retirado] = \"Si\")",
+            "formatString": "0.0",
+            "displayFolder": "4. Participación"
           }
         ]
       }

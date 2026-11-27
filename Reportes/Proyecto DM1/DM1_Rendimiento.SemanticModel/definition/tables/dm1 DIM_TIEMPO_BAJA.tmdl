@@ -2,31 +2,32 @@ table 'dm1 DIM_TIEMPO_BAJA'
 	lineageTag: d8bc1f36-be82-4376-bbb3-a6cff7f346bb
 
 	column tiempo_key
+		isHidden
 		dataType: int64
 		formatString: 0
 		lineageTag: 407d61f5-1947-4ee7-ac08-ef263b98f67d
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: tiempo_key
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column dia_offset
 		dataType: int64
 		formatString: 0
 		lineageTag: b36a043d-c2e6-4bbe-ba9f-ed565344823a
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: dia_offset
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column semana
 		dataType: int64
 		formatString: 0
 		lineageTag: c1cd90db-d7f8-44b4-8427-8118dbc377a8
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: semana
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column es_desconocido
 		dataType: string
