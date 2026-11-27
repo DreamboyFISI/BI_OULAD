@@ -2,6 +2,7 @@ table 'comun DIM_CURSO'
 	lineageTag: 1496aa91-1cd4-48f2-aecd-e4889ad9aac4
 
 	column curso_key
+		isHidden
 		dataType: int64
 		formatString: 0
 		lineageTag: 477e13e2-54d5-48c8-abe3-8d8fccc5b361
@@ -60,24 +61,20 @@ table 'comun DIM_CURSO'
 
 		annotation SummarizationSetBy = Automatic
 
-	hierarchy 'Jerarquía de presentación'
+	hierarchy 'Jerarquía Curso'
 		lineageTag: 0bacf0ae-2801-4e0a-9426-c7b12e632f79
 
-		level code_module
-			lineageTag: a583af75-5420-4c7b-9a4b-1a1fb5ea44b2
-			column: code_module
-
-		level anio
+		level Año
 			lineageTag: a1078243-7bd2-4458-8b54-f4741a62f572
 			column: anio
 
-		level convocatoria
+		level Convocatoria
 			lineageTag: a03468f1-8585-4b61-aea1-9d035a8ebfc8
 			column: convocatoria
 
-		level code_presentation
-			lineageTag: fa1c0831-c96d-4644-a2e3-9498a308e12c
-			column: code_presentation
+		level Módulo
+			lineageTag: a583af75-5420-4c7b-9a4b-1a1fb5ea44b2
+			column: code_module
 
 	partition 'comun DIM_CURSO' = m
 		mode: import

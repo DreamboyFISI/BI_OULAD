@@ -3,81 +3,103 @@ table 'dm1 FACT_RESULTADO_ACADEMICO'
 
 	measure Matrículas = COUNTROWS('dm1 FACT_RESULTADO_ACADEMICO')
 		formatString: #,0
+		displayFolder: 1. Volumen
 		lineageTag: c711bdac-479d-4fdf-8ac1-77e3376bcdc0
 
+	/// Pass + Distinction sobre el total de matrículas. Aprobación + Reprobación + Deserción = 100%.
 	measure 'Tasa de Aprobación' = DIVIDE([Matrículas Aprobadas], [Matrículas])
 		formatString: 0.0%
+		displayFolder: 2. Resultados
 		lineageTag: bf1817f6-52a2-452a-97db-d8457422cca3
 
 	measure 'Tasa de Reprobación' = DIVIDE([Matrículas Reprobadas], [Matrículas])
 		formatString: 0.0%
+		displayFolder: 2. Resultados
 		lineageTag: d597bbf4-00af-4e6c-8fed-149d7ab032e1
 
+	/// Subconjunto de la Tasa de Aprobación (solo Distinction); no se suma a las otras tasas.
 	measure 'Tasa de Distinción' = DIVIDE([Matrículas con Distinción], [Matrículas])
 		formatString: 0.0%
+		displayFolder: 2. Resultados
 		lineageTag: 29e19d98-ac07-4344-a8f2-df690256ae96
 
 	measure 'Tasa de Entrega' = DIVIDE(SUM('dm1 FACT_RESULTADO_ACADEMICO'[evaluaciones_entregadas]), SUM('dm1 FACT_RESULTADO_ACADEMICO'[evaluaciones_esperadas]))
 		formatString: 0.0%
+		displayFolder: 3. Evaluaciones
 		lineageTag: bf790c93-9845-4162-9614-c976833ba18e
 
-	measure Estudiantes = DISTINCTCOUNT('comun DIM_ESTUDIANTE'[id_student])
+	measure Estudiantes = CALCULATE(DISTINCTCOUNT('comun DIM_ESTUDIANTE'[id_student]), 'dm1 FACT_RESULTADO_ACADEMICO')
 		formatString: #,0
+		displayFolder: 1. Volumen
 		lineageTag: 6d5c9b52-b434-4b11-b48f-844dd63e9a5e
 
 	measure 'Días Activos Promedio' = AVERAGE('dm1 FACT_RESULTADO_ACADEMICO'[dias_activos])
 		formatString: 0.0
+		displayFolder: 4. Participación
 		lineageTag: 8e8e6b63-7e16-4485-9482-08fb43cf66be
 
 	measure 'Matrículas Aprobadas' = CALCULATE([Matrículas], 'dm1 DIM_RESULTADO'[es_aprobado] IN {"Si","Sí","1"})
 		formatString: #,0
+		displayFolder: 1. Volumen
 		lineageTag: ef6d9287-16d3-4856-9f67-b4a533c600ae
 
 	measure 'Matrículas Reprobadas' = CALCULATE([Matrículas], 'dm1 DIM_RESULTADO'[es_reprobado] IN {"Si","Sí","1"})
 		formatString: #,0
+		displayFolder: 1. Volumen
 		lineageTag: c1143095-cbcf-422c-b0ab-064e33ba608e
 
 	measure 'Matrículas Retiradas' = CALCULATE([Matrículas], 'dm1 DIM_RESULTADO'[es_retirado] IN {"Si","Sí","1"})
 		formatString: #,0
+		displayFolder: 1. Volumen
 		lineageTag: 2c0d3807-85f2-4563-bfad-5deae199f30b
 
 	measure 'Matrículas con Distinción' = CALCULATE([Matrículas], 'dm1 DIM_RESULTADO'[es_distincion] IN {"Si","Sí","1"})
 		formatString: #,0
+		displayFolder: 1. Volumen
 		lineageTag: ddc6ec13-4e4d-4927-8dbe-f8f22ff7dfd8
 
 	measure 'Tasa de Deserción' = DIVIDE([Matrículas Retiradas], [Matrículas])
 		formatString: 0.0%
+		displayFolder: 2. Resultados
 		lineageTag: 3bee8c3b-b72b-4049-a502-5b71512ac3b0
 
 	measure 'Nota Media Ponderada' = DIVIDE(SUM('dm1 FACT_RESULTADO_ACADEMICO'[suma_notas_ponderadas]), SUM('dm1 FACT_RESULTADO_ACADEMICO'[suma_pesos]))
 		formatString: 0.0
+		displayFolder: 2. Resultados
 		lineageTag: d5a5171e-10b8-4378-a62d-90c2777d03ed
 
 	measure 'Tasa de Calificación' = DIVIDE(SUM('dm1 FACT_RESULTADO_ACADEMICO'[evaluaciones_calificadas]), SUM('dm1 FACT_RESULTADO_ACADEMICO'[evaluaciones_entregadas]))
 		formatString: 0.0%
+		displayFolder: 3. Evaluaciones
 		lineageTag: 7ce946dd-5bb7-42db-a7a5-f4c0e2954148
 
 	measure 'Clics Totales' = SUM('dm1 FACT_RESULTADO_ACADEMICO'[clics_totales])
 		formatString: #,0
+		displayFolder: 4. Participación
 		lineageTag: 39cd184f-2e22-4158-b6d2-4023eaf0d91a
 
 	measure 'Clics por Matrícula' = DIVIDE([Clics Totales], [Matrículas])
 		formatString: #,0.0
+		displayFolder: 4. Participación
 		lineageTag: e70e0b1d-cf78-4419-9ed5-7daa333ca80f
 
 	measure 'Créditos Promedio' = AVERAGE('dm1 FACT_RESULTADO_ACADEMICO'[creditos_matriculados])
 		formatString: 0.0
+		displayFolder: 5. Perfil académico
 		lineageTag: 9fbf80d7-9551-4cac-a6db-b2158dac61fb
 
 	measure 'Intentos Previos Promedio' = AVERAGE('dm1 FACT_RESULTADO_ACADEMICO'[intentos_previos])
 		formatString: 0.00
+		displayFolder: 5. Perfil académico
 		lineageTag: c3a43bd4-177d-4d8d-9832-40b2532a96bd
 
 	measure 'Días hasta la Baja Promedio' = CALCULATE(AVERAGE('dm1 FACT_RESULTADO_ACADEMICO'[dias_desde_alta_hasta_baja]), 'dm1 DIM_RESULTADO'[es_retirado] IN {"Si","Sí","1"})
 		formatString: 0.0
+		displayFolder: 4. Participación
 		lineageTag: 44d7cc19-d4f6-477d-98ae-2dc704bd8a11
 
 	column student_key
+		isHidden
 		dataType: int64
 		formatString: 0
 		lineageTag: 6acf31d1-d503-4785-ab65-f821c162692b
@@ -87,6 +109,7 @@ table 'dm1 FACT_RESULTADO_ACADEMICO'
 		annotation SummarizationSetBy = Automatic
 
 	column curso_key
+		isHidden
 		dataType: int64
 		formatString: 0
 		lineageTag: fd3d39a9-5303-4f01-a4e0-3436a3efa21d
@@ -96,6 +119,7 @@ table 'dm1 FACT_RESULTADO_ACADEMICO'
 		annotation SummarizationSetBy = Automatic
 
 	column tiempo_alta_key
+		isHidden
 		dataType: int64
 		formatString: 0
 		lineageTag: bd7235ad-b5cd-4684-8ffd-55d7060f03f1
@@ -105,15 +129,17 @@ table 'dm1 FACT_RESULTADO_ACADEMICO'
 		annotation SummarizationSetBy = Automatic
 
 	column tiempo_baja_key
+		isHidden
 		dataType: int64
 		formatString: 0
 		lineageTag: 3057240d-ee97-4397-b74f-c76c34ba5bb4
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: tiempo_baja_key
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column resultado_key
+		isHidden
 		dataType: int64
 		formatString: 0
 		lineageTag: bbac123f-f6d5-43fb-b28c-726e032832e1
